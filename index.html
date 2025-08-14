@@ -1,120 +1,125 @@
 <!DOCTYPE HTML>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Matthias Raphael Stock</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- CSS Hauptlayout -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Academicons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
-  <style>
-    /* Eingekreiste Social Icons */
-    .social-icons {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .social-icons li {
-      display: inline-block;
-    }
-    .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 2px solid #333;
-      border-radius: 50%;
-      color: #333;
-      font-size: 18px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .social-icons a:hover {
-      background-color: #333;
-      color: #fff;
-    }
-    /* Kartencontainer */
-    #map {
-      height: 400px;
-      margin-top: 1em;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <title>Matthias Raphael Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <!-- Font Awesome + Academicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-vvWgJg6u1Jg9Gga9eP2oF0..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1em;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            color: inherit;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background-color: #ccc;
+            color: #000;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 1em;
+        }
+    </style>
 </head>
-<body>
+<body class="is-preload">
 
-  <!-- Header -->
-  <header>
-    <h1>Matthias Raphael Stock</h1>
-    <p>Physiker – TUM Physik-Department, Garching</p>
-  </header>
+<!-- Wrapper -->
+<div id="wrapper">
 
-  <!-- About -->
-  <section id="about">
-    <h2>Über mich</h2>
-    <p>Kurze Vorstellungstext...</p>
-  </section>
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html" class="logo">Matthias Raphael Stock</a>
+        <nav>
+            <ul>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Dokumente -->
-  <section id="documents">
-    <h2>Dokumente</h2>
-    <ul>
-      <li><a href="assets/docs/CV_Matthias_Stock.pdf" target="_blank">Curriculum Vitae (PDF)</a></li>
-      <li><a href="assets/docs/PhD_Thesis_Matthias_Stock.pdf" target="_blank">PhD Thesis (PDF)</a></li>
-    </ul>
-  </section>
+    <!-- Main -->
+    <div id="main">
+        <section class="post">
+            <header class="major">
+                <h1>Willkommen</h1>
+            </header>
+            <p>Hier kommt Ihr Vorstellungstext.</p>
+        </section>
 
-  <!-- Social Icons -->
-  <section id="social">
-    <h2>Profile & Kontakt</h2>
-    <ul class="social-icons">
-      <li><a href="https://www.researchgate.net/profile/IhrName" target="_blank" title="ResearchGate" class="ai ai-researchgate"></a></li>
-      <li><a href="https://www.linkedin.com/in/IhrProfil" target="_blank" title="LinkedIn" class="fab fa-linkedin-in"></a></li>
-      <li><a href="https://scholar.google.com/citations?user=IhreID" target="_blank" title="Google Scholar" class="ai ai-google-scholar"></a></li>
-      <li><a href="https://orcid.org/IhreOrcidID" target="_blank" title="ORCID" class="ai ai-orcid"></a></li>
-      <li><a href="https://www.flickr.com/photos/IhrName" target="_blank" title="Flickr" class="fab fa-flickr"></a></li>
-      <li><a href="https://x.com/IhrBenutzername" target="_blank" title="X (Twitter)" class="fab fa-x-twitter"></a></li>
-      <li><a href="https://github.com/IhrBenutzername" target="_blank" title="GitHub" class="fab fa-github"></a></li>
-      <li><a href="https://inspirehep.net/authors/IhreID" target="_blank" title="Inspire HEP" class="ai ai-inspire"></a></li>
-      <li><a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22IhrName%22" target="_blank" title="ADS Harvard" class="ai ai-ads"></a></li>
-      <li><a href="mailto:ihr.name@tum.de" title="E-Mail schreiben" class="fas fa-envelope"></a></li>
-    </ul>
-  </section>
+        <!-- Contact Section -->
+        <section id="contact" class="post">
+            <header class="major">
+                <h2>Contact</h2>
+            </header>
 
-  <!-- Karte -->
-  <section id="map-section">
-    <h2>Arbeitsort</h2>
-    <div id="map"></div>
-  </section>
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="#"><i class="ai ai-researchgate"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="ai ai-google-scholar"></i></a>
+                <a href="#"><i class="ai ai-orcid"></i></a>
+                <a href="#"><i class="fab fa-flickr"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="ai ai-inspire"></i></a>
+                <a href="#"><i class="ai ai-ads"></i></a>
+                <a href="mailto:"><i class="fas fa-envelope"></i></a>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Matthias Raphael Stock | <a href="impressum.html">Impressum & Datenschutz</a></p>
-  </footer>
+            <!-- Map -->
+            <div id="map"></div>
+        </section>
+    </div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    const lat = 48.267296;
-    const lon = 11.675539;
-    const zoomLevel = 15;
-    const map = L.map('map').setView([lat, lon], zoomLevel);
+    <!-- Footer -->
+    <footer id="footer">
+        <p>&copy; 2025 Matthias Raphael Stock | <a href="impressum.html">Impressum & Datenschutz</a></p>
+    </footer>
+</div>
 
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([48.262, 11.668], 17); // TUM Physik Department
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
-
-    L.marker([lat, lon]).addTo(map)
-      .bindPopup('TUM Physik-Department, Garching')
-      .openPopup();
-  </script>
-
+    L.marker([48.262, 11.668]).addTo(map)
+        .bindPopup('TUM Physik-Department')
+        .openPopup();
+</script>
 </body>
 </html>
