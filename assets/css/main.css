@@ -1685,14 +1685,14 @@ button {
 </style>
 
 /* Contact Icon Layout */
-#contact ul.icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5em; /* Abstand horizontal UND vertikal */
+#contact .icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1.5em !important; /* Abstand horizontal UND vertikal */
 }
 
-#contact ul.icons li {
-  margin: 0; /* überschreibt evtl. globalen Wert */
+#contact .icons li {
+  margin: 0 !important; /* überschreibt evtl. globalen Wert */
 }
 
