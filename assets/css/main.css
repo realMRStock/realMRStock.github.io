@@ -1683,3 +1683,16 @@ button {
     border-color: #fff;
   }
 </style>
+
+/* Contact Icon Layout */
+#contact ul.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em; /* Abstand horizontal UND vertikal */
+}
+
+#contact ul.icons li {
+  margin: 0; /* überschreibt evtl. globalen Wert */
+}
+
