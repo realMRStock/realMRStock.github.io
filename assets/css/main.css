@@ -1648,12 +1648,38 @@ button {
 		opacity: 0;
 	}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
-.icons li {
-  margin: 0.5em;
-}
-
-.icons .icon {
-  font-size: 1.5em;
-}
-
+<!-- Contact-Icon-Overrides -->
+<style>
+  /* nur im Contact-Abschnitt überschreiben: höhere Spezifität als Template */
+  #contact ul.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  #contact ul.icons li a {
+    /* größerer runder Button */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;           /* ↑ Button-Durchmesser */
+    height: 64px;
+    border-radius: 50%;
+    border-width: 2px;     /* etwas kräftigerer Rand */
+    font-size: 28px;       /* ↑ Größe FA/AI-Glyphen */
+    line-height: 64px;     /* falls :before genutzt wird */
+  }
+  /* Falls du SVG/IMG verwendest: Größe im runden Button */
+  #contact ul.icons li a img,
+  #contact ul.icons li a svg {
+    width: 28px;
+    height: 28px;
+  }
+  /* Optional: leichte Hover-Verbesserung, passend zum Template */
+  #contact ul.icons li a:hover {
+    border-color: #fff;
+  }
+</style>
