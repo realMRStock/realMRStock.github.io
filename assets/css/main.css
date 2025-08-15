@@ -1647,3 +1647,12 @@ button {
 	body.is-preload #footer {
 		opacity: 0;
 	}
+
+.icons li {
+  margin: 0.5em;
+}
+
+.icons .icon {
+  font-size: 1.5em;
+}
+
