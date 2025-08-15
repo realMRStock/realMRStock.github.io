@@ -1697,3 +1697,17 @@ button {
   justify-content: center;
   margin: 0.75em; /* Abstand horizontal + vertikal */
 }
+
+ul.icons li {
+  margin: 0.8em; /* etwas mehr Platz als vorher */
+}
+
+ul.icons .icon {
+  font-size: 2em; /* Einheitliche Größe */
+  line-height: 1.4; /* verhindert Überlappen vertikal */
+}
+
+ul.icons .ai {
+  font-size: 1em; /* korrigiert relative Größe der Academicons-Icons */
+}
+
