@@ -1648,11 +1648,41 @@ button {
 		opacity: 0;
 	}
 
-.icons li {
-  margin: 0.5em;
+.icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.icons .icon {
-  font-size: 1.5em;
+.icons li {
+  list-style: none;
 }
+
+.icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  background-color: transparent;
+  color: #333;
+  text-decoration: none;
+  font-size: 24px; /* größere Icons */
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.icons a:hover {
+  background-color: #bbb;
+  color: #000;
+  border-color: #000;
+}
+
+.icons img {
+  max-width: 60%;
+  max-height: 60%;
+}
+
 
