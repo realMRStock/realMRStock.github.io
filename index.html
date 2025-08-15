@@ -26,6 +26,13 @@
 			available. 
 		-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<!-- Font Awesome (Markenicons, allgemeine Symbole) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Academicons (wissenschaftliche Symbole) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+
 	</head>
 	<!-- The body is the location where your site's content will go -->
 	<body class="is-preload">
@@ -201,34 +208,49 @@
 								
 							</p>
 
-<div id="map" style="width: 100%; height: 400px;"></div>
+			<div id="map" style="width: 100%; height: 400px;"></div>
+			
+			<!-- Leaflet CSS -->
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+			
+			<!-- Leaflet JS -->
+			<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+			
+			<script>
+			  // Ziel: Forschungszentrum zeigen, Marker oben rechts
+			  // Kartenzentrum ca. südwestlich vom Marker setzen
+			  var map = L.map('map').setView([48.2605, 11.6650], 15);
+			
+			  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			    maxZoom: 19,
+			    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			  }).addTo(map);
+			
+			  L.marker([48.267542, 11.675976]).addTo(map)
+			    .bindPopup('TUM Physik-Department')
+			    .openPopup();
+			</script>
+			
+			<small>
+			  <a href="https://www.openstreetmap.org/?mlat=48.267542&mlon=11.675976&zoom=16" target="_blank">
+			    Größere Karte anzeigen
+			  </a>
+			</small>
 
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+							
+			<ul class="social-icons">
+			  <li><a href="https://www.researchgate.net/profile/IhrName" target="_blank" title="ResearchGate" class="ai ai-researchgate"></a></li>
+			  <li><a href="https://www.linkedin.com/in/IhrProfil" target="_blank" title="LinkedIn" class="fab fa-linkedin-in"></a></li>
+			  <li><a href="https://scholar.google.com/citations?user=IhreID" target="_blank" title="Google Scholar" class="ai ai-google-scholar"></a></li>
+			  <li><a href="https://orcid.org/IhreOrcidID" target="_blank" title="ORCID" class="ai ai-orcid"></a></li>
+			  <li><a href="https://www.flickr.com/photos/IhrName" target="_blank" title="Flickr" class="fab fa-flickr"></a></li>
+			  <li><a href="https://x.com/IhrBenutzername" target="_blank" title="X (Twitter)" class="fab fa-x-twitter"></a></li>
+			  <li><a href="https://github.com/IhrBenutzername" target="_blank" title="GitHub" class="fab fa-github"></a></li>
+			  <li><a href="https://inspirehep.net/authors/IhreID" target="_blank" title="Inspire HEP" class="ai ai-inspire"></a></li>
+			  <li><a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22IhrName%22" target="_blank" title="ADS Harvard" class="ai ai-ads"></a></li>
+			  <li><a href="mailto:ihr.name@tum.de" title="E-Mail schreiben" class="fas fa-envelope"></a></li>
+			</ul>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
-  // Ziel: Forschungszentrum zeigen, Marker oben rechts
-  // Kartenzentrum ca. südwestlich vom Marker setzen
-  var map = L.map('map').setView([48.2605, 11.6650], 15);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-
-  L.marker([48.267542, 11.675976]).addTo(map)
-    .bindPopup('TUM Physik-Department')
-    .openPopup();
-</script>
-
-<small>
-  <a href="https://www.openstreetmap.org/?mlat=48.267542&mlon=11.675976&zoom=16" target="_blank">
-    Größere Karte anzeigen
-  </a>
-</small>
 
 							
 							<ul class="icons">
