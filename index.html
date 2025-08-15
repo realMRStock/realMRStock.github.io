@@ -201,7 +201,7 @@
 								
 							</p>
 
-						<div id="map" style="width: 100%; height: 350px;"></div>
+<div id="map" style="width: 100%; height: 350px;"></div>
 
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -210,7 +210,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  var map = L.map('map').setView([48.267542, 11.675976], 19);
+  var map = L.map('map').setView([48.267542, 11.675976], 18);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -221,6 +221,12 @@
     .bindPopup('TUM Physik-Department')
     .openPopup();
 </script>
+
+<small>
+  <a href="https://www.openstreetmap.org/?mlat=48.267542&mlon=11.675976&zoom=17" target="_blank">
+    Größere Karte anzeigen
+  </a>
+</small>
 
 
 
