@@ -1685,13 +1685,13 @@ button {
 </style>
 
 /* Contact Icon Layout */
-#contact ul.icons {
+ul.icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-#contact ul.icons li {
+ul.icons li {
   display: inline-flex; /* statt inline-block, damit gap funktioniert */
   align-items: center;
   justify-content: center;
