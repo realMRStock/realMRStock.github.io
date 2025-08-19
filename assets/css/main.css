@@ -1659,12 +1659,12 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;           /* Button-Durchmesser */
-  height: 64px;
+  width: 80px;           /* größerer Button-Durchmesser */
+  height: 80px;
   border-radius: 50%;
   border-width: 2px;
-  font-size: 28px;       /* Icon-Größe */
-  line-height: 64px;
+  font-size: 36px;       /* größere Icon-Glyphen */
+  line-height: 80px;
   text-align: center;
 }
 
@@ -1676,7 +1676,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px; /* sauberer Abstand horizontal + vertikal */
+  gap: 20px; /* mehr Abstand für größere Kreise */
 }
 
 /* Feinanpassung für Academicons (ADS, Inspire etc.) */
@@ -1684,6 +1684,5 @@ button {
 #contact ul.icons .ai,
 #community ul.icons .ai,
 #research ul.icons .ai {
-  font-size: 24px; /* etwas kleiner, damit Symbol nicht den Rand berührt */
+  font-size: 30px; /* proportional angepasst */
 }
-
