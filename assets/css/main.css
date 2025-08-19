@@ -1684,30 +1684,30 @@ button {
   }
 </style>
 
-/* Contact Icon Layout */
+/* Contact & About Me: Icon Layout */
 ul.icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1.5em; /* sauberer Abstand horizontal UND vertikal */
 }
 
 ul.icons li {
-  display: inline-flex; /* statt inline-block, damit gap funktioniert */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0.75em; /* Abstand horizontal + vertikal */
 }
 
-ul.icons li {
-  margin: 0.8em; /* etwas mehr Platz als vorher */
-}
-
+/* Einheitliche Icon-Kreise */
 ul.icons .icon {
-  font-size: 2em; /* Einheitliche Größe */
-  line-height: 1.4; /* verhindert Überlappen vertikal */
+  font-size: 1.8em;      /* Kreisgröße */
+  width: 2.5em;          /* feste Breite/Höhe für den Kreis */
+  height: 2.5em;
+  line-height: 2.5em;    /* zentriert das Symbol im Kreis */
+  text-align: center;
 }
 
+/* Feinanpassung für Academicons (ADS, Inspire etc.) */
 ul.icons .ai {
-  font-size: 1em; /* korrigiert relative Größe der Academicons-Icons */
+  font-size: 0.85em;     /* etwas kleiner, damit Symbol nicht den Rand berührt */
 }
-
