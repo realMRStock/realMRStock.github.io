@@ -1651,9 +1651,11 @@ button {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
-/* Einheitliche Icon-Kreise für About und Contact */
+/* Einheitliche Icon-Kreise in allen Sektionen */
 #about ul.icons li a,
-#contact ul.icons li a {
+#contact ul.icons li a,
+#community ul.icons li a,
+#research ul.icons li a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1666,17 +1668,22 @@ button {
   text-align: center;
 }
 
-/* Layout */
+/* Layout für Icon-Listen */
 #about ul.icons,
-#contact ul.icons {
+#contact ul.icons,
+#community ul.icons,
+#research ul.icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px; /* sauberer Abstand */
+  gap: 16px; /* sauberer Abstand horizontal + vertikal */
 }
 
-/* Feinanpassung für ADS/Inspire (Academicons) */
+/* Feinanpassung für Academicons (ADS, Inspire etc.) */
 #about ul.icons .ai,
-#contact ul.icons .ai {
-  font-size: 24px; /* etwas kleiner, sonst Randkontakt */
+#contact ul.icons .ai,
+#community ul.icons .ai,
+#research ul.icons .ai {
+  font-size: 24px; /* etwas kleiner, damit Symbol nicht den Rand berührt */
 }
+
