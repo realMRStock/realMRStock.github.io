@@ -1664,7 +1664,7 @@ button {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
-  gap: 24px !important;          /* gleichmäßiger Abstand horizontal + vertikal */
+  gap: 16px !important;   /* gleichmäßiger Abstand horizontal + vertikal */
   padding: 0;
   margin: 0;
 }
@@ -1677,13 +1677,13 @@ button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 110px !important;       /* Durchmesser des Kreises */
-  height: 110px !important;
+  width: 48px !important;        /* Durchmesser des Kreises */
+  height: 48px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 56px !important;    /* Standardgröße für FontAwesome-Icons */
-  line-height: 110px !important; /* Icon zentrieren */
+  font-size: 22px !important;    /* Icon-Größe (FA/AI) */
+  line-height: 48px !important;  /* Icon zentrieren */
   text-align: center !important;
   transition: all 0.2s ease;
 }
@@ -1702,10 +1702,11 @@ button {
 #contact ul.icons li a.ai:before,
 #community ul.icons li a.ai:before,
 #research ul.icons li a.ai:before {
-  font-size: 48px !important;    /* etwas kleiner, wirkt harmonischer im Kreis */
-  line-height: 110px !important; /* vertikal mittig */
+  font-size: 20px !important;   /* etwas kleiner, wirkt harmonisch */
+  line-height: 48px !important; /* vertikal mittig */
 }
 
+/* Name normal (keine Großbuchstaben erzwungen) */
 header.major h2 {
-  text-transform: none; /* verhindert Großbuchstaben */
+  text-transform: none;
 }
