@@ -1652,61 +1652,39 @@ button {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
 /* =========================================
-   Einheitliche Social-Icons in allen Sektionen
-   (About, Contact, Community, Research)
+   Header-Icons (unter Name auf Startseite)
    ========================================= */
 
-/* Layout der Icon-Listen */
-#about ul.icons,
-#contact ul.icons,
-#community ul.icons,
-#research ul.icons {
+header ul.icons {
   display: flex !important;
-  flex-wrap: wrap !important;
   justify-content: center !important;
-  gap: 20px !important;   /* gleichmäßiger Abstand horizontal + vertikal */
+  gap: 20px !important;
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0 0; /* etwas Abstand unter dem Namen */
 }
 
-/* Grundform der Buttons (Kreis) */
-#about ul.icons li a,
-#contact ul.icons li a,
-#community ul.icons li a,
-#research ul.icons li a {
+header ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 64px !important;        /* Durchmesser des Kreises */
-  height: 64px !important;
+  width: 80px !important;       /* gleiche Größe wie in den Sektionen */
+  height: 80px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 28px !important;    /* Icon-Größe (FA/AI) */
-  line-height: 64px !important;  /* Icon zentrieren */
+  font-size: 36px !important;   /* gleiche Icon-Größe */
+  line-height: 80px !important;
   text-align: center !important;
   transition: all 0.2s ease;
 }
 
-/* Hover-Effekt */
-#about ul.icons li a:hover,
-#contact ul.icons li a:hover,
-#community ul.icons li a:hover,
-#research ul.icons li a:hover {
+header ul.icons li a:hover {
   transform: scale(1.08);
   border-color: #fff;
 }
 
-/* Feinanpassung für Academicons (ADS, Inspire, ORCID, Google Scholar etc.) */
-#about ul.icons li a.ai:before,
-#contact ul.icons li a.ai:before,
-#community ul.icons li a.ai:before,
-#research ul.icons li a.ai:before {
-  font-size: 26px !important;   /* leicht kleiner als FA, damit es harmonisch wirkt */
-  line-height: 64px !important;
-}
-
-/* Name normal (keine Großbuchstaben erzwungen) */
+/* Name im Header normal anzeigen, nicht nur Großbuchstaben */
+header.major h1,
 header.major h2 {
-  text-transform: none;
+  text-transform: none !important;
 }
