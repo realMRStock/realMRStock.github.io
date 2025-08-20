@@ -1662,13 +1662,13 @@ button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 90px !important;       /* großer Kreis */
-  height: 90px !important;
+  width: 70px !important;       /* großer Kreis */
+  height: 70px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 46px !important;    /* großes Symbol */
-  line-height: 90px !important;
+  font-size: 34px !important;    /* großes Symbol */
+  line-height: 70px !important;
   text-align: center !important;
   transition: all 0.2s ease;
 }
@@ -1700,13 +1700,13 @@ button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 90px !important;     /* kleinerer Kreis */
-  height: 90px !important;
+  width: 70px !important;     /* kleinerer Kreis */
+  height: 70px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 46px !important; /* Symbol etwas kleiner */
-  line-height: 90px !important;
+  font-size: 34px !important; /* Symbol etwas kleiner */
+  line-height: 70px !important;
   text-align: center !important;
   transition: all 0.2s ease;
 }
@@ -1724,7 +1724,7 @@ button {
 #contact ul.icons li a.ai:before,
 #community ul.icons li a.ai:before,
 #research ul.icons li a.ai:before {
-  font-size: 28px !important; /* proportional zu kleineren Kreisen */
+  font-size: 34px !important; /* proportional zu kleineren Kreisen */
   line-height: 70px !important;
 }
 
