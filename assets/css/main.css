@@ -1651,19 +1651,12 @@ button {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
-/* Einheitliche große Icon-Kreise in allen Sektionen */
-#about ul.icons li a.icon:before,
-#contact ul.icons li a.icon:before,
-#community ul.icons li a.icon:before,
-#research ul.icons li a.icon:before {
-  font-size: 48px !important;    /* Symbolgröße */
-  width: 100px !important;       /* Kreisbreite */
-  height: 100px !important;      /* Kreishöhe */
-  line-height: 100px !important; /* zentriert Symbol im Kreis */
-  border-radius: 50% !important;
-}
+/* =========================================
+   Einheitliche Social-Icons in allen Sektionen
+   (About, Contact, Community, Research)
+   ========================================= */
 
-/* Layout für Icon-Listen */
+/* Layout der Icon-Listen */
 #about ul.icons,
 #contact ul.icons,
 #community ul.icons,
@@ -1671,13 +1664,44 @@ button {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
-  gap: 24px !important; /* Abstand horizontal & vertikal */
+  gap: 24px !important;          /* gleichmäßiger Abstand horizontal + vertikal */
+  padding: 0;
+  margin: 0;
 }
 
-/* Feinanpassung für Academicons (ADS, Inspire etc.) */
-#about ul.icons li a.icon.ai:before,
-#contact ul.icons li a.icon.ai:before,
-#community ul.icons li a.icon.ai:before,
-#research ul.icons li a.icon.ai:before {
-  font-size: 40px !important;
+/* Grundform der Buttons (Kreis) */
+#about ul.icons li a,
+#contact ul.icons li a,
+#community ul.icons li a,
+#research ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 110px !important;       /* Durchmesser des Kreises */
+  height: 110px !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  font-size: 56px !important;    /* Standardgröße für FontAwesome-Icons */
+  line-height: 110px !important; /* Icon zentrieren */
+  text-align: center !important;
+  transition: all 0.2s ease;
+}
+
+/* Hover-Effekt (optional, modern) */
+#about ul.icons li a:hover,
+#contact ul.icons li a:hover,
+#community ul.icons li a:hover,
+#research ul.icons li a:hover {
+  transform: scale(1.08);
+  border-color: #fff;
+}
+
+/* Feinanpassung für Academicons (ADS, Inspire, ORCID, Google Scholar etc.) */
+#about ul.icons li a.ai:before,
+#contact ul.icons li a.ai:before,
+#community ul.icons li a.ai:before,
+#research ul.icons li a.ai:before {
+  font-size: 48px !important;    /* etwas kleiner, wirkt harmonischer im Kreis */
+  line-height: 110px !important; /* vertikal mittig */
 }
