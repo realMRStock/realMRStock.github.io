@@ -1705,3 +1705,7 @@ button {
   font-size: 48px !important;    /* etwas kleiner, wirkt harmonischer im Kreis */
   line-height: 110px !important; /* vertikal mittig */
 }
+
+header.major h2 {
+  text-transform: none; /* verhindert Großbuchstaben */
+}
