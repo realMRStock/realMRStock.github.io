@@ -1651,21 +1651,16 @@ button {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
-/* Einheitliche Icon-Kreise in allen Sektionen */
-#about ul.icons li a,
-#contact ul.icons li a,
-#community ul.icons li a,
-#research ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100px !important;          /* großer Button-Durchmesser */
-  height: 100px !important;
+/* Einheitliche große Icon-Kreise in allen Sektionen */
+#about ul.icons li a.icon:before,
+#contact ul.icons li a.icon:before,
+#community ul.icons li a.icon:before,
+#research ul.icons li a.icon:before {
+  font-size: 48px !important;    /* Symbolgröße */
+  width: 100px !important;       /* Kreisbreite */
+  height: 100px !important;      /* Kreishöhe */
+  line-height: 100px !important; /* zentriert Symbol im Kreis */
   border-radius: 50% !important;
-  border-width: 2px !important;
-  font-size: 48px !important;       /* größere Icons */
-  line-height: 100px !important;
-  text-align: center !important;
 }
 
 /* Layout für Icon-Listen */
@@ -1676,13 +1671,13 @@ button {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
-  gap: 24px !important;
+  gap: 24px !important; /* Abstand horizontal & vertikal */
 }
 
 /* Feinanpassung für Academicons (ADS, Inspire etc.) */
-#about ul.icons .ai,
-#contact ul.icons .ai,
-#community ul.icons .ai,
-#research ul.icons .ai {
+#about ul.icons li a.icon.ai:before,
+#contact ul.icons li a.icon.ai:before,
+#community ul.icons li a.icon.ai:before,
+#research ul.icons li a.icon.ai:before {
   font-size: 40px !important;
 }
