@@ -1656,16 +1656,16 @@ button {
 #contact ul.icons li a,
 #community ul.icons li a,
 #research ul.icons li a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;          /* sehr großer Button-Durchmesser */
-  height: 100px;
-  border-radius: 50%;
-  border-width: 2px;
-  font-size: 48px;       /* deutlich größere Icons */
-  line-height: 100px;
-  text-align: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100px !important;          /* großer Button-Durchmesser */
+  height: 100px !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  font-size: 48px !important;       /* größere Icons */
+  line-height: 100px !important;
+  text-align: center !important;
 }
 
 /* Layout für Icon-Listen */
@@ -1673,10 +1673,10 @@ button {
 #contact ul.icons,
 #community ul.icons,
 #research ul.icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px; /* etwas mehr Abstand, damit sie nicht zusammenkleben */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 24px !important;
 }
 
 /* Feinanpassung für Academicons (ADS, Inspire etc.) */
@@ -1684,5 +1684,5 @@ button {
 #contact ul.icons .ai,
 #community ul.icons .ai,
 #research ul.icons .ai {
-  font-size: 40px; /* passend skaliert */
+  font-size: 40px !important;
 }
