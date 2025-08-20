@@ -1662,13 +1662,13 @@ button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 110px !important;       /* großer Kreis */
-  height: 110px !important;
+  width: 90px !important;       /* großer Kreis */
+  height: 90px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 56px !important;    /* großes Symbol */
-  line-height: 110px !important;
+  font-size: 46px !important;    /* großes Symbol */
+  line-height: 90px !important;
   text-align: center !important;
   transition: all 0.2s ease;
 }
@@ -1700,12 +1700,12 @@ button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 70px !important;     /* kleinerer Kreis */
-  height: 70px !important;
+  width: 90px !important;     /* kleinerer Kreis */
+  height: 90px !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 44px !important; /* Symbol etwas kleiner */
+  font-size: 46px !important; /* Symbol etwas kleiner */
   line-height: 90px !important;
   text-align: center !important;
   transition: all 0.2s ease;
