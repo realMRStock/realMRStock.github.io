@@ -1736,3 +1736,10 @@ header.major h1,
 header.major h2 {
   text-transform: none !important;
 }
+
+/* Container im Header flexibel halten */
+#header .content .inner {
+  height: auto !important;        /* überschreibt feste Höhe aus Template */
+  padding-bottom: 4em !important; /* Abstand nach unten */
+  overflow: visible !important;   /* nichts mehr abschneiden */
+}
