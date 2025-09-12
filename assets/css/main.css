@@ -1750,3 +1750,28 @@ header.major h2 {
   line-height: 1.6;   /* Genügend Abstand zwischen den Zeilen */
   margin-top: 0.5rem;
 }
+
+/* Mehr Platz im Header für kleine Bildschirme */
+@media screen and (max-width: 736px) {
+  #header .inner {
+    padding: 2rem 1rem;        /* mehr Innenabstand */
+  }
+
+  #header .content {
+    display: flex;
+    flex-direction: column;    /* Elemente untereinander stapeln */
+    align-items: center;       /* zentrieren */
+  }
+
+  #header .icons {
+    margin-top: 1.5rem;        /* Abstand zu Name/Subtitle */
+    flex-wrap: wrap;           /* mehrere Zeilen erlaubt */
+    justify-content: center;   /* zentriert in der Breite */
+    gap: 1rem;                 /* Abstand zwischen den Buttons */
+  }
+
+  #header p, 
+  #header a {
+    margin-top: 1rem;          /* CV-Link nicht direkt am Icons kleben */
+  }
+}
