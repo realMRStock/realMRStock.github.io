@@ -1775,3 +1775,27 @@ header.major h2 {
     margin-top: 1rem;          /* CV-Link nicht direkt am Icons kleben */
   }
 }
+
+/* Fix: Kategorien & Icons in Mobile sollen umbrechen */
+@media screen and (max-width: 736px) {
+  ul.icons {
+    display: flex;
+    flex-wrap: wrap;        /* erlaubt Umbruch */
+    justify-content: center;
+    gap: 1rem;              /* Abstand zwischen Icons */
+  }
+
+  ul.icons li {
+    flex: 0 0 40%;          /* 2 Icons pro Reihe */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;    /* Abstand nach unten */
+  }
+
+  ul.icons li a {
+    width: 3rem;            /* Icon-Größe anpassen */
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.5rem;
+  }
+}
