@@ -1743,3 +1743,10 @@ header.major h2 {
   padding-bottom: 4em !important; /* Abstand nach unten */
   overflow: visible !important;   /* nichts mehr abschneiden */
 }
+
+#header .subtitle {
+  display: block;
+  font-size: 1rem;    /* Lesbare Größe */
+  line-height: 1.6;   /* Genügend Abstand zwischen den Zeilen */
+  margin-top: 0.5rem;
+}
