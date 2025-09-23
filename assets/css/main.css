@@ -1799,3 +1799,9 @@ header.major h2 {
     font-size: 1.5rem;
   }
 }
+
+/* Fix: ADS-Icon aus Academicons erzwingen */
+.icon.ai.ai-ads:before {
+  font-family: "Academicons"; /* richtige Schriftfamilie */
+  content: "\e927";           /* Unicode-Glyph für ADS */
+}
