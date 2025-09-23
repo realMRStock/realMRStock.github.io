@@ -1,5 +1,5 @@
 /* This is where the Font Awesome fonts come from */
-@import url(font-awesome.min.css);
+/* @import url(font-awesome.min.css);  -- removed (using CDN) */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -614,7 +614,6 @@ input[type="radio"] + label:before {
 	.icon:before {
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
-		font-family: FontAwesome;
 		font-style: normal;
 		font-weight: normal;
 		text-transform: none !important;
