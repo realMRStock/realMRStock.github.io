@@ -1976,3 +1976,47 @@ a.icon.ai.ai-google-scholar:before {
     top: 3px !important;   /* Kreis 3px tiefer; Symbol bleibt netto auf alter Höhe */
   }
 }
+
+/* Erzwinge Academicons-Font für alle ai-Icons (sonst „leerer Kreis“) */
+.icon.ai:before,
+a.icon.ai:before {
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* Größe/Baseline passend zu deinen großen 70px-Kreisen */
+#header ul.icons li a.icon.ai:before,
+#about    ul.icons li a.icon.ai:before,
+#contact  ul.icons li a.icon.ai:before,
+#community ul.icons li a.icon.ai:before,
+#research ul.icons li a.icon.ai:before {
+  font-size: 34px !important;
+  line-height: 70px !important;
+  vertical-align: middle !important;
+  transform: translateY(2px); /* gleiche optische Mitte wie FA */
+}
+
+/* Google Scholar – SVG-Maske (adblock-sicher) */
+.icon.ai-gs-svg:before { 
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
+
+/* ResearchGate – SVG-Maske */
+.icon.ai-rg-svg:before {
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
+
+/* arXiv – SVG-Maske */
+.icon.ai-arxiv-svg:before {
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
