@@ -1820,3 +1820,31 @@ header.major h2 {
   font-style: normal;
   font-weight: normal;
 }
+
+/* === SVG-based icons to avoid adblock/font issues === */
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+}
+
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+}
+
+/* Keep circle around icons consistent if your theme draws a circle using the link itself */
+.icon.ai-astrodb, .icon.ai-inspire-svg {
+  /* inherit sizing from existing .icon rules */
+}
