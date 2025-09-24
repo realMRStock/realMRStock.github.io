@@ -2020,3 +2020,32 @@ a.icon.ai:before {
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
   transform: translateY(2px);
 }
+
+/* === Desktop-Feinjustage: Zenodo 2px höher (nur Glyphen) === */
+@media screen and (min-width: 737px) {
+  /* SVG-Masken-Variante (falls du sie nutzt) */
+  .icon.ai-zenodo-svg:before,
+  a.icon.ai-zenodo-svg:before {
+    transform: translateY(-2px) !important;
+  }
+
+  /* Webfont-Variante (Academicons) */
+  .icon.ai.ai-zenodo:before,
+  a.icon.ai.ai-zenodo:before {
+    line-height: 70px !important;       /* konsistent zu deinen 70px-Kreisen */
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* Zenodo – SVG-Maske (optional, falls Webfont blockiert) */
+.icon.ai-zenodo-svg:before,
+a.icon.ai-zenodo-svg:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
+}
+
