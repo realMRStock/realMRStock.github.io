@@ -1848,3 +1848,86 @@ a.icon.ai-inspire-svg:before {
 .icon.ai-astrodb, .icon.ai-inspire-svg {
   /* inherit sizing from existing .icon rules */
 }
+
+/* Align SVG-mask icons with Font Awesome baseline */
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before,
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  line-height: 1;
+  vertical-align: -0.125em; /* match FA's nudge */
+  /* If still slightly high/low, fine-tune here (positive raises, negative lowers): */
+  transform: translateY(0.5px);
+}
+
+/* =========================
+   Site-wide overrides
+   ========================= */
+
+/* 1) No all-caps anywhere (e.g., RAPHAEL -> Raphael) */
+body, h1, h2, h3, h4, h5, h6,
+nav, .nav, .navbar, .brand, .logo, .title, .subtitle,
+.button, .btn, .actions a, .actions .button, .menu a, .link, a {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* 2) Make sure header sits above content if it is sticky/fixed */
+header, .site-header, #header, header[role="banner"] {
+  z-index: 1000;
+}
+
+/* 3) Ensure main content has breathing room below header on small screens */
+main, #main, .main, .wrapper, .inner {
+  padding-top: clamp(0rem, 2vw, 1rem);
+}
+
+/* 4) Icon grid defaults */
+.icons, ul.icons {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* 5) Mobile-first fixes */
+@media (max-width: 640px) {
+  /* Prevent overlap: make icon grid flow in document (no absolute) */
+  .icons, ul.icons {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .icons li, ul.icons li {
+    display: flex;
+    justify-content: center;
+  }
+  /* Make icon circles consistent size and centered */
+  a.icon, .icons a.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  /* If header is fixed on your theme, add top padding so content doesn't hide behind it */
+  body {
+    scroll-padding-top: 4rem;
+  }
+
+  /* Stack CV/Thesis links vertically */
+  .actions, ul.actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .actions li, ul.actions li {
+    width: 100% !important;
+  }
+  .actions .button, ul.actions li a.button, .btn {
+    width: 100% !important;
+    display: block !important;
+    text-align: center;
+  }
+}
