@@ -1,5 +1,5 @@
 /* This is where the Font Awesome fonts come from */
-/* @import url(font-awesome.min.css);  -- removed (using CDN) */
+/* removed local Font Awesome import */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -615,7 +615,6 @@ input[type="radio"] + label:before {
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
 		font-style: normal;
-		font-weight: normal;
 		text-transform: none !important;
 	}
 
@@ -1797,4 +1796,10 @@ header.major h2 {
     line-height: 3rem;
     font-size: 1.5rem;
   }
+}
+
+/* Fix: ADS-Icon aus Academicons erzwingen */
+.icon.ai.ai-ads:before {
+  font-family: "Academicons"; /* richtige Schriftfamilie */
+  content: "\e927";           /* Unicode-Glyph für ADS */
 }
