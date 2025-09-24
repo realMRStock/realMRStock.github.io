@@ -1901,3 +1901,14 @@ a.icon.ai-inspire-svg:before {
     margin-top: 0.5rem !important;
   }
 }
+
+/* === Disable forced uppercase site-wide (restore 'Raphael' casing) === */
+html, body,
+h1, h2, h3, h4, h5, h6,
+#header h1, #header .logo, #header .title, #header .subtitle,
+nav, nav a, .menu a, .link, a,
+.button, .btn, .actions a,
+p, span, li, .content, .inner, .brand, .logo, .title, .subtitle {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
