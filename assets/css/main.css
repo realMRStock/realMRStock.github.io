@@ -1919,8 +1919,8 @@ a.icon.ai-astrodb:before,
 .icon.ai-inspire-svg:before,
 a.icon.ai-inspire-svg:before {
   /* minimal tiefer setzen, damit es zu FA passt */
-  vertical-align: -1.0em;
-  transform: translateY(2px);
+  vertical-align: -0.20em;
+  transform: translateY(4px);
 }
 
 /* === Mobile: Nav-Labels exakt mittig in ihren Kästchen === */
