@@ -1912,3 +1912,13 @@ p, span, li, .content, .inner, .brand, .logo, .title, .subtitle {
   text-transform: none !important;
   letter-spacing: normal !important;
 }
+
+/* === Baseline-/Höhenausgleich nur für ADS/Inspire (SVG-Masken) === */
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before,
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  /* minimal tiefer setzen, damit es zu FA passt */
+  vertical-align: -0.20em;
+  transform: translateY(2px);
+}
