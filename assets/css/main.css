@@ -1976,25 +1976,3 @@ a.icon.ai.ai-google-scholar:before {
     top: 3px !important;   /* Kreis 3px tiefer; Symbol bleibt netto auf alter Höhe */
   }
 }
-
-/* Google Scholar als SVG-Maske (adblock-sicher) */
-.icon.ai-gs-svg:before,
-a.icon.ai-gs-svg:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg")
-                no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg")
-                no-repeat center / contain;
-  transform: translateY(2px);  /* gleiche Ausrichtung */
-}
-
-/* im 70px-Kreis mittig (nur wenn du die großen Kreise nutzt) */
-#header ul.icons li a.icon.ai-gs-svg:before {
-  width: 1em;
-  height: 1em;
-  line-height: 70px; /* für konsistente Mitte des pseudo-Elements */
-}
