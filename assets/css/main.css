@@ -1885,3 +1885,19 @@ a.icon.ai-inspire-svg:before {
     gap: 0.5rem !important;
   }
 }
+
+/* base */
+
+
+/* === Force CV & Thesis to stack vertically on mobile === */
+@media screen and (max-width: 736px) {
+  /* Stack any links inside the header's main paragraph */
+  #header .content .inner p a {
+    display: block !important;
+    margin-top: 0.35rem !important;
+  }
+  /* Slight extra space for the second link */
+  #header .content .inner p a + a {
+    margin-top: 0.5rem !important;
+  }
+}
