@@ -1920,7 +1920,7 @@ a.icon.ai-astrodb:before,
 a.icon.ai-inspire-svg:before {
   /* minimal tiefer setzen, damit es zu FA passt */
   vertical-align: -0.20em;
-  transform: translateY(4px);
+  transform: translateY(2px);
 }
 
 /* === Mobile: Nav-Labels exakt mittig in ihren Kästchen === */
@@ -1944,4 +1944,16 @@ a.icon.ai-inspire-svg:before {
     padding: 0 1.25rem !important;
     box-sizing: border-box !important;
   }
+}
+
+/* Google Scholar im 70px-Kreis exakt ausrichten */
+.icon.ai-google-scholar:before,
+a.icon.ai-google-scholar:before,
+.icon.ai.ai-google-scholar:before,
+a.icon.ai.ai-google-scholar:before {
+  font-family: "Academicons" !important;
+  font-size: 34px !important;   /* identisch zu deinen anderen Symbolen */
+  line-height: 70px !important;  /* zentriert im 70px-Kreis */
+  vertical-align: middle !important;
+  transform: translateY(2px);    /* Baseline-Match wie bei ADS/Inspire */
 }
