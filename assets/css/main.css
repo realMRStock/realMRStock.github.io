@@ -1957,3 +1957,22 @@ a.icon.ai.ai-google-scholar:before {
   vertical-align: middle !important;
   transform: translateY(2px);    /* Baseline-Match wie bei ADS/Inspire */
 }
+
+/* === Desktop-Feinabgleich: ADS/Inspire — Kreis 2px tiefer, Symbol unverändert === */
+@media screen and (min-width: 737px) {
+  /* 1) Symbol nicht mehr zusätzlich absenken */
+  .icon.ai-astrodb:before,
+  a.icon.ai-astrodb:before,
+  .icon.ai-inspire-svg:before,
+  a.icon.ai-inspire-svg:before {
+    transform: translateY(0) !important;
+    vertical-align: middle !important;
+  }
+
+  /* 2) Stattdessen den Kreis (den Link selbst) minimal nach unten schieben */
+  a.icon.ai-astrodb,
+  a.icon.ai-inspire-svg {
+    position: relative !important;
+    top: 2px !important;   /* Kreis 2px tiefer; Symbol bleibt netto auf alter Höhe */
+  }
+}
