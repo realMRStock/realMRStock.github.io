@@ -1919,18 +1919,29 @@ a.icon.ai-astrodb:before,
 .icon.ai-inspire-svg:before,
 a.icon.ai-inspire-svg:before {
   /* minimal tiefer setzen, damit es zu FA passt */
-  vertical-align: -0.20em;
+  vertical-align: -1.0em;
   transform: translateY(2px);
 }
 
-/* === Mobile: Nav-Texte exakt mittig in den Kästchen zentrieren === */
+/* === Mobile: Nav-Labels exakt mittig in ihren Kästchen === */
 @media screen and (max-width: 736px) {
-  #header nav ul li a {
+  /* Spaltenlayout bleibt, aber jedes Listenelement wird selbst Flex-Container */
+  #header nav ul {
     display: flex !important;
-    align-items: center !important;   /* vertikal zentriert */
+    flex-direction: column !important;
+  }
+  #header nav ul li {
+    display: flex !important;
+    align-items: stretch !important;   /* a füllt die ganze Höhe */
+  }
+  #header nav ul li a {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;    /* vertikal zentriert */
     justify-content: center !important;/* horizontal zentriert */
-    height: 3rem !important;
-    line-height: 1 !important;        /* keine Zeilenhöhen-„Schummelei“ */
+    height: 3.25rem !important;        /* minimal höher für optische Mitte */
+    line-height: 1 !important;
     padding: 0 1.25rem !important;
+    box-sizing: border-box !important;
   }
 }
