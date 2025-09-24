@@ -1996,27 +1996,3 @@ a.icon.ai:before {
   vertical-align: middle !important;
   transform: translateY(2px); /* gleiche optische Mitte wie FA */
 }
-
-/* Google Scholar – SVG-Maske (adblock-sicher) */
-.icon.ai-gs-svg:before { 
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-  transform: translateY(2px);
-}
-
-/* ResearchGate – SVG-Maske */
-.icon.ai-rg-svg:before {
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-  transform: translateY(2px);
-}
-
-/* arXiv – SVG-Maske */
-.icon.ai-arxiv-svg:before {
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-  transform: translateY(2px);
-}
