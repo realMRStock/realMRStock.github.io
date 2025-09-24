@@ -1850,24 +1850,38 @@ a.icon.ai-inspire-svg:before {
 }
 
 
-/* === Mobile overlap + layout fixes === */
+/* === Strong mobile fixes: header flow & subtitle line-break === */
 @media screen and (max-width: 736px) {
-  /* Space between subtitle, icon grid, and nav */
-  #header .content .inner p.subtitle { margin-bottom: 1rem !important; }
-  #header .content .inner ul.icons { margin-top: 0.5rem !important; margin-bottom: 1rem !important; }
-  #header nav { margin-top: 1rem !important; position: relative; z-index: 2; }
-  /* Make nav list vertical with spacing */
-  #header nav ul { flex-direction: column !important; gap: 0.5rem !important; }
-  #header nav ul li { margin: 0 !important; }
-  /* Ensure icon grid is not absolute and wraps */
-  ul.icons { position: static !important; display: flex !important; flex-wrap: wrap !important; justify-content: center; gap: 0.75rem; }
-  ul.icons li { flex: 0 0 40%; display: flex; justify-content: center; }
-  /* Force line breaks for CV + Doctoral links if they are inline */
-  .subtitle br { display: inline; } /* keep the existing br */
-  .subtitle a { display: inline-block; }
-  /* If CV and Thesis sit side by side in a paragraph, stack them on mobile */
-  p a[href*="CV"], p a[href*="Thesis"], p a[href*="Vitae"] { display: block !important; margin-top: 0.25rem; }
+  /* Let header content expand naturally */
+  #header .content .inner {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  /* Ensure subtitle breaks into lines */
+  #header .subtitle {
+    display: block !important;
+    white-space: normal !important;
+    line-height: 1.6 !important;
+  }
+  #header .subtitle br {
+    display: block !important;
+    content: "" !important;
+  }
+  /* Icons block spacing */
+  #header .content .inner ul.icons {
+    margin-top: 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+  /* Nav below icons, stacked */
+  #header nav {
+    display: block !important;
+    margin-top: 1rem !important;
+    position: relative !important;
+    z-index: 2;
+  }
+  #header nav ul {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
 }
-
-/* Make sure no global uppercase transforms */
-body, h1, h2, h3, h4, h5, h6, nav a, .title, .subtitle, .brand, .logo, .button, .btn, .actions a { text-transform: none !important; letter-spacing: normal !important; }
