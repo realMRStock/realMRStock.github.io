@@ -1803,3 +1803,20 @@ header.major h2 {
   font-family: "Academicons"; /* richtige Schriftfamilie */
   content: "\e927";           /* Unicode-Glyph für ADS */
 }
+
+/* --- Icon fixes for ADS and Inspire --- */
+/* Avoid adblock issues by using an alias class for ADS */
+.ai-ads-fix:before {
+  content: "\e806";
+  font-family: "Academicons" !important;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Ensure Inspire gets the correct glyph even if upstream CSS is overridden */
+.ai-inspire:before {
+  content: "\e834";
+  font-family: "Academicons" !important;
+  font-style: normal;
+  font-weight: normal;
+}
