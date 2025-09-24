@@ -1973,7 +1973,7 @@ a.icon.ai.ai-google-scholar:before {
   a.icon.ai-astrodb,
   a.icon.ai-inspire-svg {
     position: relative !important;
-    top: 2px !important;   /* Kreis 2px tiefer; Symbol bleibt netto auf alter Höhe */
+    top: 3px !important;   /* Kreis 3px tiefer; Symbol bleibt netto auf alter Höhe */
   }
 }
 
