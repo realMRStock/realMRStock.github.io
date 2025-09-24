@@ -1922,3 +1922,15 @@ a.icon.ai-inspire-svg:before {
   vertical-align: -0.20em;
   transform: translateY(2px);
 }
+
+/* === Mobile: Nav-Texte exakt mittig in den Kästchen zentrieren === */
+@media screen and (max-width: 736px) {
+  #header nav ul li a {
+    display: flex !important;
+    align-items: center !important;   /* vertikal zentriert */
+    justify-content: center !important;/* horizontal zentriert */
+    height: 3rem !important;
+    line-height: 1 !important;        /* keine Zeilenhöhen-„Schummelei“ */
+    padding: 0 1.25rem !important;
+  }
+}
