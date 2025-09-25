@@ -2156,3 +2156,29 @@ body.light-mode .icon.ai-zenodo-svg:before {
 /* Optional: nur auf der Startseite mit 70px-Kreisen erzwingen (nicht nötig, aber möglich)
 body.light-mode #header ul.icons li a { ... wie oben ... }
 */
+
+/* Toggle immer klickbar (falls irgendwo pointer-events überschrieben wurden) */
+.theme-toggle { pointer-events: auto !important; }
+
+/* Akzeptiere .light-mode sowohl auf <body> als auch auf <html> */
+html.light-mode, html.light-mode *, 
+body.light-mode, body.light-mode * {
+  color: #000 !important;
+}
+
+html.light-mode #bg:after,
+body.light-mode #bg:after {
+  /* helles Hintergrundbild (Pfad anpassen!) */
+  background-image: url("../../images/YOUR_LIGHT_IMAGE.jpg") !important;
+}
+
+html.light-mode ul.icons li a,
+body.light-mode ul.icons li a {
+  border-color: #000 !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+  color: #000 !important;
+}
+html.light-mode ul.icons li a:hover,
+body.light-mode ul.icons li a:hover { background-color: rgba(0,0,0,0.075) !important; }
+html.light-mode ul.icons li a:active,
+body.light-mode ul.icons li a:active { background-color: rgba(0,0,0,0.175) !important; }
