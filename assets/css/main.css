@@ -1,5 +1,5 @@
 /* This is where the Font Awesome fonts come from */
-@import url(font-awesome.min.css);
+/* removed local Font Awesome import */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -614,9 +614,7 @@ input[type="radio"] + label:before {
 	.icon:before {
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
-		font-family: FontAwesome;
 		font-style: normal;
-		font-weight: normal;
 		text-transform: none !important;
 	}
 
@@ -1648,6 +1646,8 @@ button {
 		opacity: 0;
 	}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 
 /* =========================================
    Startseite: Große Social-Icons unter Name
@@ -1803,3 +1803,356 @@ header.major h2 {
   font-family: "Academicons"; /* richtige Schriftfamilie */
   content: "\e927";           /* Unicode-Glyph für ADS */
 }
+
+/* --- Icon fixes for ADS and Inspire --- */
+/* Avoid adblock issues by using an alias class for ADS */
+.ai-ads-fix:before {
+  content: "\e806";
+  font-family: "Academicons" !important;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Ensure Inspire gets the correct glyph even if upstream CSS is overridden */
+.ai-inspire:before {
+  content: "\e834";
+  font-family: "Academicons" !important;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* === SVG-based icons to avoid adblock/font issues === */
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+}
+
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+}
+
+/* Keep circle around icons consistent if your theme draws a circle using the link itself */
+.icon.ai-astrodb, .icon.ai-inspire-svg {
+  /* inherit sizing from existing .icon rules */
+}
+
+
+/* === Strong mobile fixes: header flow & subtitle line-break === */
+@media screen and (max-width: 736px) {
+  /* Let header content expand naturally */
+  #header .content .inner {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  /* Ensure subtitle breaks into lines */
+  #header .subtitle {
+    display: block !important;
+    white-space: normal !important;
+    line-height: 1.6 !important;
+  }
+  #header .subtitle br {
+    display: block !important;
+    content: "" !important;
+  }
+  /* Icons block spacing */
+  #header .content .inner ul.icons {
+    margin-top: 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+  /* Nav below icons, stacked */
+  #header nav {
+    display: block !important;
+    margin-top: 1rem !important;
+    position: relative !important;
+    z-index: 2;
+  }
+  #header nav ul {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* base */
+
+
+/* === Force CV & Thesis to stack vertically on mobile === */
+@media screen and (max-width: 736px) {
+  /* Stack any links inside the header's main paragraph */
+  #header .content .inner p a {
+    display: block !important;
+    margin-top: 0.35rem !important;
+  }
+  /* Slight extra space for the second link */
+  #header .content .inner p a + a {
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* === Disable forced uppercase site-wide (restore 'Raphael' casing) === */
+html, body,
+h1, h2, h3, h4, h5, h6,
+#header h1, #header .logo, #header .title, #header .subtitle,
+nav, nav a, .menu a, .link, a,
+.button, .btn, .actions a,
+p, span, li, .content, .inner, .brand, .logo, .title, .subtitle {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* === Baseline-/Höhenausgleich nur für ADS/Inspire (SVG-Masken) === */
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before,
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  /* minimal tiefer setzen, damit es zu FA passt */
+  vertical-align: -0.20em;
+  transform: translateY(2px);
+}
+
+/* === Mobile: Nav-Labels exakt mittig in ihren Kästchen === */
+@media screen and (max-width: 736px) {
+  /* Spaltenlayout bleibt, aber jedes Listenelement wird selbst Flex-Container */
+  #header nav ul {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  #header nav ul li {
+    display: flex !important;
+    align-items: stretch !important;   /* a füllt die ganze Höhe */
+  }
+  #header nav ul li a {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    align-items: center !important;    /* vertikal zentriert */
+    justify-content: center !important;/* horizontal zentriert */
+    height: 3.25rem !important;        /* minimal höher für optische Mitte */
+    line-height: 1 !important;
+    padding: 0 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Google Scholar im 70px-Kreis exakt ausrichten */
+.icon.ai-google-scholar:before,
+a.icon.ai-google-scholar:before,
+.icon.ai.ai-google-scholar:before,
+a.icon.ai.ai-google-scholar:before {
+  font-family: "Academicons" !important;
+  font-size: 34px !important;   /* identisch zu deinen anderen Symbolen */
+  line-height: 70px !important;  /* zentriert im 70px-Kreis */
+  vertical-align: middle !important;
+  transform: translateY(2px);    /* Baseline-Match wie bei ADS/Inspire */
+}
+
+/* === Desktop-Feinabgleich: ADS/Inspire — Kreis 2px tiefer, Symbol unverändert === */
+@media screen and (min-width: 737px) {
+  /* 1) Symbol nicht mehr zusätzlich absenken */
+  .icon.ai-astrodb:before,
+  a.icon.ai-astrodb:before,
+  .icon.ai-inspire-svg:before,
+  a.icon.ai-inspire-svg:before {
+    transform: translateY(0) !important;
+    vertical-align: middle !important;
+  }
+
+  /* 2) Stattdessen den Kreis (den Link selbst) minimal nach unten schieben */
+  a.icon.ai-astrodb,
+  a.icon.ai-inspire-svg {
+    position: relative !important;
+    top: 3px !important;   /* Kreis 3px tiefer; Symbol bleibt netto auf alter Höhe */
+  }
+}
+
+/* Erzwinge Academicons-Font für alle ai-Icons (sonst „leerer Kreis“) */
+.icon.ai:before,
+a.icon.ai:before {
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* Größe/Baseline passend zu deinen großen 70px-Kreisen */
+#header ul.icons li a.icon.ai:before,
+#about    ul.icons li a.icon.ai:before,
+#contact  ul.icons li a.icon.ai:before,
+#community ul.icons li a.icon.ai:before,
+#research ul.icons li a.icon.ai:before {
+  font-size: 34px !important;
+  line-height: 70px !important;
+  vertical-align: middle !important;
+  transform: translateY(2px); /* gleiche optische Mitte wie FA */
+}
+
+/* Google Scholar – SVG-Maske (adblock-sicher) */
+.icon.ai-gs-svg:before { 
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
+
+/* ResearchGate – SVG-Maske */
+.icon.ai-rg-svg:before {
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
+
+/* arXiv – SVG-Maske */
+.icon.ai-arxiv-svg:before {
+  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+  transform: translateY(2px);
+}
+
+/* === Desktop-Feinjustage: Zenodo 2px höher (nur Glyphen) === */
+@media screen and (min-width: 737px) {
+  /* SVG-Masken-Variante (falls du sie nutzt) */
+  .icon.ai-zenodo-svg:before,
+  a.icon.ai-zenodo-svg:before {
+    transform: translateY(-2px) !important;
+  }
+
+  /* Webfont-Variante (Academicons) */
+  .icon.ai.ai-zenodo:before,
+  a.icon.ai.ai-zenodo:before {
+    line-height: 70px !important;       /* konsistent zu deinen 70px-Kreisen */
+    transform: translateY(-2px) !important;
+  }
+}
+
+/* Zenodo – SVG-Maske (optional, falls Webfont blockiert) */
+.icon.ai-zenodo-svg:before,
+a.icon.ai-zenodo-svg:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
+}
+
+/* ===========================
+   Light-Mode: NUR Textfarbe + Hintergrundbild
+   =========================== */
+
+/* Schriftfarbe global schwarz erzwingen (alles andere bleibt wie im Dark-Design) */
+body.light-mode, body.light-mode * {
+  color: #000 !important;
+}
+
+/* Helles Hintergrundbild (Pfad anpassen!) */
+body.light-mode #bg:after {
+  background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
+}
+
+/* ---------------------------
+   Toggle-UI (Switch mit Mond/Sonne)
+   --------------------------- */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+/* Piktogramme im Schalter */
+.theme-toggle i {
+  pointer-events: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* Mond links, Sonne rechts */
+.theme-toggle .fa-moon { margin-right: auto; }
+.theme-toggle .fa-sun  { margin-left:  auto; }
+
+/* Knopf der „fährt“ */
+.theme-toggle .knob {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #ffffff;
+  left: 3px;
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Im Light-Mode invertieren wir nur die UI-Farben des Schalters */
+body.light-mode .theme-toggle {
+  border-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+body.light-mode .theme-toggle .knob {
+  background: #000000;
+  transform: translateX(30px);
+}
+
+/* Optional: auf sehr kleinen Screens etwas kleiner */
+@media screen and (max-width: 480px) {
+  .theme-toggle { width: 56px; height: 32px; padding: 0 5px; }
+  .theme-toggle .knob { width: 26px; height: 26px; left: 3px; transform: translateX(0); }
+  body.light-mode .theme-toggle .knob { transform: translateX(24px); }
+}
+
+/* ===========================
+   Light-Mode: Icons (Kreis + Symbol) invertieren
+   =========================== */
+body.light-mode ul.icons li a {
+  /* Ring in Schwarz statt Weiß */
+  border-color: #000 !important;                 /* falls du border nutzt */
+  box-shadow: inset 0 0 0 1px #000 !important;   /* falls das Theme den Ring via box-shadow zeichnet */
+  /* Symbolfarbe (FA & Academicons) */
+  color: #000 !important;
+}
+
+/* Hover/Active-Hintergründe passend für helles Theme */
+body.light-mode ul.icons li a:hover  { background-color: rgba(0,0,0,0.075) !important; }
+body.light-mode ul.icons li a:active { background-color: rgba(0,0,0,0.175) !important; }
+
+/* Falls einzelne Pseudo-Elemente (SVG-Masken) genutzt werden: sie übernehmen currentColor -> Schwarz */
+body.light-mode .icon.ai-astrodb:before,
+body.light-mode .icon.ai-inspire-svg:before,
+body.light-mode .icon.ai-arxiv-svg:before,
+body.light-mode .icon.ai-rg-svg:before,
+body.light-mode .icon.ai-gs-svg:before,
+body.light-mode .icon.ai-zenodo-svg:before {
+  /* kein Farbwert nötig: background-color: currentColor in deinen Regeln -> wird durch color: #000 oben gesetzt */
+}
+
+/* Optional: nur auf der Startseite mit 70px-Kreisen erzwingen (nicht nötig, aber möglich)
+body.light-mode #header ul.icons li a { ... wie oben ... }
+*/
