@@ -2372,4 +2372,13 @@ body.light-mode #header {
   background-image: -ms-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
   background-image: radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
 }
+/* Light-Mode: alle vertikalen Verbindungs-Linien im Header schwarz */
+body.light-mode #header > *:before {
+  background: #000 !important;  /* vertikale Linie über den Buttons/Blöcken */
+}
+
+/* (Du hast bereits die Mitteltrennlinie gesetzt, zur Vollständigkeit hier noch einmal) */
+body.light-mode #header nav.use-middle:after {
+  background: #000 !important;  /* senkrechte Linie zwischen Research und Community */
+}
 
