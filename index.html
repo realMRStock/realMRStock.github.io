@@ -441,6 +441,26 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+
+    // gespeichertes Theme anwenden
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.body.classList.add('light-mode');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+
+    // Umschalten
+    btn.addEventListener('click', function () {
+      const isLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    });
+  })();
+</script>
 
 	</body>
 </html>
