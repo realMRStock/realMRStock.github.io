@@ -2060,7 +2060,7 @@ body.light-mode, body.light-mode * {
 
 /* Helles Hintergrundbild (Pfad anpassen!) */
 body.light-mode #bg:after {
-  background-image: url("../../images/YOUR_LIGHT_IMAGE.jpg") !important;
+  background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
 }
 
 /* ---------------------------
