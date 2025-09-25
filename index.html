@@ -447,21 +447,28 @@
   onReady(function(){
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
-    try {
-      var saved = localStorage.getItem('theme');
-      if (saved === 'light') {
-        document.body.classList.add('light-mode');
-        btn.setAttribute('aria-pressed','true');
-      } else {
-        btn.setAttribute('aria-pressed','false');
-      }
-    } catch(e){}
+
+    // gespeichertes Theme anwenden
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e){}
+    if (saved === 'light') {
+      document.body.classList.add('light-mode');
+      btn.setAttribute('aria-pressed','true');
+    } else {
+      btn.setAttribute('aria-pressed','false');
+    }
+
+    // Umschalten
     btn.addEventListener('click', function(ev){
       ev.preventDefault();
+      ev.stopPropagation();
       var isLight = document.body.classList.toggle('light-mode');
       try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
       btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
     });
+
+    // falls irgendwo pointer-events deaktiviert wurden
+    btn.style.pointerEvents = 'auto';
   });
 })();
 </script>
