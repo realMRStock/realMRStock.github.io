@@ -2285,3 +2285,63 @@ body.light-mode #header nav ul li a:hover {
   background-color: rgba(0,0,0,0.06) !important;
 }
 
+/* ===== LIGHT MODE: Karten wirklich hell + alle Linien schwarz ===== */
+
+/* 0) Seiten-Overlay aufhellen (übersteuert das dunkle Overlay sicher) */
+body.light-mode #bg:before {
+  background-image:
+    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("../../images/overlay.png") !important;
+  background-size: auto, 256px 256px !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, repeat !important;
+  filter: none !important;
+}
+
+/* 1) Vier Bereiche (Artikel/Karten) hell hinterlegen */
+html body.light-mode #main article {
+  background-color: rgba(255,255,255,0.88) !important; /* ggf. 0.80–0.95 justieren */
+  color: #000 !important;
+}
+
+/* 2) Alle typischen “weißen Linien” im Light Mode auf schwarz drehen */
+html body.light-mode *,
+html body.light-mode *::before,
+html body.light-mode *::after {
+  border-color: #000 !important;
+}
+
+/* 3) Spezifische Linien der Vorlage (falls noch irgendwo übrig) */
+body.light-mode h1.major,
+body.light-mode h2.major,
+body.light-mode h3.major,
+body.light-mode h4.major,
+body.light-mode h5.major,
+body.light-mode h6.major { border-bottom-color: #000 !important; }
+
+body.light-mode hr,
+body.light-mode .box,
+body.light-mode table tbody tr,
+body.light-mode table thead,
+body.light-mode table tfoot,
+body.light-mode ul.alt li,
+body.light-mode #header nav ul,
+body.light-mode #header nav ul li,
+body.light-mode #header .logo { border-color: #000 !important; box-shadow: none !important; }
+
+/* 4) Icon-Kreise bleiben im Light Mode schwarz (Ring + Symbol) */
+body.light-mode ul.icons li a {
+  box-shadow: inset 0 0 0 1px #000 !important;
+  border-color: #000 !important;
+  color: #000 !important;
+}
+body.light-mode ul.icons li a:hover  { background-color: rgba(0,0,0,0.075) !important; }
+body.light-mode ul.icons li a:active { background-color: rgba(0,0,0,0.175) !important; }
+
+/* 5) Formfelder-Fokus dezent dunkel statt hell */
+body.light-mode input:focus,
+body.light-mode select:focus,
+body.light-mode textarea:focus {
+  background: rgba(0,0,0,0.075) !important;
+  box-shadow: 0 0 0 1px #000 !important;
+}
