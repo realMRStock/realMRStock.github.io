@@ -2345,3 +2345,8 @@ body.light-mode textarea:focus {
   background: rgba(0,0,0,0.075) !important;
   box-shadow: 0 0 0 1px #000 !important;
 }
+
+/* Light-Mode: vertikale Mittel-Linie im Menü auf schwarz */
+body.light-mode #header nav.use-middle:after {
+  background: #000 !important;
+}
