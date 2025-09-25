@@ -2382,3 +2382,140 @@ body.light-mode #header nav.use-middle:after {
   background: #000 !important;  /* senkrechte Linie zwischen Research und Community */
 }
 
+/* =========================================================
+   RESPONSIVE FIXES – Verhindern von Überlappungen/Abschnitten
+   (nur Ergänzungen; nichts anderes im Code ändern)
+   ========================================================= */
+
+/* 1) Grundsätzlich: Header-Inhalt darf wachsen, nichts abschneiden */
+#header .content .inner {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* 2) Große Icons unter dem Namen: in flexiblen Zeilen anordnen */
+#header ul.icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 0.75rem 1rem !important;   /* vertikal / horizontal */
+  margin-top: 1rem !important;
+}
+
+/* 3) CV / Thesis / weitere Inline-Links: nie in dieselbe Zeile "quetschen" */
+#header .content .inner p a {
+  display: inline-block;          /* bleibt in einer Linie auf großen Screens */
+  margin-top: 0.35rem;
+  white-space: normal;            /* Umbruch erlauben */
+  line-height: 1.35;
+}
+
+/* 4) Schalter immer vor Klicks geschützt und außerhalb von Overlays sichtbar */
+.theme-toggle {
+  position: fixed;                /* bleibt fest; kollidiert nicht mit Layout-Flow */
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
+
+/* 5) Navigationsleiste: bricht sauber um und bekommt Abstände */
+#header nav ul {
+  display: flex !important;
+  flex-wrap: wrap !important;     /* erlaubt Umbruch auf mehrere Zeilen */
+  justify-content: center;
+  gap: 0.5rem !important;
+}
+#header nav ul li {
+  margin: 0 !important;           /* verhindert kumulative Offsets */
+}
+
+/* 6) Artikel/Karten: nie vom Close-Button abgeschnitten */
+#main article {
+  padding-top: 4.5rem !important; /* Platz für den runden Close-Button oben rechts */
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* ≤ 980px: Header-Stack, zusätzliche Luft */
+@media screen and (max-width: 980px) {
+  #header {
+    padding: 1.5rem 0 !important;
+  }
+  #header .content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #header .content .inner {
+    padding: 2rem 1rem !important;
+    gap: 0.75rem;
+  }
+  #header nav {
+    margin-top: 1rem !important;
+  }
+}
+
+/* ≤ 736px (Smartphones): konsequent stapeln, volle Breite nutzen */
+@media screen and (max-width: 736px) {
+  /* Name + Unterzeile zentriert, Zeilenumbrüche erlauben */
+  #header h1, #header .subtitle {
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  /* Große Startseiten-Icons: 2 je Zeile, zentriert */
+  #header ul.icons li {
+    flex: 0 1 calc(50% - 1rem) !important;  /* zwei Spalten */
+    display: flex; justify-content: center;
+  }
+  #header ul.icons li a {
+    width: 70px !important;
+    height: 70px !important;
+    line-height: 70px !important;
+    font-size: 34px !important;
+  }
+
+  /* Nav: vertikal stapeln, volle Breite */
+  #header nav ul {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+  #header nav ul li a {
+    width: 100% !important;
+    min-width: 0 !important;
+    text-align: center !important;
+  }
+
+  /* CV/Thesis & Co: untereinander (keine Nebeneinander-Quetschung) */
+  #header .content .inner p a {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Karten-Inhalte: etwas mehr Innenabstand auf kleinen Screens */
+  #main article {
+    padding: 3.5rem 1.25rem 1rem 1.25rem !important;
+  }
+}
+
+/* ≤ 480px (sehr schmal): Bedienelemente weiter entzerren */
+@media screen and (max-width: 480px) {
+  /* Icons etwas kleiner, damit nichts kollidiert */
+  #header ul.icons li a {
+    width: 56px !important;
+    height: 56px !important;
+    line-height: 56px !important;
+    font-size: 28px !important;
+  }
+
+  /* Nav-Abstand unten, damit nichts in die Karten ragt */
+  #header nav {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Toggle etwas kleiner (du hast dafür schon Regeln, hier nur Sicherungsnetz) */
+  .theme-toggle { top: 0.75rem; right: 0.75rem; }
+}
+
