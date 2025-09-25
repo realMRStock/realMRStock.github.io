@@ -2154,3 +2154,92 @@ body.light-mode .icon.ai-zenodo-svg:before {
 /* Optional: nur auf der Startseite mit 70px-Kreisen erzwingen (nicht nötig, aber möglich)
 body.light-mode #header ul.icons li a { ... wie oben ... }
 */
+
+
+/* ===========================
+   LIGHT MODE: Linien/Borders schwarz
+   =========================== */
+
+/* Unterstrich bei .major-Überschriften */
+body.light-mode h1.major,
+body.light-mode h2.major,
+body.light-mode h3.major,
+body.light-mode h4.major,
+body.light-mode h5.major,
+body.light-mode h6.major {
+  border-color: #000 !important;
+}
+
+/* Generische Linien/Boxen */
+body.light-mode hr,
+body.light-mode .box,
+body.light-mode table tbody tr,
+body.light-mode table thead,
+body.light-mode table tfoot,
+body.light-mode ul.alt li,
+body.light-mode #header nav ul,
+body.light-mode #header nav ul li,
+body.light-mode #header .logo {
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+/* Tabellen-Kopftext bleibt schwarz (falls überschrieben) */
+body.light-mode table th { color: #000 !important; }
+
+/* Form-Konturen (Inputs/Select/Textareas) */
+body.light-mode input[type="text"],
+body.light-mode input[type="password"],
+body.light-mode input[type="email"],
+body.light-mode input[type="tel"],
+body.light-mode select,
+body.light-mode textarea {
+  border-color: #000 !important;
+}
+body.light-mode input:focus,
+body.light-mode select:focus,
+body.light-mode textarea:focus {
+  background: rgba(0,0,0,0.075) !important;
+  box-shadow: 0 0 0 1px #000 !important;
+}
+
+/* Checkbox/Radio-Kästchen (die kleinen Rahmen vor dem Label) */
+body.light-mode input[type="checkbox"] + label:before,
+body.light-mode input[type="radio"] + label:before {
+  border-color: #000 !important;
+}
+body.light-mode input[type="checkbox"]:checked + label:before,
+body.light-mode input[type="radio"]:checked + label:before {
+  background: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important; /* Häkchen sichtbar */
+}
+
+/* ===========================
+   LIGHT MODE: Hintergrund-Overlay aufhellen
+   =========================== */
+
+/* Das dunkle Overlay im Light-Mode deutlich reduzieren */
+body.light-mode #bg:before {
+  /* dunkles Overlay des Dark-Themes ersetzen */
+  background-image:
+    linear-gradient(to top, rgba(255,255,255,0.30), rgba(255,255,255,0.30)) !important; /* sanftes, helles Tönungsgitter */
+  background-size: auto !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  /* optional: wenn du GAR KEIN Overlay möchtest, nimm die nächste Zeile statt der linear-gradient-Zeile:
+     background-image: none !important;
+  */
+  transition: background-color 0.25s ease-in-out; /* weicher Wechsel */
+}
+
+/* (Das eigentliche Bild bleibt wie von dir gesetzt) */
+body.light-mode #bg:after {
+  /* Bildpfad hast du bereits gesetzt; nur sicherstellen, dass keine extra-Filter greifen */
+  filter: none !important;
+}
+
+/* Optional: Wenn es dir im Light-Mode immer noch zu dunkel ist,
+   erhöhe die Weißtönung z.B. auf 0.45:
+   rgba(255,255,255,0.45)
+*/
