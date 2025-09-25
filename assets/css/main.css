@@ -2363,3 +2363,13 @@ body.light-mode #main article .close:before {
 /* Light-Mode: Hover/Active-Hintergrund des runden Buttons anpassen */
 body.light-mode #main article .close:hover:before  { background-color: rgba(0,0,0,0.075) !important; }
 body.light-mode #main article .close:active:before { background-color: rgba(0,0,0,0.175) !important; }
+
+/* Light-Mode: radiale Vignette in #header aufhellen (weiß statt dunkel) */
+body.light-mode #header {
+  /* Vendor-Präfixe + Standard, jeweils mit !important, um Dark-Wert sicher zu übersteuern */
+  background-image: -moz-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
+  background-image: -webkit-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
+  background-image: -ms-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
+  background-image: radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
+}
+
