@@ -2243,3 +2243,45 @@ body.light-mode #bg:after {
    erhöhe die Weißtönung z.B. auf 0.45:
    rgba(255,255,255,0.45)
 */
+
+/* =========================================
+   LIGHT MODE – Aufhellendes Overlay & helle Artikel-Karten
+   ========================================= */
+
+/* 1) Seiten-Overlay: statt Abdunkeln -> Aufhellen */
+body.light-mode #bg:before {
+  /* Weißes Overlay statt dunklem; Stärke anpassbar über die 0.35 */
+  background-image:
+    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("../../images/overlay.png") !important;
+  background-size: auto, 256px 256px !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, repeat !important;
+}
+
+/* Sicherheitsnetz: kein zusätzlicher Blur oder Filter im Light-Mode */
+body.light-mode #bg:after {
+  filter: none !important;
+}
+
+/* 2) Inhaltskästen (die 4 Bereiche) im Light-Mode aufhellen */
+body.light-mode #main article {
+  /* Im Dark-Theme ist es rgba(27,31,34,0.85) (abdunkelnd).
+     Hier helles Pendant (aufhellend). Den Alpha-Wert nach Geschmack justieren. */
+  background-color: rgba(255,255,255,0.85) !important;
+  color: #000 !important; /* Sicherheit: Text bleibt dunkel */
+}
+
+/* Optional: etwas stärkere Aufhellung beim Hover der Karten
+body.light-mode #main article:hover {
+  background-color: rgba(255,255,255,0.92) !important;
+}
+*/
+
+/* 3) (Optional) Buttons/Links in Karten dezenter hinterlegen – auf hell statt dunkel */
+body.light-mode a.button,
+body.light-mode .button,
+body.light-mode #header nav ul li a:hover {
+  background-color: rgba(0,0,0,0.06) !important;
+}
+
