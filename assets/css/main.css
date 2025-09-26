@@ -2574,3 +2574,6 @@ body.light-mode #header nav ul li a:active {
 body.light-mode #main article .close:hover:before  { background-color: rgba(255,255,255,0.55) !important; }
 body.light-mode #main article .close:active:before { background-color: rgba(255,255,255,0.7)  !important; }
 
+/* Nur dort nutzen, wo erwünscht */
+.gap-top-2 { margin-top: 2rem !important; }   /* Wert nach Bedarf: 1.5rem, 3rem, … */
+.gap-bot-2 { margin-bottom: 2rem !important; }
