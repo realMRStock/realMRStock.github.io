@@ -2519,3 +2519,58 @@ body.light-mode #header nav.use-middle:after {
   .theme-toggle { top: 0.75rem; right: 0.75rem; }
 }
 
+/* =========================================
+   LIGHT MODE – Hover soll AUFHELLEN (nicht abdunkeln)
+   ========================================= */
+
+/* 1) Kreise/Symbole (Social-Icons etc.) */
+body.light-mode ul.icons li a {
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+body.light-mode ul.icons li a:hover {
+  /* heller Schleier + leichter Außen-Glow */
+  background-color: rgba(255,255,255,0.55) !important;
+  box-shadow:
+    inset 0 0 0 1px #000 !important,
+    0 0 0 3px rgba(255,255,255,0.35) !important;
+  transform: scale(1.06);
+}
+body.light-mode ul.icons li a:active {
+  background-color: rgba(255,255,255,0.7) !important;
+  transform: scale(1.02);
+}
+
+/* 2) Buttons/Links (Theme-Buttons, Form-Buttons, Nav-Links) */
+body.light-mode .button,
+body.light-mode button,
+body.light-mode input[type="submit"],
+body.light-mode input[type="reset"],
+body.light-mode input[type="button"],
+body.light-mode #header nav ul li a {
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+body.light-mode .button:hover,
+body.light-mode button:hover,
+body.light-mode input[type="submit"]:hover,
+body.light-mode input[type="reset"]:hover,
+body.light-mode input[type="button"]:hover,
+body.light-mode #header nav ul li a:hover {
+  background-color: rgba(255,255,255,0.55) !important;  /* Aufhellen */
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.35) inset !important;
+  transform: translateZ(0) scale(1.02);
+}
+body.light-mode .button:active,
+body.light-mode button:active,
+body.light-mode input[type="submit"]:active,
+body.light-mode input[type="reset"]:active,
+body.light-mode input[type="button"]:active,
+body.light-mode #header nav ul li a:active {
+  background-color: rgba(255,255,255,0.7) !important;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.4) inset !important;
+  transform: scale(0.99);
+}
+
+/* 3) Runder Close-Button im Artikel */
+body.light-mode #main article .close:hover:before  { background-color: rgba(255,255,255,0.55) !important; }
+body.light-mode #main article .close:active:before { background-color: rgba(255,255,255,0.7)  !important; }
+
