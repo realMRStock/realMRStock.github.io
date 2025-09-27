@@ -1132,6 +1132,12 @@ button {
 		z-index: 2;
 	}
 
+
+	/* Overlay lässt Klicks durch (blockiert keine Buttons/Toggles) */
+	#bg:before { pointer-events: none; }
+
+
+
 	/* This sets the content of the actual background */
 	#bg:after {
 		-moz-transform: scale(1.125);
@@ -2577,3 +2583,17 @@ body.light-mode #main article .close:active:before { background-color: rgba(255,
 /* Nur dort nutzen, wo erwünscht */
 .gap-top-2 { margin-top: 2rem !important; }   /* Wert nach Bedarf: 1.5rem, 3rem, … */
 .gap-bot-2 { margin-bottom: 2rem !important; }
+
+
+
+
+/* === FINAL: Light Mode – helles Overlay, keine Abdunkelung === */
+body.light-mode #bg:before {
+  background-image:
+    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("../../images/overlay.png") !important;
+  background-size: auto, 256px 256px !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, repeat !important;
+  filter: none !important;
+}
