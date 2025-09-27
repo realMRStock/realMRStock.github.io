@@ -2685,3 +2685,62 @@ body.light-mode input[type="submit"]:hover::after,
 body.light-mode input[type="reset"]:hover::after,
 body.light-mode input[type="button"]:hover::after { background: rgba(255,255,255,0.55) !important; opacity: 1 !important; }
 
+/* ================== RECOVERY: Toggle sichtbar + Hover deckungsgleich ================== */
+
+/* Der BG-Overlay soll Klicks nicht blocken (falls der Toggle in der Nähe ist) */
+#bg:before { pointer-events: none; }
+
+/* Basis-Stile für den Toggle (falls vorher überschrieben wurden) */
+.theme-toggle {
+  position: fixed; top: 1rem; right: 1rem;
+  z-index: 10000 !important;
+  width: 64px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid currentColor; border-radius: 999px;
+  background: transparent; box-shadow: inset 0 0 0 1px rgba(0,0,0,0);
+  cursor: pointer; pointer-events: auto !important; overflow: hidden;
+}
+.theme-toggle i { pointer-events: none; }
+.theme-toggle .knob {
+  position: absolute; width: 28px; height: 28px; left: 3px;
+  border-radius: 999px; background: currentColor; transition: transform .2s ease;
+}
+body.light-mode .theme-toggle .knob { transform: translateX(30px); }
+
+/* ---------------- Hover-Overlay: deckt exakt die sichtbare Fläche ---------------- */
+
+/* Runde Social-Icons */
+ul.icons li a {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+ul.icons li a::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  opacity: 0; transition: opacity .15s ease; pointer-events: none;
+}
+body:not(.light-mode) ul.icons li a:hover::after { background: rgba(255,255,255,0.10); opacity: 1; }
+body.light-mode      ul.icons li a:hover::after { background: rgba(255,255,255,0.55); opacity: 1; }
+
+/* Navigations-Buttons */
+#header nav ul li a {
+  position: relative !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+#header nav ul li a::after {
+  content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .15s ease; pointer-events: none;
+}
+body:not(.light-mode) #header nav ul li a:hover::after { background: rgba(255,255,255,0.10); opacity: 1; }
+body.light-mode      #header nav ul li a:hover::after { background: rgba(255,255,255,0.55); opacity: 1; }
+
+/* Toggle selbst mit passendem Hover (gleiches Overlay-Prinzip) */
+.theme-toggle::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  opacity: 0; transition: opacity .15s ease; pointer-events: none;
+}
+body:not(.light-mode) .theme-toggle:hover::after { background: rgba(255,255,255,0.10); opacity: 1; }
+body.light-mode      .theme-toggle:hover::after { background: rgba(255,255,255,0.55); opacity: 1; }
+
+
