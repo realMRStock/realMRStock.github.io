@@ -2577,3 +2577,111 @@ body.light-mode #main article .close:active:before { background-color: rgba(255,
 /* Nur dort nutzen, wo erwünscht */
 .gap-top-2 { margin-top: 2rem !important; }   /* Wert nach Bedarf: 1.5rem, 3rem, … */
 .gap-bot-2 { margin-bottom: 2rem !important; }
+
+/* =========================================================
+   Präziser Hover: Overlay deckt exakt die Button-/Kreisfläche
+   ========================================================= */
+
+/* --- 1) Runde Social-Icons (Kreise) --- */
+ul.icons li a {
+  position: relative !important;
+  overflow: hidden !important;      /* schneidet Overlay exakt auf Kreis zu */
+  border-radius: 50% !important;    /* Absicherung der runden Form */
+  background: transparent !important; /* Basis transparent halten */
+}
+
+/* Overlay-Grundlage (unsichtbar) */
+ul.icons li a::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;              /* füllt die komplette Fläche */
+  border-radius: 50% !important;
+  opacity: 0 !important;
+  transition: opacity .15s ease !important;
+  pointer-events: none !important;  /* Klicks gehen weiterhin auf den Link */
+}
+
+/* Dark-Mode: leichtes Abdunkeln nur über Overlay */
+body:not(.light-mode) ul.icons li a:hover::after {
+  background: rgba(255,255,255,0.10) !important;  /* zarter „Schleier“ */
+  opacity: 1 !important;
+}
+/* Light-Mode: Aufhellen über Overlay */
+body.light-mode ul.icons li a:hover::after {
+  background: rgba(255,255,255,0.55) !important;  /* wie von dir gewünscht: heller */
+  opacity: 1 !important;
+}
+
+/* Frühere Hover-Hintergründe neutralisieren (sonst doppelt) */
+ul.icons li a:hover,
+ul.icons li a:active {
+  background-color: transparent !important;
+  box-shadow: inset 0 0 0 1px currentColor !important; /* Ring bleibt sichtbar */
+}
+
+/* --- 2) Navigations-Buttons im Header --- */
+#header nav ul li a {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Overlay */
+#header nav ul li a::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0 !important;
+  transition: opacity .15s ease !important;
+}
+
+/* Dark: leicht abdunkeln; Light: aufhellen */
+body:not(.light-mode) #header nav ul li a:hover::after { background: rgba(255,255,255,0.10) !important; opacity: 1 !important; }
+body.light-mode      #header nav ul li a:hover::after { background: rgba(255,255,255,0.55) !important; opacity: 1 !important; }
+
+/* Basis-Hintergründe neutralisieren */
+#header nav ul li a:hover,
+#header nav ul li a:active {
+  background: transparent !important;
+}
+
+/* --- 3) Theme-Toggle (Schalter oben rechts) --- */
+.theme-toggle {
+  position: fixed;                  /* schon bei dir so – nur absichern */
+  overflow: hidden !important;      /* Overlay bleibt im Rahmen des Schalters */
+}
+
+/* Overlay */
+.theme-toggle::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0 !important;
+  transition: opacity .15s ease !important;
+  border-radius: inherit !important;
+}
+
+body:not(.light-mode) .theme-toggle:hover::after { background: rgba(255,255,255,0.10) !important; opacity: 1 !important; }
+body.light-mode      .theme-toggle:hover::after { background: rgba(255,255,255,0.55) !important; opacity: 1 !important; }
+
+/* --- Optional: Standard-.button (falls genutzt) konsistent machen --- */
+.button, button,
+input[type="submit"], input[type="reset"], input[type="button"] {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.button::after, button::after,
+input[type="submit"]::after, input[type="reset"]::after, input[type="button"]::after {
+  content: "" !important; position: absolute !important; inset: 0 !important;
+  opacity: 0 !important; transition: opacity .15s ease !important;
+}
+body:not(.light-mode) .button:hover::after,
+body:not(.light-mode) button:hover::after,
+body:not(.light-mode) input[type="submit"]:hover::after,
+body:not(.light-mode) input[type="reset"]:hover::after,
+body:not(.light-mode) input[type="button"]:hover::after { background: rgba(255,255,255,0.10) !important; opacity: 1 !important; }
+body.light-mode .button:hover::after,
+body.light-mode button:hover::after,
+body.light-mode input[type="submit"]:hover::after,
+body.light-mode input[type="reset"]:hover::after,
+body.light-mode input[type="button"]:hover::after { background: rgba(255,255,255,0.55) !important; opacity: 1 !important; }
+
