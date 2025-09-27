@@ -2743,4 +2743,92 @@ body.light-mode      #header nav ul li a:hover::after { background: rgba(255,255
 body:not(.light-mode) .theme-toggle:hover::after { background: rgba(255,255,255,0.10); opacity: 1; }
 body.light-mode      .theme-toggle:hover::after { background: rgba(255,255,255,0.55); opacity: 1; }
 
+/* =========================================
+   Einheitliche Hover-Fläche: exakt so groß wie der Button
+   (Icons: runder Kreis, Buttons/Navi: übernimmt border-radius)
+   ========================================= */
+
+/* --- Social-Icons (runde Kreise) --- */
+ul.icons li a {
+  position: relative !important;
+  overflow: hidden !important;        /* schneidet die Hover-Fläche exakt auf den Kreis */
+  padding: 0 !important;              /* keine Zusatzfläche */
+}
+
+/* neutrale Hover-Fläche als Pseudo-Element (weißes „Licht“) */
+ul.icons li a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #ffffff;                /* im Dark-Mode aufhellen */
+  opacity: 0;                         /* nur bei Hover sichtbar */
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+ul.icons li a:hover::before  { opacity: 0.10; }
+ul.icons li a:active::before { opacity: 0.18; }
+
+/* Light-Mode: ebenfalls aufhellen (weiß behält „aufhellen“-Charakter) */
+body.light-mode ul.icons li a::before { background: #ffffff; }
+
+/* --- Navigation & generische .button-Elemente (abgerundete Rechtecke) --- */
+#header nav ul li a,
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  position: relative !important;
+  overflow: hidden !important;         /* Hover-Fläche exakt innerhalb der Rundung */
+}
+
+#header nav ul li a::before,
+.button::before,
+input[type="submit"]::before,
+input[type="reset"]::before,
+input[type="button"]::before,
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;              /* übernimmt vorhandene Abrundung */
+  background: #ffffff;                 /* im Dark-Mode leicht aufhellen */
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+#header nav ul li a:hover::before,
+.button:hover::before,
+input[type="submit"]:hover::before,
+input[type="reset"]:hover::before,
+input[type="button"]:hover::before,
+button:hover::before { opacity: 0.08; }
+
+#header nav ul li a:active::before,
+.button:active::before,
+input[type="submit"]:active::before,
+input[type="reset"]:active::before,
+input[type="button"]:active::before,
+button:active::before { opacity: 0.16; }
+
+/* Light-Mode: auch hier „aufhellen“ (weiß) */
+body.light-mode #header nav ul li a::before,
+body.light-mode .button::before,
+body.light-mode input[type="submit"]::before,
+body.light-mode input[type="reset"]::before,
+body.light-mode input[type="button"]::before,
+body.light-mode button::before {
+  background: #ffffff;
+}
+
+/* Sicherheit: entferne alte Hover-Hintergründe, damit nichts „doppelt“ färbt */
+ul.icons li a:hover,
+ul.icons li a:active,
+#header nav ul li a:hover,
+#header nav ul li a:active,
+.button:hover,
+.button:active {
+  background-color: transparent !important;
+}
 
