@@ -2619,3 +2619,96 @@ body.light-mode #bg:before {
   vertical-align: middle !important;
   line-height: 70px !important;          /* passt zur 70px-Kreishöhe */
 }
+
+
+
+
+/* =========================================================
+   HOVER HITBOX FIX — deckungsgleich über Kreisen & Buttons
+   ========================================================= */
+
+/* 0) Standard-Hover-Hintergründe deaktivieren (wir übernehmen via ::after) */
+ul.icons li a:hover,
+ul.icons li a:active,
+#header nav ul li a:hover,
+#header nav ul li a:active,
+.button:hover, .button:active,
+button:hover, button:active,
+input[type="submit"]:hover, input[type="submit"]:active,
+input[type="reset"]:hover,  input[type="reset"]:active,
+input[type="button"]:hover, input[type="button"]:active {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 1) Rund-Icons: exakte Hover-Fläche via ::after */
+ul.icons li a {
+  position: relative !important;
+  overflow: hidden !important;        /* schneidet sauber auf den Kreis */
+  border-bottom: 0 !important;        /* keine Unterstreichung */
+  backface-visibility: hidden;        /* Anti-Flimmern bei scale/hover */
+  -webkit-backface-visibility: hidden;
+}
+ul.icons li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;                           /* füllt den kompletten Kreis */
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  pointer-events: none;               /* lässt Klicks durch */
+}
+/* Dark-Mode: leichtes Aufhellen wie im Original */
+ul.icons li a:hover::after  { background-color: rgba(255,255,255,0.12); }
+ul.icons li a:active::after { background-color: rgba(255,255,255,0.22); }
+
+/* Light-Mode: AUFHELLEN (weißlicher Schleier) statt abdunkeln */
+body.light-mode ul.icons li a:hover::after  { background-color: rgba(255,255,255,0.55) !important; }
+body.light-mode ul.icons li a:active::after { background-color: rgba(255,255,255,0.70) !important; }
+
+/* 2) Nav-Links & generische Buttons: gleiche Logik, aber mit 4px Radius */
+#header nav ul li a,
+.button, button,
+input[type="submit"], input[type="reset"], input[type="button"] {
+  position: relative !important;
+  overflow: hidden !important;
+  border-bottom: 0 !important;
+}
+#header nav ul li a::after,
+.button::after, button::after,
+input[type="submit"]::after, input[type="reset"]::after, input[type="button"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: transparent;
+  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  pointer-events: none;
+}
+/* Dark-Mode: dezent wie Vorlage */
+#header nav ul li a:hover::after,
+.button:hover::after, button:hover::after,
+input[type="submit"]:hover::after, input[type="reset"]:hover::after, input[type="button"]:hover::after {
+  background-color: rgba(255,255,255,0.10);
+}
+#header nav ul li a:active::after,
+.button:active::after, button:active::after,
+input[type="submit"]:active::after, input[type="reset"]:active::after, input[type="button"]:active::after {
+  background-color: rgba(255,255,255,0.18);
+}
+
+/* Light-Mode: helles Hover (weiß), passend zu deinem Wunsch */
+body.light-mode #header nav ul li a:hover::after,
+body.light-mode .button:hover::after, body.light-mode button:hover::after,
+body.light-mode input[type="submit"]:hover::after,
+body.light-mode input[type="reset"]:hover::after,
+body.light-mode input[type="button"]:hover::after {
+  background-color: rgba(255,255,255,0.55) !important;
+}
+body.light-mode #header nav ul li a:active::after,
+body.light-mode .button:active::after, body.light-mode button:active::after,
+body.light-mode input[type="submit"]:active::after,
+body.light-mode input[type="reset"]:active::after,
+body.light-mode input[type="button"]:active::after {
+  background-color: rgba(255,255,255,0.70) !important;
+}
