@@ -2597,3 +2597,25 @@ body.light-mode #bg:before {
   background-repeat: no-repeat, repeat !important;
   filter: none !important;
 }
+
+
+/* ==== FIX 1: Kreise (Links) von Inspire & ADS 3px nach oben ==== */
+/* hebt die frühere +3px-Korrektur wieder auf */
+@media screen and (min-width: 737px) {
+  a.icon.ai-astrodb,         /* ADS */
+  a.icon.ai-inspire-svg {    /* Inspire (SVG-Maske) */
+    position: relative !important;
+    top: 0 !important;       /* vorher: top: 3px */
+  }
+}
+
+/* ==== FIX 2: Glyphen 2px anheben (Baseline) für ADS, Zenodo, Inspire, ResearchGate ==== */
+/* setzt frühere translateY(+2px) auf 0 und zentriert sauber im 70px-Kreis */
+.icon.ai-astrodb:before,           /* ADS (Academicons/Webfont) */
+.icon.ai-inspire-svg:before,       /* Inspire (SVG-Maske) */
+.icon.ai.ai-zenodo-square:before,  /* Zenodo (Webfont, square) */
+.icon.ai-rg-svg:before {           /* ResearchGate (SVG-Maske) */
+  transform: translateY(0) !important;   /* vorher oft: translateY(2px) */
+  vertical-align: middle !important;
+  line-height: 70px !important;          /* passt zur 70px-Kreishöhe */
+}
