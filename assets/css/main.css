@@ -1681,13 +1681,13 @@ button {
 }
 
 /* =========================================
-   Kategorien (About, Contact, Community, Publications)
+   Kategorien (About, Contact, Community, Research)
    Mittlere Social-Icons
    ========================================= */
 #about ul.icons,
 #contact ul.icons,
 #community ul.icons,
-#publications ul.icons {
+#research ul.icons {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
@@ -1698,7 +1698,7 @@ button {
 #about ul.icons li a,
 #contact ul.icons li a,
 #community ul.icons li a,
-#publications ul.icons li a {
+#research ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1716,7 +1716,7 @@ button {
 #about ul.icons li a:hover,
 #contact ul.icons li a:hover,
 #community ul.icons li a:hover,
-#publications ul.icons li a:hover {
+#research ul.icons li a:hover {
   transform: scale(1.08);
   border-color: #fff;
 }
@@ -1725,7 +1725,7 @@ button {
 #about ul.icons li a.ai:before,
 #contact ul.icons li a.ai:before,
 #community ul.icons li a.ai:before,
-#publications ul.icons li a.ai:before {
+#research ul.icons li a.ai:before {
   font-size: 34px !important; /* proportional zu kleineren Kreisen */
   line-height: 70px !important;
 }
@@ -1994,7 +1994,7 @@ a.icon.ai:before {
 #about    ul.icons li a.icon.ai:before,
 #contact  ul.icons li a.icon.ai:before,
 #community ul.icons li a.icon.ai:before,
-#publications ul.icons li a.icon.ai:before {
+#research ul.icons li a.icon.ai:before {
   font-size: 34px !important;
   line-height: 70px !important;
   vertical-align: middle !important;
@@ -2385,7 +2385,7 @@ body.light-mode #header > *:before {
 
 /* (Du hast bereits die Mitteltrennlinie gesetzt, zur Vollständigkeit hier noch einmal) */
 body.light-mode #header nav.use-middle:after {
-  background: #000 !important;  /* senkrechte Linie zwischen Publications und Community */
+  background: #000 !important;  /* senkrechte Linie zwischen Research und Community */
 }
 
 /* =========================================================
