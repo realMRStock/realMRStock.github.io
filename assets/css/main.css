@@ -1681,13 +1681,13 @@ button {
 }
 
 /* =========================================
-   Kategorien (About, Contact, Community, Research)
+   Kategorien (About, Contact, Community, Publications)
    Mittlere Social-Icons
    ========================================= */
 #about ul.icons,
 #contact ul.icons,
 #community ul.icons,
-#research ul.icons {
+#publications ul.icons {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
@@ -1698,7 +1698,7 @@ button {
 #about ul.icons li a,
 #contact ul.icons li a,
 #community ul.icons li a,
-#research ul.icons li a {
+#publications ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1716,7 +1716,7 @@ button {
 #about ul.icons li a:hover,
 #contact ul.icons li a:hover,
 #community ul.icons li a:hover,
-#research ul.icons li a:hover {
+#publications ul.icons li a:hover {
   transform: scale(1.08);
   border-color: #fff;
 }
@@ -1725,7 +1725,7 @@ button {
 #about ul.icons li a.ai:before,
 #contact ul.icons li a.ai:before,
 #community ul.icons li a.ai:before,
-#research ul.icons li a.ai:before {
+#publications ul.icons li a.ai:before {
   font-size: 34px !important; /* proportional zu kleineren Kreisen */
   line-height: 70px !important;
 }
@@ -1994,7 +1994,7 @@ a.icon.ai:before {
 #about    ul.icons li a.icon.ai:before,
 #contact  ul.icons li a.icon.ai:before,
 #community ul.icons li a.icon.ai:before,
-#research ul.icons li a.icon.ai:before {
+#publications ul.icons li a.icon.ai:before {
   font-size: 34px !important;
   line-height: 70px !important;
   vertical-align: middle !important;
@@ -2385,7 +2385,7 @@ body.light-mode #header > *:before {
 
 /* (Du hast bereits die Mitteltrennlinie gesetzt, zur Vollständigkeit hier noch einmal) */
 body.light-mode #header nav.use-middle:after {
-  background: #000 !important;  /* senkrechte Linie zwischen Research und Community */
+  background: #000 !important;  /* senkrechte Linie zwischen Publications und Community */
 }
 
 /* =========================================================
@@ -2713,33 +2713,32 @@ body.light-mode input[type="button"]:active::after {
   background-color: rgba(255,255,255,0.70) !important;
 }
 
-.keypub {
-  border-bottom: 2px solid #ffffff !important; /* dicker */
-  padding-bottom: 0.6rem !important;
-  margin-top: 2rem !important;
-}
 
+/* =========================================================
+   FINAL OVERRIDES – toggle fixed centered, hover hitbox, mobile header line
+   ========================================================= */
 
-/* =========================================
-   THEME TOGGLE CENTERED ABOVE HEADER LINE
-   Final override
-   ========================================= */
+/* Theme toggle: truly fixed, centered, above the header line */
 .theme-toggle {
   position: fixed !important;
-  top: 1rem !important;
+  top: max(0.35rem, env(safe-area-inset-top)) !important;
   left: 50% !important;
   right: auto !important;
-  transform: translateX(-50%) !important;
-  z-index: 10000 !important;
+  margin-left: -32px !important;
+  transform: none !important;
+  z-index: 2147483647 !important;
 }
 
-/* mobile: still centered, slightly smaller, avoid overlap */
+body.light-mode .theme-toggle .knob {
+  transform: translateX(30px) !important;
+}
+
 @media screen and (max-width: 736px) {
   .theme-toggle {
-    top: 0.75rem !important;
+    top: max(0.2rem, env(safe-area-inset-top)) !important;
     left: 50% !important;
     right: auto !important;
-    transform: translateX(-50%) !important;
+    margin-left: -28px !important;
     width: 56px !important;
     height: 32px !important;
     padding: 0 5px !important;
@@ -2749,105 +2748,21 @@ body.light-mode input[type="button"]:active::after {
     width: 26px !important;
     height: 26px !important;
     left: 3px !important;
+    transform: translateX(0) !important;
   }
 
   body.light-mode .theme-toggle .knob {
     transform: translateX(24px) !important;
   }
 
-  .theme-toggle i {
-    font-size: 12px !important;
-  }
-
-  #wrapper {
-    padding-top: 4.5rem !important;
-  }
-}
-
-
-/* =========================================
-   FINAL THEME TOGGLE POSITION OVERRIDE
-   centered and fixed (does not scroll)
-   ========================================= */
-.theme-toggle {
-  position: fixed !important;
-  top: 1rem !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
-  z-index: 10000 !important;
-}
-
-@media screen and (max-width: 736px) {
-  .theme-toggle {
-    position: fixed !important;
-    top: 0.75rem !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-  }
-}
-
-
-/* =========================================
-   FINAL POSITION + MOBILE HEADER LINE TWEAK
-   ========================================= */
-
-/* Center toggle above the top header line without overlap */
-.theme-toggle {
-  position: fixed !important;
-  left: 50% !important;
-  right: auto !important;
-  top: 0.2rem !important;
-  transform: translateX(-50%) !important;
-  z-index: 10000 !important;
-}
-
-/* Smartphone: still centered, but closer to the line */
-@media screen and (max-width: 736px) {
-  .theme-toggle {
-    position: fixed !important;
-    left: 50% !important;
-    right: auto !important;
-    top: 0.45rem !important;
-    transform: translateX(-50%) !important;
-    width: 56px !important;
-    height: 32px !important;
-    padding: 0 5px !important;
-  }
-
-  .theme-toggle .knob {
-    width: 26px !important;
-    height: 26px !important;
-    left: 3px !important;
-  }
-
-  body.light-mode .theme-toggle .knob {
-    transform: translateX(24px) !important;
-  }
-
-  .theme-toggle i {
-    font-size: 12px !important;
-  }
-
-  /* enough room for the fixed toggle, but not too far away */
-  #wrapper {
-    padding-top: 3.35rem !important;
-  }
-
-  /* make the vertical connector stop just short of crossing the horizontal line */
+  /* keep the vertical connector from crossing the horizontal line */
   #header > *:before {
-    top: calc(-2rem - 1px) !important;
-    height: calc(2rem - 3px) !important;
+    top: calc(-2rem) !important;
+    height: calc(2rem) !important;
   }
 }
 
-/* =========================================
-   FINAL HOVER ALIGNMENT FIX
-   exact hover/active fill matches visible button size
-   ========================================= */
-
-/* Disable pseudo-overlay hover layers that can appear offset */
+/* Disable pseudo hover overlays that are spatially offset */
 ul.icons li a::after,
 #header nav ul li a::after,
 .button::after,
@@ -2855,23 +2770,19 @@ button::after,
 input[type="submit"]::after,
 input[type="reset"]::after,
 input[type="button"]::after {
+  content: none !important;
   display: none !important;
 }
 
-/* Social icons: hover fill exactly inside the visible circle */
-ul.icons li a {
-  overflow: hidden !important;
-  background-clip: padding-box !important;
-}
-
+/* Use the actual visible element for hover feedback */
 ul.icons li a:hover {
   background-color: rgba(255,255,255,0.12) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
+  box-shadow: inset 0 0 0 1px #ffffff !important;
 }
 
 ul.icons li a:active {
   background-color: rgba(255,255,255,0.22) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
+  box-shadow: inset 0 0 0 1px #ffffff !important;
 }
 
 body.light-mode ul.icons li a:hover {
@@ -2884,38 +2795,7 @@ body.light-mode ul.icons li a:active {
   box-shadow: inset 0 0 0 1px #000 !important;
 }
 
-/* Navigation buttons: hover fill exactly inside rectangle */
-#header nav ul li a {
-  overflow: hidden !important;
-  background-clip: padding-box !important;
-}
-
-#header nav ul li a:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-}
-
-#header nav ul li a:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-body.light-mode #header nav ul li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #header nav ul li a:active {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* Generic buttons, including the theme toggle element base */
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  overflow: hidden !important;
-  background-clip: padding-box !important;
-}
-
+#header nav ul li a:hover,
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -2924,6 +2804,7 @@ input[type="button"]:hover {
   background-color: rgba(255,255,255,0.10) !important;
 }
 
+#header nav ul li a:active,
 .button:active,
 button:active,
 input[type="submit"]:active,
@@ -2932,6 +2813,7 @@ input[type="button"]:active {
   background-color: rgba(255,255,255,0.18) !important;
 }
 
+body.light-mode #header nav ul li a:hover,
 body.light-mode .button:hover,
 body.light-mode button:hover,
 body.light-mode input[type="submit"]:hover,
@@ -2940,21 +2822,11 @@ body.light-mode input[type="button"]:hover {
   background-color: rgba(255,255,255,0.55) !important;
 }
 
+body.light-mode #header nav ul li a:active,
 body.light-mode .button:active,
 body.light-mode button:active,
 body.light-mode input[type="submit"]:active,
 body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
   background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* Keep theme toggle visually clean: no oversized hover overlay */
-.theme-toggle:hover,
-.theme-toggle:active {
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
-}
-
-body.light-mode .theme-toggle:hover,
-body.light-mode .theme-toggle:active {
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
 }
