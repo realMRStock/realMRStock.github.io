@@ -2067,6 +2067,71 @@ body.light-mode #bg:after {
   background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
 }
 
+/* ---------------------------
+   Toggle-UI (Switch mit Mond/Sonne)
+   --------------------------- */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+/* Piktogramme im Schalter */
+.theme-toggle i {
+  pointer-events: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* Mond links, Sonne rechts */
+.theme-toggle .fa-moon { margin-right: auto; }
+.theme-toggle .fa-sun  { margin-left:  auto; }
+
+/* Knopf der „fährt“ */
+.theme-toggle .knob {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #ffffff;
+  left: 3px;
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Im Light-Mode invertieren wir nur die UI-Farben des Schalters */
+body.light-mode .theme-toggle {
+  border-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+body.light-mode .theme-toggle .knob {
+  background: #000000;
+  transform: translateX(30px);
+}
+
+/* Optional: auf sehr kleinen Screens etwas kleiner */
+@media screen and (max-width: 480px) {
+  .theme-toggle { width: 56px; height: 32px; padding: 0 5px; }
+  .theme-toggle .knob { width: 26px; height: 26px; left: 3px; transform: translateX(0); }
+  body.light-mode .theme-toggle .knob { transform: translateX(24px); }
+}
+
 /* ===========================
    Light-Mode: Icons (Kreis + Symbol) invertieren
    =========================== */
@@ -2352,6 +2417,12 @@ body.light-mode #header nav.use-middle:after {
   line-height: 1.35;
 }
 
+/* 4) Schalter immer vor Klicks geschützt und außerhalb von Overlays sichtbar */
+.theme-toggle {
+  position: fixed;                /* bleibt fest; kollidiert nicht mit Layout-Flow */
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
 
 /* 5) Navigationsleiste: bricht sauber um und bekommt Abstände */
 #header nav ul {
@@ -2449,6 +2520,9 @@ body.light-mode #header nav.use-middle:after {
   #header nav {
     margin-bottom: 0.5rem !important;
   }
+
+  /* Toggle etwas kleiner (du hast dafür schon Regeln, hier nur Sicherungsnetz) */
+  .theme-toggle { top: 0.75rem; right: 0.75rem; }
 }
 
 /* =========================================
@@ -2640,6 +2714,31 @@ body.light-mode input[type="button"]:active::after {
 }
 
 
+/* =========================================================
+   FINAL TARGETED FIXES ONLY
+   ========================================================= */
+
+/* 1) Theme toggle: truly fixed and centered, no scrolling with page */
+.theme-toggle {
+  position: fixed !important;
+  top: 0.35rem !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin-left: -32px !important; /* half of 64px width */
+  transform: none !important;
+  z-index: 2147483647 !important;
+}
+@media screen and (max-width: 736px) {
+  .theme-toggle {
+    top: 0.35rem !important;
+    left: 50% !important;
+    right: auto !important;
+    margin-left: -28px !important; /* half of 56px width */
+    transform: none !important;
+  }
+}
+
 /* 2) Hover/active effect must match actual visible button area */
 ul.icons li a::after,
 #header nav ul li a::after,
@@ -2751,123 +2850,164 @@ body.light-mode input[type="button"]:active {
   transform: translateY(0) !important;
 }
 
+
 /* =====================================================
-   CLEAN FIX – Theme Toggle (zentriert, fix, kein Scroll)
+   FINAL TARGETED FIXES (clean, last rules win)
    ===================================================== */
 
+/* 1) Theme toggle: truly fixed and centered */
+#themeToggle.theme-toggle,
 .theme-toggle {
-  position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-
-  width: 64px;
-  height: 34px;
-
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.08);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6px;
-
-  cursor: pointer;
-  backdrop-filter: blur(3px);
+  position: fixed !important;
+  top: 12px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  z-index: 100000 !important;
 }
 
-/* Knopf */
-.theme-toggle .knob {
-  position: absolute;
-  left: 3px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: white;
-  transition: transform 0.25s ease;
-}
-
-/* Light Mode */
-body.light-mode .theme-toggle {
-  border-color: black;
-  background: rgba(0,0,0,0.08);
-}
-
-body.light-mode .theme-toggle .knob {
-  transform: translateX(30px);
-  background: black;
-}
-
-/* Icons */
-.theme-toggle i {
-  font-size: 14px;
-  pointer-events: none;
-}
-
-/* =========================
-   Abstand zur Linie fixen
-   ========================= */
-
-#header {
-  margin-top: 60px;
-}
-
-/* Mobile feiner Abstand */
-@media screen and (max-width: 736px) {
+@media screen and (min-width: 737px) {
+  #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 10px;
+    top: 8px !important;
+  }
+
+  /* keep header below the fixed toggle on desktop, without overlap */
+  #header {
+    margin-top: 52px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 
   #header {
-    margin-top: 50px;
+    margin-top: 42px !important;
   }
 }
 
-/* =====================================================
-   FIX: Hover-Flächen exakt auf Buttongröße
-   ===================================================== */
-
-ul.icons li a {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-
-  width: 70px !important;
-  height: 70px !important;
-
-  line-height: 1 !important;
+/* 2) Research icons same size/layout as Contact/About/Community */
+#research ul.icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 1.5em !important;
   padding: 0 !important;
-
-  border-radius: 50%;
-  box-sizing: border-box;
-
-  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-/* Hover exakt deckungsgleich */
+#research ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  font-size: 34px !important;
+  line-height: 70px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+}
+
+#research ul.icons li a.ai:before,
+#research ul.icons li a.icon.ai:before {
+  font-size: 34px !important;
+  line-height: 70px !important;
+}
+
+/* 3) Hover/active area exactly matches visible buttons: remove old pseudo overlays */
+ul.icons li a::after,
+#header nav ul li a::after,
+.button::after,
+button::after,
+input[type="submit"]::after,
+input[type="reset"]::after,
+input[type="button"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+ul.icons li a,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
 ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.08);
+  background-color: rgba(255,255,255,0.08) !important;
 }
 
 ul.icons li a:active {
-  background-color: rgba(255,255,255,0.18);
+  background-color: rgba(255,255,255,0.18) !important;
 }
 
-/* =====================================================
-   MOBILE FIX – Linien KEIN Kreuz mehr
-   ===================================================== */
+body.light-mode ul.icons li a:hover {
+  background-color: rgba(255,255,255,0.55) !important;
+}
 
+body.light-mode ul.icons li a:active {
+  background-color: rgba(255,255,255,0.70) !important;
+}
+
+#header nav ul li a:hover,
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: rgba(255,255,255,0.10) !important;
+}
+
+#header nav ul li a:active,
+.button:active,
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  background-color: rgba(255,255,255,0.18) !important;
+}
+
+body.light-mode #header nav ul li a:hover,
+body.light-mode .button:hover,
+body.light-mode button:hover,
+body.light-mode input[type="submit"]:hover,
+body.light-mode input[type="reset"]:hover,
+body.light-mode input[type="button"]:hover {
+  background-color: rgba(255,255,255,0.55) !important;
+}
+
+body.light-mode #header nav ul li a:active,
+body.light-mode .button:active,
+body.light-mode button:active,
+body.light-mode input[type="submit"]:active,
+body.light-mode input[type="reset"]:active,
+body.light-mode input[type="button"]:active {
+  background-color: rgba(255,255,255,0.70) !important;
+}
+
+/* 4) Mobile header lines: no cross, only slight touch */
 @media screen and (max-width: 736px) {
-
   #header > *:before {
-    height: calc(2rem - 6px) !important;  /* kürzer machen */
+    top: calc(-2rem - 1px) !important;
+    height: calc(2rem - 2px) !important;
   }
 
   #header .content {
-    border-top-width: 1px;
-    margin-top: 6px;
+    margin-top: 2rem !important;
   }
-
 }
