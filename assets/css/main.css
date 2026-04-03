@@ -2713,8 +2713,8 @@ body.light-mode input[type="button"]:active::after {
   background-color: rgba(255,255,255,0.70) !important;
 }
 
-.keypub-title {
-  font-weight: 700;
-  margin-top: 1.5em;
-  text-align: center; /* optional */
+.keypub {
+  border-bottom: 2px solid #ffffff !important; /* dicker */
+  padding-bottom: 0.6rem !important;
+  margin-top: 2rem !important;
 }
