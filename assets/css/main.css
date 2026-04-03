@@ -2715,93 +2715,31 @@ body.light-mode input[type="button"]:active::after {
 
 
 /* =========================================================
-   FINAL CLEAN FIXES — do not reintroduce earlier issues
+   FINAL TARGETED FIXES ONLY
    ========================================================= */
 
-/* 1) Theme toggle: truly fixed, centered, no overlap */
+/* 1) Theme toggle: truly fixed and centered, no scrolling with page */
 .theme-toggle {
   position: fixed !important;
   top: 0.35rem !important;
-  left: 0 !important;
-  right: 0 !important;
-  margin: 0 auto !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin-left: -32px !important; /* half of 64px width */
   transform: none !important;
-  z-index: 10001 !important;
+  z-index: 2147483647 !important;
 }
-
 @media screen and (max-width: 736px) {
   .theme-toggle {
-    top: 0.15rem !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin: 0 auto !important;
+    top: 0.35rem !important;
+    left: 50% !important;
+    right: auto !important;
+    margin-left: -28px !important; /* half of 56px width */
     transform: none !important;
   }
 }
 
-/* 2) Mobile header connector line: only touch, do not cross */
-@media screen and (max-width: 736px) {
-  #header > *:before {
-    top: calc(-2rem) !important;
-    height: calc(2rem) !important;
-  }
-}
-
-/* 3) Research icons exactly like Contact */
-#research ul.icons,
-#contact ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a,
-#contact ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  line-height: 70px !important;
-  font-size: 34px !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  text-align: center !important;
-}
-
-#research ul.icons li a:before,
-#contact ul.icons li a:before {
-  font-size: 34px !important;
-  line-height: 70px !important;
-  transform: translateY(0) !important;
-  vertical-align: middle !important;
-}
-
-/* Zenodo / ADS / Inspire / SVG icon baseline */
-#research .icon.ai-astrodb:before,
-#research .icon.ai-inspire-svg:before,
-#research .icon.ai-rg-svg:before,
-#research .icon.ai-gs-svg:before,
-#research .icon.ai-arxiv-svg:before,
-#research .icon.ai-zenodo-svg:before,
-#research .icon.ai.ai-zenodo-square:before,
-#contact .icon.ai-astrodb:before,
-#contact .icon.ai-inspire-svg:before,
-#contact .icon.ai-rg-svg:before,
-#contact .icon.ai-gs-svg:before,
-#contact .icon.ai-arxiv-svg:before,
-#contact .icon.ai-zenodo-svg:before,
-#contact .icon.ai.ai-zenodo-square:before {
-  transform: translateY(0) !important;
-  vertical-align: middle !important;
-  line-height: 70px !important;
-}
-
-/* 4) Hover/active highlight exactly matches visible button size */
+/* 2) Hover/active effect must match actual visible button area */
 ul.icons li a::after,
 #header nav ul li a::after,
 .button::after,
@@ -2820,18 +2758,10 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
-ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.12) !important;
-  box-shadow: inset 0 0 0 1px #ffffff !important;
-}
-ul.icons li a:active {
-  background-color: rgba(255,255,255,0.22) !important;
-  box-shadow: inset 0 0 0 1px #ffffff !important;
-}
-
+ul.icons li a:hover,
 #header nav ul li a:hover,
 .button:hover,
 button:hover,
@@ -2839,9 +2769,10 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover {
   background-color: rgba(255,255,255,0.10) !important;
-  box-shadow: inset 0 0 0 1px #ffffff !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
+ul.icons li a:active,
 #header nav ul li a:active,
 .button:active,
 button:active,
@@ -2849,18 +2780,10 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active {
   background-color: rgba(255,255,255,0.18) !important;
-  box-shadow: inset 0 0 0 1px #ffffff !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
-body.light-mode ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-body.light-mode ul.icons li a:active {
-  background-color: rgba(255,255,255,0.70) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
+body.light-mode ul.icons li a:hover,
 body.light-mode #header nav ul li a:hover,
 body.light-mode .button:hover,
 body.light-mode button:hover,
@@ -2871,6 +2794,7 @@ body.light-mode input[type="button"]:hover {
   box-shadow: inset 0 0 0 1px #000 !important;
 }
 
+body.light-mode ul.icons li a:active,
 body.light-mode #header nav ul li a:active,
 body.light-mode .button:active,
 body.light-mode button:active,
@@ -2879,4 +2803,49 @@ body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
   background-color: rgba(255,255,255,0.70) !important;
   box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+/* 3) Mobile header connector line: touch, don't cross */
+@media screen and (max-width: 736px) {
+  #header > *:before {
+    top: -2rem !important;
+    height: 2rem !important;
+  }
+}
+
+/* 4) Preserve research icon sizing/alignment exactly like contact */
+#research ul.icons,
+#contact ul.icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 1.5em !important;
+}
+#research ul.icons li a,
+#contact ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  font-size: 34px !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+#research ul.icons li a.icon.ai:before,
+#contact ul.icons li a.icon.ai:before {
+  font-size: 34px !important;
+  line-height: 70px !important;
+  transform: translateY(0) !important;
+}
+#research .icon.ai-gs-svg:before,
+#research .icon.ai-rg-svg:before,
+#research .icon.ai-arxiv-svg:before,
+#research .icon.ai-astrodb:before,
+#research .icon.ai-inspire-svg:before,
+#research .icon.ai-zenodo-svg:before {
+  transform: translateY(0) !important;
 }
