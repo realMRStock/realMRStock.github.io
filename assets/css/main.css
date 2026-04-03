@@ -2718,3 +2718,48 @@ body.light-mode input[type="button"]:active::after {
   padding-bottom: 0.6rem !important;
   margin-top: 2rem !important;
 }
+
+
+/* =========================================
+   THEME TOGGLE CENTERED ABOVE HEADER LINE
+   Final override
+   ========================================= */
+.theme-toggle {
+  position: fixed !important;
+  top: 1rem !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 10000 !important;
+}
+
+/* mobile: still centered, slightly smaller, avoid overlap */
+@media screen and (max-width: 736px) {
+  .theme-toggle {
+    top: 0.75rem !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 56px !important;
+    height: 32px !important;
+    padding: 0 5px !important;
+  }
+
+  .theme-toggle .knob {
+    width: 26px !important;
+    height: 26px !important;
+    left: 3px !important;
+  }
+
+  body.light-mode .theme-toggle .knob {
+    transform: translateX(24px) !important;
+  }
+
+  .theme-toggle i {
+    font-size: 12px !important;
+  }
+
+  #wrapper {
+    padding-top: 4.5rem !important;
+  }
+}
