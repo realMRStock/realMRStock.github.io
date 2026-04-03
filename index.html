@@ -483,31 +483,49 @@
 			-->
 <div id="bg"></div>
 
-<!-- Dark/Light Mode Toggle -->
-<div class="theme-toggle" id="themeToggle">
-  <i class="fa-solid fa-moon"></i>
-  <div class="knob"></div>
-  <i class="fa-solid fa-sun"></i>
-</div>
+<!-- Theme toggle (unverändert) -->
+<button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Dark/Light">
+  <i class="fa-regular fa-moon" aria-hidden="true"></i>
+  <i class="fa-regular fa-sun"  aria-hidden="true"></i>
+  <span class="knob" aria-hidden="true"></span>
+</button>
 
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 <script>
-  const toggle = document.getElementById("themeToggle");
-  const body = document.body;
+(function () {
+  function onReady(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+  onReady(function(){
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
 
-  // gespeicherten Zustand laden
-  if (localStorage.getItem("theme") === "light") {
-    body.classList.add("light-mode");
-  }
-
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("light-mode");
-
-    if (body.classList.contains("light-mode")) {
-      localStorage.setItem("theme", "light");
+    // gespeichertes Theme anwenden
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(e){}
+    if (saved === 'light') {
+      document.body.classList.add('light-mode');
+      btn.setAttribute('aria-pressed','true');
     } else {
-      localStorage.setItem("theme", "dark");
+      btn.setAttribute('aria-pressed','false');
     }
+
+    // Umschalten
+    btn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      var isLight = document.body.classList.toggle('light-mode');
+      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
+      btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    });
+
+    // falls irgendwo pointer-events deaktiviert wurden
+    btn.style.pointerEvents = 'auto';
   });
+})();
 </script>
 
 
