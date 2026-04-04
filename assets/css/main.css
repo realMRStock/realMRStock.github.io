@@ -3063,3 +3063,41 @@ html body > #themeToggle.theme-toggle {
     transform: none !important;
   }
 }
+
+
+/* =====================================================
+   FINAL TOGGLE-ONLY FIX
+   changes nothing else
+   ===================================================== */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+div#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle {
+  position: fixed !important;
+  top: 8px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483647 !important;
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  div#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle {
+    top: 8px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147483647 !important;
+  }
+}
