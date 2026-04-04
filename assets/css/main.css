@@ -3012,9 +3012,24 @@ body.light-mode input[type="button"]:active {
   }
 }
 
-/* Mobile fix: obere Nav-Linie minimal nach unten, ohne die vertikale Linie zu ändern */
+/* Mobile fix: vertikale Linie + Nav-Block etwas nach unten */
 @media screen and (max-width: 736px) {
+  #header nav {
+    margin-top: 0.2rem !important;
+  }
+
+  #header nav:before,
+  #header nav ul:before,
+  #header > nav:before {
+    display: none !important;
+  }
+
   #header nav ul {
-    margin-top: 2px !important;
+    margin-top: 0 !important;
+  }
+
+  #header nav {
+    position: relative !important;
+    top: 3px !important;
   }
 }
