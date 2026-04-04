@@ -3007,3 +3007,59 @@ body.light-mode input[type="button"]:active {
     top: 18px !important;
   }
 }
+
+
+/* =====================================================
+   CLEAN TARGETED FIXES — toggle fixed, less top gap,
+   mobile nav lowered to form a clean T
+   ===================================================== */
+
+/* 1) Toggle: direct child of body, truly viewport-fixed and centered */
+html body > #themeToggle.theme-toggle {
+  position: fixed !important;
+  top: 8px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483647 !important;
+}
+
+/* keep size stable */
+html body > #themeToggle.theme-toggle {
+  width: 64px !important;
+  height: 34px !important;
+}
+
+@media screen and (max-width: 736px) {
+  html body > #themeToggle.theme-toggle {
+    top: 8px !important;
+    width: 56px !important;
+    height: 32px !important;
+  }
+}
+
+/* 2) Reduce the empty space above the top line over the name */
+@media screen and (min-width: 737px) {
+  html body #header {
+    margin-top: 18px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  html body #header {
+    margin-top: 12px !important;
+  }
+}
+
+/* 3) Smartphone only: move nav block AND its vertical connector down.
+      The horizontal line of the content box stays unchanged. */
+@media screen and (max-width: 736px) {
+  html body #header nav {
+    position: relative !important;
+    top: 10px !important;
+    margin-top: 2rem !important;
+    transform: none !important;
+  }
+}
