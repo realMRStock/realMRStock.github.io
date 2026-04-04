@@ -3043,7 +3043,7 @@ html body > #themeToggle.theme-toggle {
 /* 2) Reduce the empty space above the top line over the name */
 @media screen and (min-width: 737px) {
   html body #header {
-    margin-top: 18px !important;
+    margin-top: 10px !important;
   }
 }
 
