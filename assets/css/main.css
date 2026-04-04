@@ -3004,6 +3004,6 @@ body.light-mode input[type="button"]:active {
 @media screen and (max-width: 736px) {
   #header nav {
     position: relative !important;
-    top: 6px !important;
+    top: 10px !important;
   }
 }
