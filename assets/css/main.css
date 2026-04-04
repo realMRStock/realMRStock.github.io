@@ -3012,13 +3012,9 @@ body.light-mode input[type="button"]:active {
   }
 }
 
-/* Mobile fix: Header etwas weiter nach unten */
+/* Mobile fix: obere Nav-Linie minimal nach unten, ohne die vertikale Linie zu ändern */
 @media screen and (max-width: 736px) {
-  #header .content {
-    margin-top: 0.5rem !important;
-  }
-
-  #header nav {
-    margin-top: 0.5rem !important;
+  #header nav ul {
+    margin-top: 2px !important;
   }
 }
