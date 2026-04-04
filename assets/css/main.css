@@ -3011,3 +3011,14 @@ body.light-mode input[type="button"]:active {
     margin-top: 2rem !important;
   }
 }
+
+/* Mobile fix: Header etwas nach unten, damit die Linien sich nicht kreuzen */
+@media screen and (max-width: 736px) {
+  #header .content {
+    margin-top: 0.35rem !important;
+  }
+
+  #header nav {
+    margin-top: 0.35rem !important;
+  }
+}
