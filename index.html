@@ -497,32 +497,32 @@
 			<script src="assets/js/main.js"></script>
 <script>
 (function () {
-  function onReady(fn) {
-    if (document.readyState !== 'loading') fn();
-    else document.addEventListener('DOMContentLoaded', fn);
-  }
-
-  onReady(function () {
+  function onReady(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
+  onReady(function(){
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
 
+    // gespeichertes Theme anwenden
     var saved = null;
-    try { saved = localStorage.getItem('theme'); } catch (e) {}
-
+    try { saved = localStorage.getItem('theme'); } catch(e){}
     if (saved === 'light') {
       document.body.classList.add('light-mode');
-      btn.setAttribute('aria-pressed', 'true');
+      btn.setAttribute('aria-pressed','true');
     } else {
-      btn.setAttribute('aria-pressed', 'false');
+      btn.setAttribute('aria-pressed','false');
     }
 
-    btn.addEventListener('click', function (ev) {
+    // Umschalten
+    btn.addEventListener('click', function(ev){
       ev.preventDefault();
       ev.stopPropagation();
       var isLight = document.body.classList.toggle('light-mode');
-      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) {}
+      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
       btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
     });
+
+    // falls irgendwo pointer-events deaktiviert wurden
+    btn.style.pointerEvents = 'auto';
   });
 })();
 </script>
