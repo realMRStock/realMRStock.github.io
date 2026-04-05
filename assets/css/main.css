@@ -1653,36 +1653,14 @@ button {
 	}
 
 
-/* =========================================================
-   CLEAN CUSTOM LAYER
-   Consolidated rules only — duplicates removed
-   ========================================================= */
+/* =========================================
+   Custom site styles (cleaned, consolidated)
+   ========================================= */
 
-/* Let the background overlay never block clicks */
-#bg:before { pointer-events: none; }
-
-/* ---------------------------------------------------------
-   Header typography
-   --------------------------------------------------------- */
+/* Name normal case */
 #header h1,
-#header .subtitle,
-#about h2.major,
-#research h2.major,
-#community h2.major,
-#contact h2.major,
-.keypub {
-  text-transform: none !important;
-}
-
-#header h1 {
-  letter-spacing: 0.08rem !important;
-}
-
 #header .subtitle {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-top: 0.5rem;
+  text-transform: none !important;
   letter-spacing: normal !important;
 }
 
@@ -1691,12 +1669,17 @@ button {
   max-height: none !important;
   height: auto !important;
   overflow: visible !important;
-  padding-bottom: 4em !important;
+  padding-bottom: 3rem !important;
 }
 
-/* ---------------------------------------------------------
-   Icon circles
-   --------------------------------------------------------- */
+#header .subtitle {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* Icon lists */
 #header ul.icons,
 #about ul.icons,
 #research ul.icons,
@@ -1707,18 +1690,37 @@ button {
   justify-content: center !important;
   gap: 20px !important;
   padding: 0 !important;
+}
+
+#header ul.icons {
   margin-top: 1.25rem !important;
 }
 
-#header ul.icons li,
-#about ul.icons li,
-#research ul.icons li,
-#community ul.icons li,
-#contact ul.icons li {
+#about ul.icons,
+#research ul.icons,
+#community ul.icons,
+#contact ul.icons {
+  margin-top: 1.5rem !important;
+}
+
+/* Home-page icons */
+#header ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  font-size: 34px !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
   padding: 0 !important;
 }
 
-#header ul.icons li a,
+/* Section icons */
 #about ul.icons li a,
 #research ul.icons li a,
 #community ul.icons li a,
@@ -1730,27 +1732,12 @@ button {
   height: 70px !important;
   line-height: 70px !important;
   font-size: 34px !important;
-  text-align: center !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
+  text-align: center !important;
   box-sizing: border-box !important;
   padding: 0 !important;
-  overflow: hidden !important;
-  position: relative !important;
-  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease !important;
-}
-
-/* No pseudo hover overlays */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
 }
 
 #header ul.icons li a:hover,
@@ -1758,20 +1745,11 @@ input[type="button"]::after {
 #research ul.icons li a:hover,
 #community ul.icons li a:hover,
 #contact ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.08) !important;
-  transform: scale(1.06);
-  border-color: #fff !important;
+  transform: scale(1.08);
+  border-color: #fff;
 }
 
-#header ul.icons li a:active,
-#about ul.icons li a:active,
-#research ul.icons li a:active,
-#community ul.icons li a:active,
-#contact ul.icons li a:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-/* Academicons / SVG mask alignment */
+/* Academicons baseline */
 .icon.ai:before,
 a.icon.ai:before {
   font-family: "Academicons" !important;
@@ -1779,28 +1757,17 @@ a.icon.ai:before {
   font-weight: normal !important;
 }
 
-.icon.ai-astrodb:before,
-a.icon.ai-astrodb:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+#header ul.icons li a.icon.ai:before,
+#about ul.icons li a.icon.ai:before,
+#research ul.icons li a.icon.ai:before,
+#community ul.icons li a.icon.ai:before,
+#contact ul.icons li a.icon.ai:before {
+  font-size: 34px !important;
+  line-height: 70px !important;
+  vertical-align: middle !important;
 }
 
-.icon.ai-inspire-svg:before,
-a.icon.ai-inspire-svg:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-}
-
+/* SVG-mask icons */
 .icon.ai-gs-svg:before,
 a.icon.ai-gs-svg:before {
   content: "";
@@ -1834,81 +1801,30 @@ a.icon.ai-arxiv-svg:before {
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
 }
 
-/* Slight optical alignment */
 .icon.ai-astrodb:before,
-.icon.ai-inspire-svg:before,
-.icon.ai-gs-svg:before,
-.icon.ai-rg-svg:before,
-.icon.ai-arxiv-svg:before,
+a.icon.ai-astrodb:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+}
+
+/* Keep Zenodo via Academicons webfont */
 .icon.ai.ai-zenodo-square:before,
-a.icon.ai-astrodb:before,
-a.icon.ai-inspire-svg:before,
-a.icon.ai-gs-svg:before,
-a.icon.ai-rg-svg:before,
-a.icon.ai-arxiv-svg:before,
 a.icon.ai.ai-zenodo-square:before {
-  transform: translateY(0) !important;
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
   line-height: 70px !important;
+  font-size: 34px !important;
   vertical-align: middle !important;
 }
 
-/* ---------------------------------------------------------
-   Header links and nav
-   --------------------------------------------------------- */
-#header .content .inner p a {
-  display: inline-block;
-  margin-top: 0.35rem;
-  white-space: normal;
-  line-height: 1.35;
-}
-
-#header nav ul {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-}
-
-#header nav ul li {
-  margin: 0 !important;
-  padding-left: 0 !important;
-}
-
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-/* ---------------------------------------------------------
-   Mobile layout
-   --------------------------------------------------------- */
+/* Mobile layout */
 @media screen and (max-width: 736px) {
-  #header h1,
-  #header .subtitle {
-    text-align: center !important;
-    white-space: normal !important;
-    word-break: normal !important;
-  }
-
-  #header .subtitle br {
-    display: block !important;
-  }
-
   #header .content {
     display: flex !important;
     flex-direction: column !important;
@@ -1916,12 +1832,15 @@ input[type="button"]:active {
   }
 
   #header .content .inner {
-    padding: 2rem 1rem 3rem 1rem !important;
+    padding: 2.25rem 1rem 2.5rem 1rem !important;
   }
 
-  #header .content .inner p a {
+  #header .subtitle {
+    white-space: normal !important;
+  }
+
+  #header .subtitle br {
     display: block !important;
-    width: 100% !important;
   }
 
   #header ul.icons li,
@@ -1929,67 +1848,81 @@ input[type="button"]:active {
   #research ul.icons li,
   #community ul.icons li,
   #contact ul.icons li {
-    flex: 0 1 calc(50% - 1rem) !important;
     display: flex !important;
     justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  #header ul.icons li {
+    flex: 0 1 calc(50% - 10px) !important;
+  }
+
+  #about ul.icons li,
+  #research ul.icons li,
+  #community ul.icons li,
+  #contact ul.icons li {
+    flex: 0 1 calc(50% - 10px) !important;
+  }
+
+  #header .content .inner p a {
+    display: block !important;
+    margin-top: 0.35rem !important;
   }
 
   #header nav {
-    margin-top: 2rem !important;
     position: relative !important;
-    top: 0 !important;
-    transform: none !important;
+    margin-top: 2rem !important;
   }
 
   #header nav ul {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
+    gap: 0 !important;
     width: 100% !important;
+  }
+
+  #header nav ul li {
+    display: flex !important;
+    align-items: stretch !important;
   }
 
   #header nav ul li a {
+    width: 100% !important;
+    min-width: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: 3.25rem !important;
     line-height: 1 !important;
-    text-align: center !important;
+    height: 3rem !important;
+    padding: 0 1.25rem !important;
     box-sizing: border-box !important;
   }
-
-  /* vertical line should touch, not cross */
-  #header > *:before {
-    top: calc(-2rem) !important;
-    height: calc(2rem) !important;
-  }
-
-  #main article {
-    padding: 3.5rem 1.25rem 1rem 1.25rem !important;
-  }
 }
 
-@media screen and (max-width: 480px) {
-  #header ul.icons li a,
-  #about ul.icons li a,
-  #research ul.icons li a,
-  #community ul.icons li a,
-  #contact ul.icons li a {
-    width: 56px !important;
-    height: 56px !important;
-    line-height: 56px !important;
-    font-size: 28px !important;
-  }
-
-  #header nav {
-    margin-bottom: 0.5rem !important;
-  }
+/* Hover hitboxes should match visible areas */
+ul.icons li a::after,
+#header nav ul li a::after,
+.button::after,
+button::after,
+input[type="submit"]::after,
+input[type="reset"]::after,
+input[type="button"]::after {
+  content: none !important;
+  display: none !important;
 }
 
-/* ---------------------------------------------------------
-   Light mode
-   --------------------------------------------------------- */
+ul.icons li a,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Light mode */
 body.light-mode,
 body.light-mode * {
   color: #000 !important;
@@ -2007,7 +1940,6 @@ body.light-mode #bg:before {
   background-size: auto, 256px 256px !important;
   background-position: center, center !important;
   background-repeat: no-repeat, repeat !important;
-  filter: none !important;
 }
 
 body.light-mode #main article {
@@ -2020,10 +1952,7 @@ body.light-mode h2.major,
 body.light-mode h3.major,
 body.light-mode h4.major,
 body.light-mode h5.major,
-body.light-mode h6.major {
-  border-color: #000 !important;
-}
-
+body.light-mode h6.major,
 body.light-mode hr,
 body.light-mode .box,
 body.light-mode table tbody tr,
@@ -2032,8 +1961,11 @@ body.light-mode table tfoot,
 body.light-mode ul.alt li,
 body.light-mode #header nav ul,
 body.light-mode #header nav ul li,
-body.light-mode #header .logo {
+body.light-mode #header .logo,
+body.light-mode #header > *:before,
+body.light-mode #header nav.use-middle:after {
   border-color: #000 !important;
+  background-color: transparent;
   box-shadow: none !important;
 }
 
@@ -2056,7 +1988,6 @@ body.light-mode input[type="submit"]:hover,
 body.light-mode input[type="reset"]:hover,
 body.light-mode input[type="button"]:hover {
   background-color: rgba(255,255,255,0.55) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
 }
 
 body.light-mode ul.icons li a:active,
@@ -2067,52 +1998,20 @@ body.light-mode input[type="submit"]:active,
 body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
   background-color: rgba(255,255,255,0.70) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
 }
 
-body.light-mode input[type="text"],
-body.light-mode input[type="password"],
-body.light-mode input[type="email"],
-body.light-mode input[type="tel"],
-body.light-mode select,
-body.light-mode textarea {
-  border-color: #000 !important;
-}
-
-body.light-mode input:focus,
-body.light-mode select:focus,
-body.light-mode textarea:focus {
-  background: rgba(0,0,0,0.075) !important;
-  box-shadow: 0 0 0 1px #000 !important;
-}
-
-body.light-mode #main article .close:before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
-  background-size: 20px 20px !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-
-body.light-mode #main article .close:hover:before {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #main article .close:active:before {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* ---------------------------------------------------------
-   Theme toggle
-   Top-centered on page; scrolls away with document
-   --------------------------------------------------------- */
+/* Toggle: document-bound, centered at top, scrolls away with page */
+#themeToggle,
 #themeToggle.theme-toggle,
-.theme-toggle {
-  all: unset;
+button#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle {
   position: absolute !important;
-  top: 12px !important;
+  top: 8px !important;
   left: 50% !important;
   right: auto !important;
   bottom: auto !important;
+  margin: 0 !important;
   transform: translateX(-50%) !important;
   z-index: 10000 !important;
   width: 64px !important;
@@ -2125,77 +2024,69 @@ body.light-mode #main article .close:active:before {
   border-radius: 999px !important;
   border: 1px solid rgba(255,255,255,0.9) !important;
   background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px) !important;
   cursor: pointer !important;
-  pointer-events: auto !important;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
 }
 
-#themeToggle.theme-toggle i,
-.theme-toggle i {
+#themeToggle i,
+#themeToggle .knob {
   pointer-events: none !important;
+}
+
+#themeToggle i {
   font-size: 14px !important;
   line-height: 1 !important;
   opacity: 0.85 !important;
 }
 
-#themeToggle.theme-toggle .fa-moon,
-.theme-toggle .fa-moon {
-  margin-right: auto !important;
-}
+#themeToggle .fa-moon { margin-right: auto !important; }
+#themeToggle .fa-sun  { margin-left: auto !important; }
 
-#themeToggle.theme-toggle .fa-sun,
-.theme-toggle .fa-sun {
-  margin-left: auto !important;
-}
-
-#themeToggle.theme-toggle .knob,
-.theme-toggle .knob {
+#themeToggle .knob {
   position: absolute !important;
   left: 3px !important;
   width: 28px !important;
   height: 28px !important;
   border-radius: 999px !important;
   background: #ffffff !important;
-  transform: translateX(0) !important;
   transition: transform 0.2s ease !important;
+  transform: translateX(0) !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
 }
 
-body.light-mode #themeToggle.theme-toggle,
-body.light-mode .theme-toggle {
+body.light-mode #themeToggle {
   border-color: rgba(0,0,0,0.85) !important;
   background: rgba(0,0,0,0.06) !important;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
 }
 
-body.light-mode #themeToggle.theme-toggle .knob,
-body.light-mode .theme-toggle .knob {
+body.light-mode #themeToggle .knob {
   background: #000 !important;
   transform: translateX(30px) !important;
 }
 
 @media screen and (max-width: 480px) {
+  #themeToggle,
   #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 10px !important;
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle {
     width: 56px !important;
     height: 32px !important;
     padding: 0 5px !important;
   }
 
-  #themeToggle.theme-toggle .knob,
-  .theme-toggle .knob {
+  #themeToggle .knob {
     width: 26px !important;
     height: 26px !important;
   }
 
-  body.light-mode #themeToggle.theme-toggle .knob,
-  body.light-mode .theme-toggle .knob {
+  body.light-mode #themeToggle .knob {
     transform: translateX(24px) !important;
   }
 }
 
-/* Utility spacing for publication blocks */
+/* Small spacing helper used in publications */
 .gap-top-2 { margin-top: 2rem !important; }
 .gap-bot-2 { margin-bottom: 2rem !important; }
