@@ -484,7 +484,7 @@
 <div id="bg"></div>
 
 <!-- Theme toggle (unverändert) -->
-<button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Dark/Light" style="position: fixed !important; top: 8px !important; left: 50% !important; right: auto !important; bottom: auto !important; transform: translateX(-50%) !important; margin: 0 !important; z-index: 2147483647 !important;">
+<button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false" title="Dark/Light">
   <i class="fa-regular fa-moon" aria-hidden="true"></i>
   <i class="fa-regular fa-sun"  aria-hidden="true"></i>
   <span class="knob" aria-hidden="true"></span>
@@ -503,14 +503,22 @@
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
 
-    btn.style.setProperty('position', 'fixed', 'important');
-    btn.style.setProperty('top', '8px', 'important');
-    btn.style.setProperty('left', '50%', 'important');
-    btn.style.setProperty('right', 'auto', 'important');
-    btn.style.setProperty('bottom', 'auto', 'important');
-    btn.style.setProperty('transform', 'translateX(-50%)', 'important');
-    btn.style.setProperty('margin', '0', 'important');
-    btn.style.setProperty('z-index', '2147483647', 'important');
+    function pinToggle() {
+      btn.style.position = 'fixed';
+      btn.style.top = '8px';
+      btn.style.left = '50%';
+      btn.style.right = 'auto';
+      btn.style.bottom = 'auto';
+      btn.style.margin = '0';
+      btn.style.transform = 'translateX(-50%)';
+      btn.style.zIndex = '2147483647';
+      btn.style.pointerEvents = 'auto';
+    }
+
+    // Button ganz nach body verschieben, damit kein Container ihn beeinflusst
+    if (btn.parentNode !== document.body) {
+      document.body.appendChild(btn);
+    }
 
     // gespeichertes Theme anwenden
     var saved = null;
@@ -522,6 +530,9 @@
       btn.setAttribute('aria-pressed','false');
     }
 
+    // Anfangszustand hart setzen
+    pinToggle();
+
     // Umschalten
     btn.addEventListener('click', function(ev){
       ev.preventDefault();
@@ -529,10 +540,18 @@
       var isLight = document.body.classList.toggle('light-mode');
       try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
       btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      pinToggle();
     });
 
-    // falls irgendwo pointer-events deaktiviert wurden
-    btn.style.pointerEvents = 'auto';
+    // Fixierung auch bei Scroll/Resize/Hashwechsel erneut erzwingen
+    window.addEventListener('scroll', pinToggle, { passive: true });
+    window.addEventListener('resize', pinToggle);
+    window.addEventListener('hashchange', pinToggle);
+
+    // Template ändert Klassen/Layouts verzögert -> nochmals nachziehen
+    setTimeout(pinToggle, 50);
+    setTimeout(pinToggle, 250);
+    setInterval(pinToggle, 1000);
   });
 })();
 </script>
