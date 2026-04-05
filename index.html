@@ -16,7 +16,6 @@
 <!-- Academicons (wissenschaftliche Symbole)
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.6/css/academicons.min.css">
 
 		
 		<!-- This is the title of the page. It is the text that appears inside this pages tab in your web browser -->
@@ -498,32 +497,32 @@
 			<script src="assets/js/main.js"></script>
 <script>
 (function () {
-  function onReady(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn);}
-  onReady(function(){
+  function onReady(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  onReady(function () {
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
 
-    // gespeichertes Theme anwenden
     var saved = null;
-    try { saved = localStorage.getItem('theme'); } catch(e){}
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+
     if (saved === 'light') {
       document.body.classList.add('light-mode');
-      btn.setAttribute('aria-pressed','true');
+      btn.setAttribute('aria-pressed', 'true');
     } else {
-      btn.setAttribute('aria-pressed','false');
+      btn.setAttribute('aria-pressed', 'false');
     }
 
-    // Umschalten
-    btn.addEventListener('click', function(ev){
+    btn.addEventListener('click', function (ev) {
       ev.preventDefault();
       ev.stopPropagation();
       var isLight = document.body.classList.toggle('light-mode');
-      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(e){}
+      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) {}
       btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
     });
-
-    // falls irgendwo pointer-events deaktiviert wurden
-    btn.style.pointerEvents = 'auto';
   });
 })();
 </script>
