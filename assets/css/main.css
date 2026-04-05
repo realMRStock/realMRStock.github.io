@@ -2067,7 +2067,70 @@ body.light-mode #bg:after {
   background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
 }
 
+/* ---------------------------
+   Toggle-UI (Switch mit Mond/Sonne)
+   --------------------------- */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
 
+/* Piktogramme im Schalter */
+.theme-toggle i {
+  pointer-events: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* Mond links, Sonne rechts */
+.theme-toggle .fa-moon { margin-right: auto; }
+.theme-toggle .fa-sun  { margin-left:  auto; }
+
+/* Knopf der „fährt“ */
+.theme-toggle .knob {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #ffffff;
+  left: 3px;
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+/* Im Light-Mode invertieren wir nur die UI-Farben des Schalters */
+body.light-mode .theme-toggle {
+  border-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+body.light-mode .theme-toggle .knob {
+  background: #000000;
+  transform: translateX(30px);
+}
+
+/* Optional: auf sehr kleinen Screens etwas kleiner */
+@media screen and (max-width: 480px) {
+  .theme-toggle { width: 56px; height: 32px; padding: 0 5px; }
+  .theme-toggle .knob { width: 26px; height: 26px; left: 3px; transform: translateX(0); }
+  body.light-mode .theme-toggle .knob { transform: translateX(24px); }
+}
 
 /* ===========================
    Light-Mode: Icons (Kreis + Symbol) invertieren
@@ -2354,7 +2417,12 @@ body.light-mode #header nav.use-middle:after {
   line-height: 1.35;
 }
 
-
+/* 4) Schalter immer vor Klicks geschützt und außerhalb von Overlays sichtbar */
+.theme-toggle {
+  position: fixed;                /* bleibt fest; kollidiert nicht mit Layout-Flow */
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+}
 
 /* 5) Navigationsleiste: bricht sauber um und bekommt Abstände */
 #header nav ul {
@@ -2650,7 +2718,26 @@ body.light-mode input[type="button"]:active::after {
    FINAL TARGETED FIXES ONLY
    ========================================================= */
 
-
+/* 1) Theme toggle: truly fixed and centered, no scrolling with page */
+.theme-toggle {
+  position: absolute !important;
+  top: 0.35rem !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin-left: -32px !important; /* half of 64px width */
+  transform: none !important;
+  z-index: 2147483647 !important;
+}
+@media screen and (max-width: 736px) {
+  .theme-toggle {
+    top: 0.35rem !important;
+    left: 50% !important;
+    right: auto !important;
+    margin-left: -28px !important; /* half of 56px width */
+    transform: none !important;
+  }
+}
 
 /* 2) Hover/active effect must match actual visible button area */
 ul.icons li a::after,
@@ -2768,7 +2855,43 @@ body.light-mode input[type="button"]:active {
    FINAL TARGETED FIXES (clean, last rules win)
    ===================================================== */
 
+/* 1) Theme toggle: truly fixed and centered */
+#themeToggle.theme-toggle,
+.theme-toggle {
+  position: fixed !important;
+  top: 12px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  z-index: 100000 !important;
+}
 
+@media screen and (min-width: 737px) {
+  #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 8px !important;
+  }
+
+  /* keep header below the fixed toggle on desktop, without overlap */
+  #header {
+    margin-top: 52px !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  #header {
+    margin-top: 42px !important;
+  }
+}
 
 /* 2) Research icons same size/layout as Contact/About/Community */
 #research ul.icons {
@@ -2891,7 +3014,31 @@ body.light-mode input[type="button"]:active {
    mobile nav lowered to form a clean T
    ===================================================== */
 
+/* 1) Toggle: direct child of body, truly viewport-fixed and centered */
+html body > #themeToggle.theme-toggle {
+  position: fixed !important;
+  top: 8px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483647 !important;
+}
 
+/* keep size stable */
+html body > #themeToggle.theme-toggle {
+  width: 64px !important;
+  height: 34px !important;
+}
+
+@media screen and (max-width: 736px) {
+  html body > #themeToggle.theme-toggle {
+    top: 8px !important;
+    width: 56px !important;
+    height: 32px !important;
+  }
+}
 
 /* 2) Reduce the empty space above the top line over the name */
 @media screen and (min-width: 737px) {
@@ -2917,82 +3064,40 @@ body.light-mode input[type="button"]:active {
   }
 }
 
+
 /* =====================================================
-   CANONICAL THEME TOGGLE
-   single source of truth
+   FINAL TOGGLE-ONLY FIX
+   changes nothing else
    ===================================================== */
-body > #themeToggle {
-  all: unset !important;
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+div#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle {
   position: fixed !important;
-  top: 12px !important;
+  top: 8px !important;
   left: 50% !important;
   right: auto !important;
   bottom: auto !important;
+  margin: 0 !important;
   transform: translateX(-50%) !important;
   z-index: 2147483647 !important;
-  width: 64px !important;
-  height: 34px !important;
-  box-sizing: border-box !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 6px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255,255,255,0.9) !important;
-  background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(2px) !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
 }
 
-body > #themeToggle i {
-  pointer-events: none !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
-  opacity: 0.85 !important;
-}
-
-body > #themeToggle .fa-moon { margin-right: auto !important; }
-body > #themeToggle .fa-sun  { margin-left: auto !important; }
-
-body > #themeToggle .knob {
-  position: absolute !important;
-  left: 3px !important;
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 999px !important;
-  background: #ffffff !important;
-  transform: translateX(0) !important;
-  transition: transform 0.2s ease !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
-}
-
-body.light-mode > #themeToggle {
-  border-color: rgba(0,0,0,0.85) !important;
-  background: rgba(0,0,0,0.06) !important;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
-}
-
-body.light-mode > #themeToggle .knob {
-  background: #000000 !important;
-  transform: translateX(30px) !important;
-}
-
-@media screen and (max-width: 480px) {
-  body > #themeToggle {
-    top: 10px !important;
-    width: 56px !important;
-    height: 32px !important;
-    padding: 0 5px !important;
-  }
-
-  body > #themeToggle .knob {
-    width: 26px !important;
-    height: 26px !important;
-  }
-
-  body.light-mode > #themeToggle .knob {
-    transform: translateX(24px) !important;
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  div#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle {
+    top: 8px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147483647 !important;
   }
 }
