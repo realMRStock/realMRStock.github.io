@@ -4,133 +4,122 @@
 		<title>Dr. Matthias Raphael Stock</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.6/css/academicons.min.css">
-		
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
 		<div id="wrapper">
-
-				<header id="header">
-						<div class="logo">
-							<span class="icon fa-solid fa-atom"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Dr. Matthias Raphael Stock</h1>
-								<img src="images/Q.jpg" style="width:280px; height:280px; object-fit: cover; border-radius: 50%; margin-bottom: 2rem;">
-								<p>Postdoctoral Researcher <br />
-								University of Hawaiʻi at Mānoa</p>
-								
-								<ul class="icons">
-									<li><a href="mailto:raphael.stock@tum.de" class="icon fa-regular fa-envelope"><span class="label">Email</span></a></li>
-									<li><a href="https://www.linkedin.com/in/raphael-stock-144a0172/" class="icon fa-brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://orcid.org/0000-0002-5963-7431" class="icon fa-brands fa-orcid"><span class="label">ORCID</span></a></li>
-									<li><a href="https://scholar.google.de/citations?hl=de&user=oXl77gMAAAAJ" class="icon ai-gs-svg"><span class="label">Google Scholar</span></a></li>
-									<li><a href="https://www.researchgate.net/profile/Matthias-Stock-2" class="icon ai-rg-svg"><span class="label">ResearchGate</span></a></li>
-									<li><a href="https://inspirehep.net/literature?q=a%20M.R.Stock.1" class="icon ai ai-inspire-svg"><span class="label">Inspire</span></a></li>
-									<li><a href="https://arxiv.org/search/advanced?terms-0-term=Stock%2C+M+R&terms-0-field=author" class="icon ai-arxiv-svg"><span class="label">arXiv</span></a></li>
-									<li><a href="https://ui.adsabs.harvard.edu" class="icon ai ai-astrodb"><span class="label">ADS</span></a></li>
-									<li><a href="https://zenodo.org" class="icon ai ai-zenodo-square"><span class="label">Zenodo</span></a></li>
-									<li><a href="https://github.com/realMRStock" class="icon fa-brands fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.flickr.com/photos/raphypics/" class="icon fa-brands fa-flickr"><span class="label">Flickr</span></a></li>
-								</ul>
-								
-								<p>
-									<a href="images/CV_MRStock.pdf" target="_blank">Curriculum Vitae</a><br />
-									<a href="https://mediatum.ub.tum.de/?id=1782355" target="_blank">Doctoral Thesis</a>
-								</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#about">About Me</a></li>
-								<li><a href="#research">Research</a></li>
-								<li><a href="#community">Community</a></li>
-								<li><a href="#contact">Contact</a></li>
-							</ul>
-						</nav>
-					</header>
-
-				<div id="main">
-
-						<article id="about">
-								<h2 class="major">About Me</h2>
-								<span class="image main"><img src="images/JUNO_CD.jpg" alt="" /></span>
-								<p><b>Aloha, I am a postdoctoral researcher in astroparticle physics at the University of Hawaiʻi at Mānoa.</b> My research centers on detector response, energy scale, and optical calibration in large-scale neutrino and dark matter experiments.</p>
-							</article>
-
-						<article id="research">
-								<h2 class="major">Research</h2>
-								<span class="image main"><img src="images/FS5clear_DxO.jpg" alt="" /></span>
-								<p>Publications and research data can be found via the icons below.</p>
-								<ul class="icons">
-									<li><a href="https://orcid.org/0000-0002-5963-7431" class="icon fa-brands fa-orcid"><span class="label">ORCID</span></a></li>
-									<li><a href="https://scholar.google.de/citations?hl=de&user=oXl77gMAAAAJ" class="icon ai-gs-svg"><span class="label">Google Scholar</span></a></li>
-								</ul>
-								<h3>Key publications</h3>
-								<p><b>Picosecond laser test unit for photosensor characterization</b><br />
-								<a href="https://doi.org/10.1016/j.nima.2026.171476" target="_blank">Nuclear Instr. and Methods A (2026) 171476</a></p>
-							</article>
-
-						<article id="community">
-								<h2 class="major">Community</h2>
-								<span class="image main"><img src="images/TalkDec2023.jpg" alt="" /></span>
-								<p>I share practical resources for colleagues and students.</p>
-							</article>
-
-						<article id="contact">
-								<h2 class="major">Contact</h2>
-								<span class="image main"><img src="images/LeBancdeChoozSmall.png" alt="" /></span>
-								<p>University of Hawaiʻi at Mānoa<br />Watanabe Hall, 2505 Correa Road<br />Honolulu, HI 96822, USA</p>
-								<div id="map" style="width: 100%; height: 300px;"></div>
-								<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-								<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-								<script>
-									document.addEventListener('DOMContentLoaded', function() {
-										var map = L.map('map').setView([21.298372, -157.816034], 15);
-										L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-										L.marker([21.29835, -157.81585]).addTo(map).bindPopup('Watanabe Hall').openPopup();
-									});
-								</script>
-							</article>
-
+			<header id="header">
+				<div class="logo">
+					<span class="icon fa-solid fa-atom"></span>
+				</div>
+				<div class="content">
+					<div class="inner">
+						<h1>Dr. Matthias Raphael Stock</h1>
+						<img src="images/Q.jpg" style="width:280px; height:280px; object-fit: cover; border-radius: 50%; margin-bottom: 2rem;">
+						<p>Postdoctoral Researcher <br /> University of Hawaiʻi at Mānoa</p>
+						<ul class="icons">
+							<li><a href="mailto:raphael.stock@tum.de" class="icon fa-regular fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://www.linkedin.com/in/raphael-stock-144a0172/" class="icon fa-brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://orcid.org/0000-0002-5963-7431" class="icon fa-brands fa-orcid"><span class="label">ORCID</span></a></li>
+							<li><a href="https://scholar.google.de/citations?hl=de&user=oXl77gMAAAAJ" class="icon ai-gs-svg"><span class="label">Google Scholar</span></a></li>
+							<li><a href="https://www.researchgate.net/profile/Matthias-Stock-2" class="icon ai-rg-svg"><span class="label">ResearchGate</span></a></li>
+							<li><a href="https://inspirehep.net/literature?q=a%20M.R.Stock.1" class="icon ai ai-inspire-svg"><span class="label">Inspire</span></a></li>
+							<li><a href="https://arxiv.org/search/advanced?terms-0-term=Stock%2C+M+R&terms-0-field=author" class="icon ai-arxiv-svg"><span class="label">arXiv</span></a></li>
+							<li><a href="https://ui.adsabs.harvard.edu" class="icon ai ai-astrodb"><span class="label">ADS</span></a></li>
+							<li><a href="https://zenodo.org" class="icon ai ai-zenodo-square"><span class="label">Zenodo</span></a></li>
+							<li><a href="https://github.com/realMRStock" class="icon fa-brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.flickr.com/photos/raphypics/" class="icon fa-brands fa-flickr"><span class="label">Flickr</span></a></li>
+						</ul>
+						<p>
+							<a href="images/CV_MRStock.pdf" target="_blank">Curriculum Vitae</a><br />
+							<a href="https://mediatum.ub.tum.de/?id=1782355" target="_blank">Doctoral Thesis</a>
+						</p>
 					</div>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#about">About Me</a></li>
+						<li><a href="#research">Research</a></li>
+						<li><a href="#community">Community</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
 
-				<footer id="footer">
-						<p class="copyright">&copy; Dr. Matthias Raphael Stock. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
+			<div id="main">
+				<article id="about">
+					<h2 class="major">About Me</h2>
+					<span class="image main"><img src="images/JUNO_CD.jpg" alt="" /></span>
+					<p><b>Aloha, I am a postdoctoral researcher in astroparticle physics at the University of Hawaiʻi at Mānoa.</b> My research centers on detector response, energy scale, and optical calibration in large-scale neutrino and dark matter experiments.</p>
+				</article>
 
+				<article id="research">
+					<h2 class="major">Research</h2>
+					<span class="image main"><img src="images/FS5clear_DxO.jpg" alt="" /></span>
+					<p>Publications and research data can be found via the icons below.</p>
+					<ul class="icons">
+						<li><a href="https://orcid.org/0000-0002-5963-7431" class="icon fa-brands fa-orcid"><span class="label">ORCID</span></a></li>
+						<li><a href="https://scholar.google.de/citations?hl=de&user=oXl77gMAAAAJ" class="icon ai-gs-svg"><span class="label">Google Scholar</span></a></li>
+					</ul>
+					<h3>Key publications</h3>
+					<p><b>Picosecond laser test unit for photosensor characterization</b><br />
+					<a href="https://doi.org/10.1016/j.nima.2026.171476" target="_blank">Nuclear Instr. and Methods A (2026) 171476</a></p>
+				</article>
+
+				<article id="community">
+					<h2 class="major">Community</h2>
+					<span class="image main"><img src="images/TalkDec2023.jpg" alt="" /></span>
+					<p>I share practical resources for colleagues and students.</p>
+				</article>
+
+				<article id="contact">
+					<h2 class="major">Contact</h2>
+					<span class="image main"><img src="images/LeBancdeChoozSmall.png" alt="" /></span>
+					<p>University of Hawaiʻi at Mānoa<br />Watanabe Hall, 2505 Correa Road<br />Honolulu, HI 96822, USA</p>
+					<div id="map" style="width: 100%; height: 300px;"></div>
+					<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+					<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+							var map = L.map('map').setView([21.298372, -157.816034], 15);
+							L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+							L.marker([21.29835, -157.81585]).addTo(map).bindPopup('Watanabe Hall').openPopup();
+						});
+					</script>
+				</article>
 			</div>
 
-		<div id="bg"></div>
+			<footer id="footer">
+				<p class="copyright">&copy; Dr. Matthias Raphael Stock. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</footer>
+		</div>
 
-		<button id="themeToggle" class="theme-toggle">
+		<div id="bg"></div>
+		<button id="themeToggle" class="theme-toggle" title="Dark/Light">
 			<i class="fa-regular fa-moon"></i>
 			<i class="fa-regular fa-sun"></i>
 			<span class="knob"></span>
 		</button>
 
 		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				(function () {
-					var btn = document.getElementById('themeToggle');
-					if (!btn) return;
-					var saved = localStorage.getItem('theme');
-					if (saved === 'light') document.body.classList.add('light-mode');
-					btn.addEventListener('click', function(){
-						var isLight = document.body.classList.toggle('light-mode');
-						localStorage.setItem('theme', isLight ? 'light' : 'dark');
-					});
-				})();
-			</script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			(function () {
+				var btn = document.getElementById('themeToggle');
+				if (!btn) return;
+				var saved = localStorage.getItem('theme');
+				if (saved === 'light') document.body.classList.add('light-mode');
+				btn.addEventListener('click', function(){
+					var isLight = document.body.classList.toggle('light-mode');
+					localStorage.setItem('theme', isLight ? 'light' : 'dark');
+				});
+			})();
+		</script>
 	</body>
 </html>
