@@ -2774,7 +2774,7 @@ body.light-mode input[type="button"]:active {
 
 /* 1) Theme toggle 4px weiter von der Linie weg */
 .theme-toggle {
-  margin-top: 4px !important;
+  margin-top: 8px !important;
 }
 
 /* 2) Hover-Fläche der Header-Navigation exakt an sichtbare Buttonfläche koppeln */
