@@ -2178,7 +2178,7 @@ body.light-mode .theme-toggle .knob {
   body > #themeToggle,
   body > #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 2px !important;
+    top: 9px !important;
     width: 56px !important;
     height: 32px !important;
     padding: 0 5px !important;
@@ -2191,55 +2191,5 @@ body.light-mode .theme-toggle .knob {
 
   body.light-mode .theme-toggle .knob {
     transform: translateX(24px) !important;
-  }
-}
-
-/* Headings: reduce letter spacing */
-h1, h2, h3, h4, h5, h6,
-h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
-#header h1,
-article h2.major,
-article h3 {
-  letter-spacing: 0.06rem !important;
-}
-
-/* Light mode: close X icon black */
-body.light-mode #main article .close:before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
-}
-
-/* =========================================================
-   Smartphone-only targeted fixes
-   ========================================================= */
-
-/* 1) Light-mode switch border must be truly black */
-body.light-mode #themeToggle,
-body.light-mode #themeToggle.theme-toggle,
-body.light-mode .theme-toggle {
-  border: 1px solid #000 !important;
-  border-color: #000 !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-/* =========================================================
-   Smartphone-only targeted fixes v2
-   Switch stays where it is; move the rest of the header down
-   ========================================================= */
-@media screen and (max-width: 736px) {
-  #header {
-    margin-top: 1.25rem !important;
-  }
-
-  #header > * {
-    margin-top: 2.4rem !important;
-  }
-
-  #header > *:before {
-    top: calc(-2.4rem - 1px) !important;
-    height: calc(2.4rem + 1px) !important;
-  }
-
-  #header nav {
-    margin-top: 1.5rem !important;
   }
 }
