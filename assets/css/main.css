@@ -1776,16 +1776,12 @@ a.icon.ai:before {
 	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Zenodo: use the compact square 'ZE' icon explicitly */
+/* Keep Zenodo on the official font glyph; only normalize its alignment */
 .icon.ai.ai-zenodo-square:before,
 a.icon.ai.ai-zenodo-square:before {
-	content: "";
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	background-color: currentColor;
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
+	font-family: "Academicons" !important;
+	font-style: normal;
+	font-weight: normal;
 	vertical-align: middle;
 }
 
@@ -1880,15 +1876,15 @@ input[type="button"]:active {
 	background-color: var(--site-active-dark);
 }
 
-/* Theme toggle: placed at the very top of the page and scrolls away with the content */
+/* Fixed theme toggle: pinned to the viewport top, not to page flow */
 .theme-toggle {
-	position: absolute;
-	top: 1px;
+	position: fixed;
+	top: 12px;
 	left: 50%;
 	right: auto;
 	bottom: auto;
 	transform: translateX(-50%);
-	z-index: 100;
+	z-index: 10000;
 	width: 64px;
 	height: 34px;
 	border-radius: 999px;
@@ -1930,9 +1926,9 @@ input[type="button"]:active {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-/* Minimal top spacing so the toggle sits close to the header line */
+/* Create space below the fixed toggle so it never cuts the header line */
 #header {
-	margin-top: 0.35rem;
+	margin-top: 3.75rem;
 }
 
 /* Dark mode consistency */
@@ -2098,21 +2094,6 @@ body.light-mode #main article .close:before {
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
 }
 
-body.light-mode #themeToggle,
-body.light-mode #themeToggle i,
-body.light-mode #themeToggle .fa-moon,
-body.light-mode #themeToggle .fa-sun {
-	color: var(--site-text-light);
-}
-
-body.light-mode a {
-	border-bottom-color: rgba(0, 0, 0, 0.5);
-}
-
-body.light-mode a:hover {
-	border-bottom-color: transparent;
-}
-
 body.light-mode input:focus,
 body.light-mode select:focus,
 body.light-mode textarea:focus {
@@ -2124,7 +2105,7 @@ body.light-mode textarea:focus {
 /* Responsive adjustments */
 @media screen and (max-width: 736px) {
 	#header {
-		margin-top: 0.25rem;
+		margin-top: 3.2rem;
 	}
 
 	#header .content .inner {
@@ -2215,4 +2196,90 @@ body.light-mode textarea:focus {
 
 .gap-bot-2 {
 	margin-bottom: 2rem !important;
+}
+
+
+
+/* =====================================================
+   TARGETED PATCH: vertical line, toggle position, Zenodo
+   ===================================================== */
+
+/* Move theme toggle a few pixels lower, but keep it page-bound (not viewport-fixed) */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+div#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle,
+.theme-toggle {
+  position: absolute !important;
+  top: 6px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483647 !important;
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  div#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 6px !important;
+  }
+}
+
+/* Reduce extra space above header */
+#header {
+  margin-top: 0.15rem !important;
+}
+
+@media screen and (max-width: 736px) {
+  #header {
+    margin-top: 0.1rem !important;
+  }
+}
+
+/* Light mode: make the vertical connector lines black again */
+body.light-mode #header > *:before,
+body.light-mode #header nav.use-middle:after {
+  background: #000 !important;
+}
+
+/* Light mode: make major heading underline black consistently */
+body.light-mode h1.major,
+body.light-mode h2.major,
+body.light-mode h3.major,
+body.light-mode h4.major,
+body.light-mode h5.major,
+body.light-mode h6.major {
+  border-bottom-color: #000 !important;
+}
+
+/* Zenodo: force original Academicons square "ZE" glyph */
+.icon.ai.ai-zenodo-square:before,
+a.icon.ai.ai-zenodo-square:before {
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  content: "\e829" !important;
+  display: inline-block !important;
+  font-size: 34px !important;
+  line-height: 70px !important;
+  vertical-align: middle !important;
+  transform: translateY(0) !important;
+  speak: none !important;
+}
+
+/* If any older SVG-mask Zenodo rule exists, neutralize it */
+.icon.ai-zenodo-svg:before,
+a.icon.ai-zenodo-svg:before {
+  -webkit-mask: none !important;
+  mask: none !important;
+  background-color: transparent !important;
 }
