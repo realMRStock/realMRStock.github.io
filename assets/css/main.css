@@ -2252,3 +2252,66 @@ body.light-mode #header .content .inner > p:last-of-type a::after {
     rgba(0,0,0,0.0) 100%
   );
 }
+
+/* =========================================================
+   Soft blur override — remove sharp base panel, use only feathered pseudo layers
+   ========================================================= */
+#header .subtitle,
+#footer .copyright,
+#header .content .inner > p:last-of-type a {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep footer pill compact */
+#header .subtitle,
+#footer .copyright {
+  display: inline-block !important;
+}
+
+/* Soft halo/panel only via pseudo-elements */
+#header .subtitle::before,
+#footer .copyright::before,
+#header .content .inner > p:last-of-type a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.18rem -0.32rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.018);
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  filter: blur(0px);
+  pointer-events: none;
+}
+
+#header .subtitle::after,
+#footer .copyright::after,
+#header .content .inner > p:last-of-type a::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -0.42rem -0.72rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  filter: blur(14px);
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+body.light-mode #header .subtitle::before,
+body.light-mode #footer .copyright::before,
+body.light-mode #header .content .inner > p:last-of-type a::before {
+  background: rgba(0,0,0,0.014);
+}
+
+body.light-mode #header .subtitle::after,
+body.light-mode #footer .copyright::after,
+body.light-mode #header .content .inner > p:last-of-type a::after {
+  background: rgba(0,0,0,0.05);
+  opacity: 0.22;
+}
