@@ -2129,3 +2129,37 @@ ul.icons li a {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
+
+/* =========================================================
+   Blurred background around CV / Thesis links
+   ========================================================= */
+#header .content .inner > p:last-of-type a {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+body.light-mode #header .content .inner > p:last-of-type a {
+  background: rgba(0,0,0,0.04);
+}
+
+/* =========================================================
+   Blurred background around subtitle and footer text
+   ========================================================= */
+#header .subtitle,
+#footer .copyright {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+body.light-mode #header .subtitle,
+body.light-mode #footer .copyright {
+  background: rgba(0,0,0,0.04);
+}
