@@ -2170,3 +2170,20 @@ body.light-mode #header .subtitle,
 body.light-mode #footer .copyright {
   background: rgba(0,0,0,0.04);
 }
+
+/* =========================================================
+   Softer, more harmonious blur transitions
+   ========================================================= */
+#header .subtitle,
+#footer .copyright,
+#header .content .inner > p:last-of-type a {
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+}
+
+body.light-mode #header .subtitle,
+body.light-mode #footer .copyright,
+body.light-mode #header .content .inner > p:last-of-type a {
+  background: rgba(0,0,0,0.03);
+}
