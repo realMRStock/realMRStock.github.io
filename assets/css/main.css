@@ -1781,21 +1781,15 @@ a.icon.ai:before {
 	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Zenodo icon: robust fallback using standard Zenodo SVG */
+/* Zenodo icon: keep the original Academicons square glyph */
 .icon.ai.ai-zenodo-square:before,
 a.icon.ai.ai-zenodo-square:before,
 .icon.ai-zenodo-square:before,
 a.icon.ai-zenodo-square:before {
-	content: "";
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	background-color: currentColor;
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
-	vertical-align: middle;
+	font-family: "Academicons" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
 }
-
 /* Unified icon sizing for all icon sections */
 #header ul.icons,
 #about ul.icons,
@@ -1890,7 +1884,7 @@ input[type="button"]:active {
 /* Theme toggle: attached to the page top, scrolls away with the header */
 .theme-toggle {
 	position: absolute !important;
-	top: 0.4rem;
+	top: 0.04rem;
 	left: 50%;
 	right: auto;
 	bottom: auto;
@@ -1939,7 +1933,7 @@ input[type="button"]:active {
 
 /* Create space below the fixed toggle so it never cuts the header line */
 #header {
-	margin-top: 3.75rem;
+	margin-top: 0.4rem;
 }
 
 /* Dark mode consistency */
@@ -2138,7 +2132,7 @@ body.light-mode textarea:focus {
 /* Responsive adjustments */
 @media screen and (max-width: 736px) {
 	#header {
-		margin-top: 3.2rem;
+		margin-top: 0.03rem;
 	}
 
 	#header .content .inner {
