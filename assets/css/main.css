@@ -1194,7 +1194,7 @@ button {
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
-	padding: 4rem 2rem;
+	padding: 1rem 1rem;
 	z-index: 3;
 }
 
