@@ -1681,13 +1681,13 @@ button {
 }
 
 /* =========================================
-   Kategorien (About, Contact, Community, Publications)
+   Kategorien (About, Contact, Community, Research)
    Mittlere Social-Icons
    ========================================= */
 #about ul.icons,
 #contact ul.icons,
 #community ul.icons,
-#publications ul.icons {
+#research ul.icons {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
@@ -1698,7 +1698,7 @@ button {
 #about ul.icons li a,
 #contact ul.icons li a,
 #community ul.icons li a,
-#publications ul.icons li a {
+#research ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1716,7 +1716,7 @@ button {
 #about ul.icons li a:hover,
 #contact ul.icons li a:hover,
 #community ul.icons li a:hover,
-#publications ul.icons li a:hover {
+#research ul.icons li a:hover {
   transform: scale(1.08);
   border-color: #fff;
 }
@@ -1725,7 +1725,7 @@ button {
 #about ul.icons li a.ai:before,
 #contact ul.icons li a.ai:before,
 #community ul.icons li a.ai:before,
-#publications ul.icons li a.ai:before {
+#research ul.icons li a.ai:before {
   font-size: 34px !important; /* proportional zu kleineren Kreisen */
   line-height: 70px !important;
 }
@@ -1994,7 +1994,7 @@ a.icon.ai:before {
 #about    ul.icons li a.icon.ai:before,
 #contact  ul.icons li a.icon.ai:before,
 #community ul.icons li a.icon.ai:before,
-#publications ul.icons li a.icon.ai:before {
+#research ul.icons li a.icon.ai:before {
   font-size: 34px !important;
   line-height: 70px !important;
   vertical-align: middle !important;
@@ -2067,69 +2067,6 @@ body.light-mode #bg:after {
   background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
 }
 
-/* ---------------------------
-   Toggle-UI (Switch mit Mond/Sonne)
-   --------------------------- */
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9999;
-  width: 64px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(2px);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-}
-
-/* Piktogramme im Schalter */
-.theme-toggle i {
-  pointer-events: none;
-  font-size: 14px;
-  line-height: 1;
-  opacity: 0.85;
-}
-
-/* Mond links, Sonne rechts */
-.theme-toggle .fa-moon { margin-right: auto; }
-.theme-toggle .fa-sun  { margin-left:  auto; }
-
-/* Knopf der „fährt“ */
-.theme-toggle .knob {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: #ffffff;
-  left: 3px;
-  transition: transform 0.2s ease;
-  transform: translateX(0);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
-}
-
-/* Im Light-Mode invertieren wir nur die UI-Farben des Schalters */
-body.light-mode .theme-toggle {
-  border-color: rgba(0,0,0,0.85);
-  background: rgba(0,0,0,0.06);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
-}
-body.light-mode .theme-toggle .knob {
-  background: #000000;
-  transform: translateX(30px);
-}
-
-/* Optional: auf sehr kleinen Screens etwas kleiner */
-@media screen and (max-width: 480px) {
-  .theme-toggle { width: 56px; height: 32px; padding: 0 5px; }
-  .theme-toggle .knob { width: 26px; height: 26px; left: 3px; transform: translateX(0); }
-  body.light-mode .theme-toggle .knob { transform: translateX(24px); }
 }
 
 /* ===========================
@@ -2385,7 +2322,7 @@ body.light-mode #header > *:before {
 
 /* (Du hast bereits die Mitteltrennlinie gesetzt, zur Vollständigkeit hier noch einmal) */
 body.light-mode #header nav.use-middle:after {
-  background: #000 !important;  /* senkrechte Linie zwischen Publications und Community */
+  background: #000 !important;  /* senkrechte Linie zwischen Research und Community */
 }
 
 /* =========================================================
@@ -2415,14 +2352,6 @@ body.light-mode #header nav.use-middle:after {
   margin-top: 0.35rem;
   white-space: normal;            /* Umbruch erlauben */
   line-height: 1.35;
-}
-
-/* 4) Schalter immer vor Klicks geschützt und außerhalb von Overlays sichtbar */
-.theme-toggle {
-  position: fixed;                /* bleibt fest; kollidiert nicht mit Layout-Flow */
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-}
 
 /* 5) Navigationsleiste: bricht sauber um und bekommt Abstände */
 #header nav ul {
@@ -2521,8 +2450,6 @@ body.light-mode #header nav.use-middle:after {
     margin-bottom: 0.5rem !important;
   }
 
-  /* Toggle etwas kleiner (du hast dafür schon Regeln, hier nur Sicherungsnetz) */
-  .theme-toggle { top: 0.75rem; right: 0.75rem; }
 }
 
 /* =========================================
@@ -2713,557 +2640,95 @@ body.light-mode input[type="button"]:active::after {
   background-color: rgba(255,255,255,0.70) !important;
 }
 
+.keypub {
 
-/* =========================================================
-   FINAL TARGETED FIXES ONLY
-   ========================================================= */
-
-/* 1) Theme toggle: truly fixed and centered, no scrolling with page */
-.theme-toggle {
-  position: absolute !important;
-  top: 0.35rem !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin-left: -32px !important; /* half of 64px width */
-  transform: none !important;
-  z-index: 2147483647 !important;
-}
-@media screen and (max-width: 736px) {
-  .theme-toggle {
-    top: 0.35rem !important;
-    left: 50% !important;
-    right: auto !important;
-    margin-left: -28px !important; /* half of 56px width */
-    transform: none !important;
-  }
-}
-
-/* 2) Hover/active effect must match actual visible button area */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-ul.icons li a,
-#header nav ul li a,
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  overflow: hidden !important;
-}
-
-ul.icons li a:hover,
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-ul.icons li a:active,
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-body.light-mode ul.icons li a:hover,
-body.light-mode #header nav ul li a:hover,
-body.light-mode .button:hover,
-body.light-mode button:hover,
-body.light-mode input[type="submit"]:hover,
-body.light-mode input[type="reset"]:hover,
-body.light-mode input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-body.light-mode ul.icons li a:active,
-body.light-mode #header nav ul li a:active,
-body.light-mode .button:active,
-body.light-mode button:active,
-body.light-mode input[type="submit"]:active,
-body.light-mode input[type="reset"]:active,
-body.light-mode input[type="button"]:active {
-  background-color: rgba(255,255,255,0.70) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-/* 3) Mobile header connector line: touch, don't cross */
-@media screen and (max-width: 736px) {
-  #header > *:before {
-    top: -2rem !important;
-    height: 2rem !important;
-  }
-}
-
-/* 4) Preserve research icon sizing/alignment exactly like contact */
-#research ul.icons,
-#contact ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-}
-#research ul.icons li a,
-#contact ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  line-height: 70px !important;
-  font-size: 34px !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-}
-#research ul.icons li a.icon.ai:before,
-#contact ul.icons li a.icon.ai:before {
-  font-size: 34px !important;
-  line-height: 70px !important;
-  transform: translateY(0) !important;
-}
-#research .icon.ai-gs-svg:before,
-#research .icon.ai-rg-svg:before,
-#research .icon.ai-arxiv-svg:before,
-#research .icon.ai-astrodb:before,
-#research .icon.ai-inspire-svg:before,
-#research .icon.ai-zenodo-svg:before {
-  transform: translateY(0) !important;
-}
-
-
-/* =====================================================
-   FINAL TARGETED FIXES (clean, last rules win)
-   ===================================================== */
-
-/* 1) Theme toggle: truly fixed and centered */
+/* =========================================
+   Theme toggle — single source of truth
+   ========================================= */
 #themeToggle.theme-toggle,
 .theme-toggle {
-  position: fixed !important;
-  top: 12px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: translateX(-50%) !important;
-  margin: 0 !important;
-  z-index: 100000 !important;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
 }
 
-@media screen and (min-width: 737px) {
-  #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 8px !important;
-  }
-
-  /* keep header below the fixed toggle on desktop, without overlap */
-  #header {
-    margin-top: 52px !important;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 8px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  #header {
-    margin-top: 42px !important;
-  }
-}
-
-/* 2) Research icons same size/layout as Contact/About/Community */
-#research ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  font-size: 34px !important;
-  line-height: 70px !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a.ai:before,
-#research ul.icons li a.icon.ai:before {
-  font-size: 34px !important;
-  line-height: 70px !important;
-}
-
-/* 3) Hover/active area exactly matches visible buttons: remove old pseudo overlays */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-ul.icons li a,
-#header nav ul li a,
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.08) !important;
-}
-
-ul.icons li a:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-body.light-mode ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode ul.icons li a:active {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-}
-
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-body.light-mode #header nav ul li a:hover,
-body.light-mode .button:hover,
-body.light-mode button:hover,
-body.light-mode input[type="submit"]:hover,
-body.light-mode input[type="reset"]:hover,
-body.light-mode input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #header nav ul li a:active,
-body.light-mode .button:active,
-body.light-mode button:active,
-body.light-mode input[type="submit"]:active,
-body.light-mode input[type="reset"]:active,
-body.light-mode input[type="button"]:active {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* Smartphone: Buttons + vertikale Linie etwas nach unten, horizontale Linie bleibt */
-@media screen and (max-width: 736px) {
-  #header nav {
-    position: relative !important;
-    top: 18px !important;
-  }
-}
-
-
-/* =====================================================
-   CLEAN TARGETED FIXES — toggle fixed, less top gap,
-   mobile nav lowered to form a clean T
-   ===================================================== */
-
-/* 1) Toggle: direct child of body, truly viewport-fixed and centered */
-html body > #themeToggle.theme-toggle {
-  position: fixed !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 2147483647 !important;
-}
-
-/* keep size stable */
-html body > #themeToggle.theme-toggle {
-  width: 64px !important;
-  height: 34px !important;
-}
-
-@media screen and (max-width: 736px) {
-  html body > #themeToggle.theme-toggle {
-    top: 8px !important;
-    width: 56px !important;
-    height: 32px !important;
-  }
-}
-
-/* 2) Reduce the empty space above the top line over the name */
-@media screen and (min-width: 737px) {
-  html body #header {
-    margin-top: 4px !important;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  html body #header {
-    margin-top: 12px !important;
-  }
-}
-
-/* 3) Smartphone only: move nav block AND its vertical connector down.
-      The horizontal line of the content box stays unchanged. */
-@media screen and (max-width: 736px) {
-  html body #header nav {
-    position: relative !important;
-    top: 0px !important;
-    margin-top: 2rem !important;
-    transform: none !important;
-  }
-}
-
-
-/* =====================================================
-   FINAL TOGGLE-ONLY FIX
-   changes nothing else
-   ===================================================== */
-#themeToggle,
-#themeToggle.theme-toggle,
-button#themeToggle,
-div#themeToggle,
-body > #themeToggle,
-body > #themeToggle.theme-toggle {
-  position: fixed !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 2147483647 !important;
-}
-
-@media screen and (max-width: 736px) {
-  #themeToggle,
-  #themeToggle.theme-toggle,
-  button#themeToggle,
-  div#themeToggle,
-  body > #themeToggle,
-  body > #themeToggle.theme-toggle {
-    top: 8px !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin: 0 !important;
-    transform: translateX(-50%) !important;
-    z-index: 2147483647 !important;
-  }
-}
-
-
-/* =====================================================
-   FINAL CANONICAL TOGGLE OVERRIDE
-   document-positioned at top, NOT viewport-fixed
-   ===================================================== */
-#themeToggle,
-#themeToggle.theme-toggle,
-button#themeToggle,
-body > #themeToggle,
-body > #themeToggle.theme-toggle,
-.theme-toggle {
-  position: absolute !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 10000 !important;
-  width: 64px !important;
-  height: 34px !important;
-  border-radius: 999px !important;
-  border: 1px solid rgba(255,255,255,0.9) !important;
-  background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(2px) !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 6px !important;
-  cursor: pointer !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
-}
-
-#themeToggle i,
 #themeToggle.theme-toggle i,
 .theme-toggle i {
-  pointer-events: none !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
-  opacity: 0.85 !important;
+  pointer-events: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.85;
 }
 
-#themeToggle .fa-moon,
-.theme-toggle .fa-moon { margin-right: auto !important; }
-#themeToggle .fa-sun,
-.theme-toggle .fa-sun { margin-left: auto !important; }
+#themeToggle.theme-toggle .fa-moon,
+.theme-toggle .fa-moon {
+  margin-right: auto;
+}
 
-#themeToggle .knob,
+#themeToggle.theme-toggle .fa-sun,
+.theme-toggle .fa-sun {
+  margin-left: auto;
+}
+
+#themeToggle.theme-toggle .knob,
 .theme-toggle .knob {
-  position: absolute !important;
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 999px !important;
-  background: #ffffff !important;
-  left: 3px !important;
-  transition: transform 0.2s ease !important;
-  transform: translateX(0) !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
+  position: absolute;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #ffffff;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-body.light-mode #themeToggle,
 body.light-mode #themeToggle.theme-toggle,
 body.light-mode .theme-toggle {
-  border-color: rgba(0,0,0,0.85) !important;
-  background: rgba(0,0,0,0.06) !important;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
+  border-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-body.light-mode #themeToggle .knob,
+body.light-mode #themeToggle.theme-toggle .knob,
 body.light-mode .theme-toggle .knob {
-  background: #000000 !important;
-  transform: translateX(30px) !important;
+  background: #000000;
+  transform: translateX(30px);
 }
 
 @media screen and (max-width: 480px) {
-  #themeToggle,
   #themeToggle.theme-toggle,
-  button#themeToggle,
-  body > #themeToggle,
-  body > #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 8px !important;
-    width: 56px !important;
-    height: 32px !important;
-    padding: 0 5px !important;
+    width: 56px;
+    height: 32px;
+    padding: 0 5px;
   }
 
-  #themeToggle .knob,
+  #themeToggle.theme-toggle .knob,
   .theme-toggle .knob {
-    width: 26px !important;
-    height: 26px !important;
-    left: 3px !important;
+    width: 26px;
+    height: 26px;
   }
 
-  body.light-mode #themeToggle .knob,
+  body.light-mode #themeToggle.theme-toggle .knob,
   body.light-mode .theme-toggle .knob {
-    transform: translateX(24px) !important;
+    transform: translateX(24px);
   }
-}
-
-
-/* =========================================================
-   FINAL STABILITY PATCH
-   - keep icons/text as-is
-   - make theme toggle document-bound (scrolls away)
-   - make header nav hover match visible button size
-   ========================================================= */
-
-/* Theme toggle: document-bound at top center, not viewport-fixed */
-#themeToggle,
-#themeToggle.theme-toggle,
-button#themeToggle,
-body > #themeToggle,
-body > #themeToggle.theme-toggle,
-.theme-toggle {
-  position: absolute !important;
-  top: 12px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: translateX(-50%) !important;
-  z-index: 5 !important;
-  margin: 0 !important;
-}
-
-@media screen and (max-width: 480px) {
-  #themeToggle,
-  #themeToggle.theme-toggle,
-  button#themeToggle,
-  body > #themeToggle,
-  body > #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 10px !important;
-  }
-}
-
-/* Header navigation hover area: use the actual link box only */
-#header nav ul li a::before,
-#header nav ul li a::after {
-  content: none !important;
-  display: none !important;
-}
-
-#header nav ul li a {
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-#header nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.075) !important;
-  box-shadow: none !important;
-}
-
-#header nav ul li a:active {
-  background-color: rgba(255, 255, 255, 0.175) !important;
-  box-shadow: none !important;
-}
-
-body.light-mode #header nav ul li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #header nav ul li a:active {
-  background-color: rgba(255,255,255,0.70) !important;
 }
