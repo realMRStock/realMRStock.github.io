@@ -201,13 +201,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 2.25rem;
 	line-height: 1.3;
-	letter-spacing: 0.2rem;
+	letter-spacing: 0.5rem;
 }
 
 h2 {
 	font-size: 1.5rem;
 	line-height: 1.4;
-	letter-spacing: 0.2rem;
+	letter-spacing: 0.5rem;
 }
 
 h3 {
@@ -2064,7 +2064,7 @@ body.light-mode #main article {
 }
 
 body.light-mode .theme-toggle {
-  border-color: #000 !important;
+  border-color: rgba(0,0,0,0.85) !important;
   background: rgba(0,0,0,0.06) !important;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
 }
@@ -2192,4 +2192,18 @@ body.light-mode .theme-toggle .knob {
   body.light-mode .theme-toggle .knob {
     transform: translateX(24px) !important;
   }
+}
+
+/* Headings: reduce letter spacing */
+h1, h2, h3, h4, h5, h6,
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
+#header h1,
+article h2.major,
+article h3 {
+  letter-spacing: 0.06rem !important;
+}
+
+/* Light mode: close X icon black */
+body.light-mode #main article .close:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
 }
