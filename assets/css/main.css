@@ -2119,3 +2119,13 @@ body.light-mode #main article .close:before {
     top: 2px !important; 
   }
 }
+
+#header nav ul li a {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+ul.icons li a {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
