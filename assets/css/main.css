@@ -2172,27 +2172,83 @@ body.light-mode #footer .copyright {
 }
 
 /* =========================================================
-   Softer, more harmonious blur transitions
+   Truly softer blur panels with feathered edges
    ========================================================= */
+
+/* Base element setup */
 #header .subtitle,
 #footer .copyright,
 #header .content .inner > p:last-of-type a {
-  transition:
-    background-color 0.45s ease,
-    backdrop-filter 0.45s ease,
-    -webkit-backdrop-filter 0.45s ease,
-    box-shadow 0.45s ease,
-    border-radius 0.45s ease;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.018);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.035);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  z-index: 0;
 }
 
-body.light-mode #header .subtitle,
-body.light-mode #footer .copyright,
-body.light-mode #header .content .inner > p:last-of-type a {
+/* Put text above the soft panel */
+#header .subtitle > *,
+#footer .copyright > *,
+#header .content .inner > p:last-of-type a > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft blurred panel behind text */
+#header .subtitle::before,
+#footer .copyright::before,
+#header .content .inner > p:last-of-type a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.2rem -0.35rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.028);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02) inset,
+    0 0 14px rgba(255,255,255,0.025);
+  pointer-events: none;
+}
+
+/* Feather the edges so they are actually soft, not just rounded */
+#header .subtitle::after,
+#footer .copyright::after,
+#header .content .inner > p:last-of-type a::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -0.38rem -0.6rem;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.06) 0%,
+    rgba(255,255,255,0.028) 38%,
+    rgba(255,255,255,0.012) 62%,
+    rgba(255,255,255,0.0) 100%
+  );
+  filter: blur(8px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+body.light-mode #header .subtitle::before,
+body.light-mode #footer .copyright::before,
+body.light-mode #header .content .inner > p:last-of-type a::before {
   background: rgba(0,0,0,0.018);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.02) inset,
+    0 0 14px rgba(0,0,0,0.02);
+}
+
+body.light-mode #header .subtitle::after,
+body.light-mode #footer .copyright::after,
+body.light-mode #header .content .inner > p:last-of-type a::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.024) 38%,
+    rgba(0,0,0,0.01) 62%,
+    rgba(0,0,0,0.0) 100%
+  );
 }
