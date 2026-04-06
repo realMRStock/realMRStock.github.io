@@ -2108,3 +2108,14 @@ body.light-mode #main article .close:before {
     margin-top: 0.5rem !important;
   }
 }
+
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 8px !important; 
+  }
+}
