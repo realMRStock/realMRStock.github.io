@@ -1653,107 +1653,193 @@ button {
 	}
 
 
+
+
 /* =====================================================
-   Customizations — consolidated, minimal, template-safe
+   Site customizations
+   Clean consolidated block for typography, icons, theme,
+   responsive adjustments, and the theme toggle.
    ===================================================== */
 
-/* Header text */
-#header h1 {
-  text-transform: none;
-  letter-spacing: 0.18rem;
+:root {
+	--site-text-dark: #ffffff;
+	--site-border-dark: #ffffff;
+	--site-hover-dark: rgba(255, 255, 255, 0.08);
+	--site-active-dark: rgba(255, 255, 255, 0.18);
+	--site-text-light: #000000;
+	--site-border-light: #000000;
+	--site-hover-light: rgba(0, 0, 0, 0.08);
+	--site-active-light: rgba(0, 0, 0, 0.16);
+}
+
+/* Typography: no forced uppercase anywhere in the visible UI */
+body,
+input,
+select,
+textarea,
+h1, h2, h3, h4, h5, h6,
+#header .content p,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label {
+	text-transform: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+#header .content p,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label,
+#footer .copyright {
+	letter-spacing: 0.08rem;
+}
+
+#header .content p,
+#footer .copyright {
+	font-size: 0.85rem;
+}
+
+.profile-photo {
+	width: 280px;
+	height: 280px;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto 1.5rem auto;
+}
+
+#header .content .inner {
+	max-height: none;
+	height: auto;
+	overflow: visible;
+	padding-bottom: 3rem;
 }
 
 #header .subtitle {
-  display: block;
-  margin-top: 0.75rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-transform: none;
-  letter-spacing: 0.08rem;
+	display: block;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-top: 0.5rem;
 }
 
-/* Give the fixed toggle its own space so it never cuts the header line */
-#wrapper {
-  padding-top: 5.25rem;
+/* Academicons and custom research icons */
+.icon.ai:before,
+a.icon.ai:before {
+	font-family: "Academicons" !important;
+	font-style: normal;
+	font-weight: normal;
 }
 
-@media screen and (max-width: 736px) {
-  #wrapper {
-    padding-top: 4.5rem;
-  }
+.icon.ai-gs-svg:before,
+.icon.ai-rg-svg:before,
+.icon.ai-arxiv-svg:before,
+.icon.ai-inspire-svg:before,
+.icon.ai-astrodb:before {
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-color: currentColor;
+	vertical-align: middle;
 }
 
-/* Header content must not clip custom content */
-#header .content .inner {
-  max-height: none;
-  height: auto;
-  overflow: visible;
+.icon.ai-gs-svg:before {
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
 }
 
-/* Social icons: front page */
-#header ul.icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.9rem;
-  margin-top: 1.35rem;
-  padding-left: 0;
+.icon.ai-rg-svg:before {
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
 }
 
-#header ul.icons li {
-  padding: 0;
+.icon.ai-arxiv-svg:before {
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
 }
 
-#header ul.icons li a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  font-size: 34px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.95);
-  box-shadow: none;
+.icon.ai-inspire-svg:before {
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
 }
 
-/* Social icons: article sections */
+.icon.ai-astrodb:before {
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+}
+
+/* Keep Zenodo on the official font glyph; only normalize its alignment */
+.icon.ai.ai-zenodo-square:before,
+a.icon.ai.ai-zenodo-square:before {
+	font-family: "Academicons" !important;
+	font-style: normal;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+/* Unified icon sizing for all icon sections */
+#header ul.icons,
 #about ul.icons,
 #research ul.icons,
 #community ul.icons,
 #contact ul.icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.35rem;
-  padding-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding-left: 0;
 }
 
+#header ul.icons {
+	margin-top: 1.5rem;
+}
+
+#header ul.icons li,
 #about ul.icons li,
 #research ul.icons li,
 #community ul.icons li,
 #contact ul.icons li {
-  padding: 0;
+	padding: 0;
 }
 
+#header ul.icons li a,
 #about ul.icons li a,
 #research ul.icons li a,
 #community ul.icons li a,
 #contact ul.icons li a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
-  font-size: 30px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.95);
-  box-shadow: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	font-size: 34px;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	box-sizing: border-box;
+	padding: 0;
+	overflow: hidden;
 }
 
-/* Hover/active areas exactly match the visible button size */
+#header ul.icons li a:before,
+#about ul.icons li a:before,
+#research ul.icons li a:before,
+#community ul.icons li a:before,
+#contact ul.icons li a:before {
+	font-size: 34px;
+	line-height: 1;
+}
+
+/* Hover/active states follow the exact visible button area */
 ul.icons li a,
 #header nav ul li a,
 .button,
@@ -1761,15 +1847,15 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.10);
+	background-color: var(--site-hover-dark);
 }
 
 ul.icons li a:active {
-  background-color: rgba(255,255,255,0.18);
+	background-color: var(--site-active-dark);
 }
 
 #header nav ul li a:hover,
@@ -1778,7 +1864,7 @@ button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10);
+	background-color: var(--site-hover-dark);
 }
 
 #header nav ul li a:active,
@@ -1787,138 +1873,128 @@ button:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18);
+	background-color: var(--site-active-dark);
 }
 
-/* Academicons / SVG-mask based icons */
-.icon.ai:before,
-a.icon.ai:before {
-  font-family: "Academicons" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
+/* Fixed theme toggle: pinned to the viewport top, not to page flow */
+.theme-toggle {
+	position: fixed;
+	top: 12px;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	transform: translateX(-50%);
+	z-index: 10000;
+	width: 64px;
+	height: 34px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.08);
+	backdrop-filter: blur(2px);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 6px;
+	cursor: pointer;
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
 }
 
-.icon.ai-gs-svg:before,
-.icon.ai-rg-svg:before,
-.icon.ai-arxiv-svg:before,
-.icon.ai-inspire-svg:before,
-.icon.ai-astrodb:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  vertical-align: middle;
+.theme-toggle i {
+	pointer-events: none;
+	font-size: 14px;
+	line-height: 1;
+	opacity: 0.85;
 }
 
-.icon.ai-gs-svg:before {
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+.theme-toggle .fa-moon {
+	margin-right: auto;
 }
 
-.icon.ai-rg-svg:before {
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+.theme-toggle .fa-sun {
+	margin-left: auto;
 }
 
-.icon.ai-arxiv-svg:before {
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+.theme-toggle .knob {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	border-radius: 999px;
+	background: #ffffff;
+	left: 3px;
+	transition: transform 0.2s ease;
+	transform: translateX(0);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-.icon.ai-inspire-svg:before {
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+/* Create space below the fixed toggle so it never cuts the header line */
+#header {
+	margin-top: 3.75rem;
 }
 
-.icon.ai-astrodb:before {
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+/* Dark mode consistency */
+body:not(.light-mode),
+body:not(.light-mode) input,
+body:not(.light-mode) select,
+body:not(.light-mode) textarea {
+	color: var(--site-text-dark);
 }
 
-/* Keep icon sizing aligned in the larger circles */
-#header ul.icons li a.icon.ai:before,
-#about ul.icons li a.icon.ai:before,
-#research ul.icons li a.icon.ai:before,
-#community ul.icons li a.icon.ai:before,
-#contact ul.icons li a.icon.ai:before,
-#header ul.icons li a[class*="ai-"]:before,
-#about ul.icons li a[class*="ai-"]:before,
-#research ul.icons li a[class*="ai-"]:before,
-#community ul.icons li a[class*="ai-"]:before,
-#contact ul.icons li a[class*="ai-"]:before {
-  font-size: inherit;
-  line-height: 1;
-  transform: none;
+body:not(.light-mode) a,
+body:not(.light-mode) strong,
+body:not(.light-mode) b,
+body:not(.light-mode) h1,
+body:not(.light-mode) h2,
+body:not(.light-mode) h3,
+body:not(.light-mode) h4,
+body:not(.light-mode) h5,
+body:not(.light-mode) h6,
+body:not(.light-mode) label,
+body:not(.light-mode) table th {
+	color: var(--site-text-dark);
 }
 
-/* Theme toggle: fixed to viewport, outside page flow */
-#themeToggle.theme-toggle {
-  position: fixed;
-  top: 12px;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translateX(-50%);
-  margin: 0;
-  z-index: 10000;
-  width: 64px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.92);
-  background: rgba(27,31,34,0.55);
-  backdrop-filter: blur(4px);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+body:not(.light-mode) h1.major,
+body:not(.light-mode) h2.major,
+body:not(.light-mode) h3.major,
+body:not(.light-mode) h4.major,
+body:not(.light-mode) h5.major,
+body:not(.light-mode) h6.major,
+body:not(.light-mode) hr,
+body:not(.light-mode) .box,
+body:not(.light-mode) table tbody tr,
+body:not(.light-mode) table thead,
+body:not(.light-mode) table tfoot,
+body:not(.light-mode) ul.alt li,
+body:not(.light-mode) #header .content,
+body:not(.light-mode) #header nav ul,
+body:not(.light-mode) #header nav ul li,
+body:not(.light-mode) #header > *:before,
+body:not(.light-mode) #header nav.use-middle:after,
+body:not(.light-mode) #header .logo,
+body:not(.light-mode) input[type="text"],
+body:not(.light-mode) input[type="password"],
+body:not(.light-mode) input[type="email"],
+body:not(.light-mode) input[type="tel"],
+body:not(.light-mode) select,
+body:not(.light-mode) textarea {
+	border-color: var(--site-border-dark);
 }
 
-#themeToggle i {
-  pointer-events: none;
-  font-size: 14px;
-  line-height: 1;
-  opacity: 0.9;
+body:not(.light-mode) ul.icons li a {
+	color: var(--site-text-dark);
+	box-shadow: inset 0 0 0 1px var(--site-border-dark);
+	border-color: var(--site-border-dark);
 }
 
-#themeToggle .fa-moon { margin-right: auto; }
-#themeToggle .fa-sun  { margin-left: auto; }
-
-#themeToggle .knob {
-  position: absolute;
-  left: 3px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #ffffff;
-  transform: translateX(0);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
-}
-
-@media screen and (max-width: 480px) {
-  #themeToggle.theme-toggle {
-    width: 56px;
-    height: 32px;
-    top: 10px;
-    padding: 0 5px;
-  }
-
-  #themeToggle .knob {
-    width: 26px;
-    height: 26px;
-  }
-}
-
-/* Light mode — targeted palette changes, template kept intact */
+/* Light mode */
 body.light-mode,
 body.light-mode input,
 body.light-mode select,
 body.light-mode textarea {
-  color: #111;
+	color: var(--site-text-light);
 }
 
+body.light-mode a,
 body.light-mode strong,
 body.light-mode b,
 body.light-mode h1,
@@ -1928,14 +2004,34 @@ body.light-mode h4,
 body.light-mode h5,
 body.light-mode h6,
 body.light-mode label,
-body.light-mode table th {
-  color: #111;
+body.light-mode table th,
+body.light-mode #footer .copyright {
+	color: var(--site-text-light);
 }
 
-body.light-mode a {
-  border-bottom-color: rgba(17,17,17,0.45);
+body.light-mode #bg:after {
+	background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
+	filter: none;
 }
 
+body.light-mode #bg:before {
+	background-image: linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)), url("../../images/overlay.png") !important;
+	background-size: auto, 256px 256px !important;
+	background-position: center, center !important;
+	background-repeat: no-repeat, repeat !important;
+}
+
+body.light-mode #main article {
+	background-color: rgba(255,255,255,0.88);
+	color: var(--site-text-light);
+}
+
+body.light-mode h1.major,
+body.light-mode h2.major,
+body.light-mode h3.major,
+body.light-mode h4.major,
+body.light-mode h5.major,
+body.light-mode h6.major,
 body.light-mode hr,
 body.light-mode .box,
 body.light-mode table tbody tr,
@@ -1945,179 +2041,159 @@ body.light-mode ul.alt li,
 body.light-mode #header .content,
 body.light-mode #header nav ul,
 body.light-mode #header nav ul li,
-body.light-mode h1.major,
-body.light-mode h2.major,
-body.light-mode h3.major,
-body.light-mode h4.major,
-body.light-mode h5.major,
-body.light-mode h6.major {
-  border-color: #111;
-}
-
 body.light-mode #header > *:before,
-body.light-mode #header nav.use-middle:after {
-  background: #111;
-}
-
-body.light-mode #main article {
-  background-color: rgba(255,255,255,0.86);
-}
-
+body.light-mode #header nav.use-middle:after,
+body.light-mode #header .logo,
 body.light-mode input[type="text"],
 body.light-mode input[type="password"],
 body.light-mode input[type="email"],
 body.light-mode input[type="tel"],
 body.light-mode select,
 body.light-mode textarea {
-  border-color: #111;
+	border-color: var(--site-border-light);
 }
 
-body.light-mode input[type="text"]:focus,
-body.light-mode input[type="password"]:focus,
-body.light-mode input[type="email"]:focus,
-body.light-mode input[type="tel"]:focus,
-body.light-mode select:focus,
-body.light-mode textarea:focus {
-  background: rgba(0,0,0,0.04);
-  border-color: #111;
-  box-shadow: 0 0 0 1px #111;
+body.light-mode ul.icons li a {
+	color: var(--site-text-light);
+	box-shadow: inset 0 0 0 1px var(--site-border-light);
+	border-color: var(--site-border-light);
 }
 
-body.light-mode ul.icons li a,
-body.light-mode #about ul.icons li a,
-body.light-mode #research ul.icons li a,
-body.light-mode #community ul.icons li a,
-body.light-mode #contact ul.icons li a {
-  color: #111;
-  border-color: rgba(17,17,17,0.95);
-}
-
-body.light-mode ul.icons li a:hover {
-  background-color: rgba(0,0,0,0.06);
-}
-
-body.light-mode ul.icons li a:active {
-  background-color: rgba(0,0,0,0.12);
-}
-
+body.light-mode ul.icons li a:hover,
 body.light-mode #header nav ul li a:hover,
 body.light-mode .button:hover,
 body.light-mode button:hover,
 body.light-mode input[type="submit"]:hover,
 body.light-mode input[type="reset"]:hover,
 body.light-mode input[type="button"]:hover {
-  background-color: rgba(0,0,0,0.06);
+	background-color: var(--site-hover-light);
 }
 
+body.light-mode ul.icons li a:active,
 body.light-mode #header nav ul li a:active,
 body.light-mode .button:active,
 body.light-mode button:active,
 body.light-mode input[type="submit"]:active,
 body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
-  background-color: rgba(0,0,0,0.12);
+	background-color: var(--site-active-light);
 }
 
-body.light-mode #bg:before {
-  background-image: linear-gradient(to top, rgba(255,255,255,0.28), rgba(255,255,255,0.28)), url("../../images/overlay.png");
-  background-size: auto, 256px 256px;
-  background-position: center, center;
-  background-repeat: no-repeat, repeat;
+body.light-mode .theme-toggle {
+	border-color: rgba(0,0,0,0.85);
+	background: rgba(255,255,255,0.7);
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-body.light-mode #bg:after {
-  background-image: url("../../images/IMG_9379_DxO-1.jpg");
+body.light-mode .theme-toggle .knob {
+	background: #000000;
+	transform: translateX(30px);
 }
 
-body.light-mode #themeToggle.theme-toggle {
-  border-color: rgba(17,17,17,0.92);
-  background: rgba(255,255,255,0.7);
-}
-
-body.light-mode #themeToggle .knob {
-  background: #111;
-  transform: translateX(30px);
-}
-
-@media screen and (max-width: 480px) {
-  body.light-mode #themeToggle .knob {
-    transform: translateX(24px);
-  }
-}
-
-/* Close button icon in light mode */
 body.light-mode #main article .close:before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23111111%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
 }
 
-/* Mobile layout */
+body.light-mode input:focus,
+body.light-mode select:focus,
+body.light-mode textarea:focus {
+	background: rgba(0,0,0,0.05);
+	border-color: var(--site-border-light);
+	box-shadow: 0 0 0 1px var(--site-border-light);
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 736px) {
-  #header .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	#header {
+		margin-top: 3.2rem;
+	}
 
-  #header .content .inner {
-    padding: 2.35rem 1rem;
-  }
+	#header .content .inner {
+		padding: 2.5rem 1rem;
+	}
 
-  #header ul.icons {
-    gap: 0.75rem;
-  }
+	#header .subtitle br {
+		display: block;
+	}
 
-  #header ul.icons li a {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    font-size: 30px;
-  }
+	#header ul.icons,
+	#about ul.icons,
+	#research ul.icons,
+	#community ul.icons,
+	#contact ul.icons {
+		gap: 1rem;
+	}
 
-  #about ul.icons li a,
-  #research ul.icons li a,
-  #community ul.icons li a,
-  #contact ul.icons li a {
-    width: 58px;
-    height: 58px;
-    line-height: 58px;
-    font-size: 28px;
-  }
+	#header ul.icons li,
+	#about ul.icons li,
+	#research ul.icons li,
+	#community ul.icons li,
+	#contact ul.icons li {
+		flex: 0 1 calc(50% - 0.5rem);
+		display: flex;
+		justify-content: center;
+	}
 
-  #header nav ul {
-    flex-direction: column;
-    min-width: 12rem;
-    width: 100%;
-    gap: 0;
-  }
+	#header ul.icons li a,
+	#about ul.icons li a,
+	#research ul.icons li a,
+	#community ul.icons li a,
+	#contact ul.icons li a {
+		width: 56px;
+		height: 56px;
+		line-height: 56px;
+		font-size: 28px;
+	}
 
-  #header nav ul li {
-    border-left: 0;
-    border-top: solid 1px #ffffff;
-  }
+	#header ul.icons li a:before,
+	#about ul.icons li a:before,
+	#research ul.icons li a:before,
+	#community ul.icons li a:before,
+	#contact ul.icons li a:before {
+		font-size: 28px;
+	}
 
-  body.light-mode #header nav ul li {
-    border-top-color: #111;
-  }
+	#header nav ul {
+		flex-direction: column;
+		width: 100%;
+	}
 
-  #header nav ul li:first-child {
-    border-top: 0;
-  }
+	#header nav ul li a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-width: 0;
+		height: 3rem;
+		line-height: 1;
+	}
 
-  #header nav ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    width: 100%;
-    height: 3rem;
-    line-height: 1;
-  }
+	#header .content .inner p a {
+		display: block;
+		width: 100%;
+	}
 
-  #header .content .inner p a {
-    display: block;
-    margin-top: 0.45rem;
-  }
+	.theme-toggle {
+		top: 8px;
+		width: 56px;
+		height: 32px;
+		padding: 0 5px;
+	}
+
+	.theme-toggle .knob {
+		width: 26px;
+		height: 26px;
+	}
+
+	body.light-mode .theme-toggle .knob {
+		transform: translateX(24px);
+	}
 }
 
-.gap-top-2 { margin-top: 2rem !important; }
-.gap-bot-2 { margin-bottom: 2rem !important; }
+.gap-top-2 {
+	margin-top: 2rem !important;
+}
+
+.gap-bot-2 {
+	margin-bottom: 2rem !important;
+}
