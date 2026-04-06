@@ -1776,12 +1776,16 @@ a.icon.ai:before {
 	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Keep Zenodo on the official font glyph; only normalize its alignment */
+/* Zenodo via SVG mask for robust rendering */
 .icon.ai.ai-zenodo-square:before,
 a.icon.ai.ai-zenodo-square:before {
-	font-family: "Academicons" !important;
-	font-style: normal;
-	font-weight: normal;
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-color: currentColor;
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
 	vertical-align: middle;
 }
 
@@ -1878,8 +1882,8 @@ input[type="button"]:active {
 
 /* Fixed theme toggle: pinned to the viewport top, not to page flow */
 .theme-toggle {
-	position: fixed;
-	top: 12px;
+	position: fixed !important;
+	top: 4px;
 	left: 50%;
 	right: auto;
 	bottom: auto;
@@ -2079,6 +2083,11 @@ body.light-mode input[type="button"]:active {
 	background-color: var(--site-active-light);
 }
 
+body.light-mode #header > *:before,
+body.light-mode #header nav.use-middle:after {
+	background: #000000;
+}
+
 body.light-mode .theme-toggle {
 	border-color: rgba(0,0,0,0.85);
 	background: rgba(255,255,255,0.7);
@@ -2089,6 +2098,23 @@ body.light-mode .theme-toggle .knob {
 	background: #000000;
 	transform: translateX(30px);
 }
+
+
+body.light-mode #themeToggle,
+body.light-mode #themeToggle i,
+body.light-mode #themeToggle .fa-moon,
+body.light-mode #themeToggle .fa-sun {
+	color: #000000 !important;
+}
+
+body.light-mode a {
+	border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-mode a:hover {
+	border-bottom-color: transparent;
+}
+
 
 body.light-mode #main article .close:before {
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
@@ -2174,7 +2200,7 @@ body.light-mode textarea:focus {
 	}
 
 	.theme-toggle {
-		top: 8px;
+		top: 4px;
 		width: 56px;
 		height: 32px;
 		padding: 0 5px;
