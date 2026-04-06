@@ -1653,237 +1653,107 @@ button {
 	}
 
 
-
 /* =====================================================
-   Custom layer — cleaned and consolidated
+   Customizations — consolidated, minimal, template-safe
    ===================================================== */
 
-/* ---------- General typography tweaks ---------- */
-#header h1,
-#header .subtitle {
-	text-transform: none;
-	letter-spacing: normal;
+/* Header text */
+#header h1 {
+  text-transform: none;
+  letter-spacing: 0.18rem;
 }
 
+#header .subtitle {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-transform: none;
+  letter-spacing: 0.08rem;
+}
+
+/* Give the fixed toggle its own space so it never cuts the header line */
+#wrapper {
+  padding-top: 5.25rem;
+}
+
+@media screen and (max-width: 736px) {
+  #wrapper {
+    padding-top: 4.5rem;
+  }
+}
+
+/* Header content must not clip custom content */
 #header .content .inner {
-	max-height: none;
-	height: auto;
-	overflow: visible;
+  max-height: none;
+  height: auto;
+  overflow: visible;
 }
 
-#header .subtitle {
-	display: block;
-	font-size: 1rem;
-	line-height: 1.6;
-	margin-top: 0.5rem;
-}
-
-.gap-top-2 {
-	margin-top: 2rem !important;
-}
-
-.gap-bot-2 {
-	margin-bottom: 2rem !important;
-}
-
-/* ---------- Profile image ---------- */
-.profile-photo {
-	width: 280px;
-	height: 280px;
-	object-fit: cover;
-	border-radius: 50%;
-}
-
-/* ---------- Section icon layout ---------- */
-#header ul.icons,
-#about ul.icons,
-#research ul.icons,
-#community ul.icons,
-#contact ul.icons {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding-left: 0;
-}
-
+/* Social icons: front page */
 #header ul.icons {
-	gap: 0.9rem 1rem;
-	margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.35rem;
+  padding-left: 0;
 }
 
+#header ul.icons li {
+  padding: 0;
+}
+
+#header ul.icons li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.95);
+  box-shadow: none;
+}
+
+/* Social icons: article sections */
 #about ul.icons,
 #research ul.icons,
 #community ul.icons,
 #contact ul.icons {
-	gap: 20px;
-	margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.35rem;
+  padding-left: 0;
 }
 
-#header ul.icons li,
 #about ul.icons li,
 #research ul.icons li,
 #community ul.icons li,
 #contact ul.icons li {
-	padding: 0;
+  padding: 0;
 }
 
-#header ul.icons li a,
 #about ul.icons li a,
 #research ul.icons li a,
 #community ul.icons li a,
 #contact ul.icons li a {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 70px;
-	height: 70px;
-	line-height: 70px;
-	font-size: 34px;
-	border-radius: 50%;
-	border-width: 2px;
-	border-style: solid;
-	padding: 0;
-	box-sizing: border-box;
-	overflow: hidden;
-	border-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.95);
+  box-shadow: none;
 }
 
-/* ---------- Academicons / SVG icon reliability ---------- */
-.icon.ai:before,
-a.icon.ai:before {
-	font-family: "Academicons" !important;
-	font-style: normal !important;
-	font-weight: normal !important;
-}
-
-#header ul.icons li a.icon.ai:before,
-#about ul.icons li a.icon.ai:before,
-#research ul.icons li a.icon.ai:before,
-#community ul.icons li a.icon.ai:before,
-#contact ul.icons li a.icon.ai:before {
-	font-size: 34px;
-	line-height: 70px;
-	vertical-align: middle;
-}
-
-.icon.ai-gs-svg:before,
-.icon.ai-rg-svg:before,
-.icon.ai-arxiv-svg:before,
-.icon.ai-inspire-svg:before,
-.icon.ai-astrodb:before,
-.icon.ai-zenodo-svg:before,
-a.icon.ai-gs-svg:before,
-a.icon.ai-rg-svg:before,
-a.icon.ai-arxiv-svg:before,
-a.icon.ai-inspire-svg:before,
-a.icon.ai-astrodb:before,
-a.icon.ai-zenodo-svg:before {
-	content: "";
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	background-color: currentColor;
-	vertical-align: middle;
-}
-
-.icon.ai-gs-svg:before,
-a.icon.ai-gs-svg:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-}
-
-.icon.ai-rg-svg:before,
-a.icon.ai-rg-svg:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-}
-
-.icon.ai-arxiv-svg:before,
-a.icon.ai-arxiv-svg:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-}
-
-.icon.ai-inspire-svg:before,
-a.icon.ai-inspire-svg:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-}
-
-.icon.ai-astrodb:before,
-a.icon.ai-astrodb:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-}
-
-/* optional SVG fallback class for Zenodo; existing ai ai-zenodo-square remains untouched */
-.icon.ai-zenodo-svg:before,
-a.icon.ai-zenodo-svg:before {
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
-}
-
-/* ---------- Theme toggle ---------- */
-#themeToggle.theme-toggle {
-	position: fixed;
-	top: 12px;
-	left: 50%;
-	right: auto;
-	bottom: auto;
-	transform: translateX(-50%);
-	margin: 0;
-	z-index: 2147483647;
-	pointer-events: auto;
-}
-
-#header {
-	margin-top: 3.75rem;
-}
-
-/* Toggle UI */
-.theme-toggle {
-	width: 64px;
-	height: 34px;
-	border-radius: 999px;
-	border: 1px solid rgba(255,255,255,0.9);
-	background: rgba(255,255,255,0.08);
-	backdrop-filter: blur(2px);
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0 6px;
-	cursor: pointer;
-	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-}
-
-.theme-toggle i {
-	pointer-events: none;
-	font-size: 14px;
-	line-height: 1;
-	opacity: 0.85;
-}
-
-.theme-toggle .fa-moon {
-	margin-right: auto;
-}
-
-.theme-toggle .fa-sun {
-	margin-left: auto;
-}
-
-.theme-toggle .knob {
-	position: absolute;
-	width: 28px;
-	height: 28px;
-	border-radius: 999px;
-	background: #ffffff;
-	left: 3px;
-	transform: translateX(0);
-	transition: transform 0.2s ease;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.35);
-}
-
-/* ---------- Button hover areas: exactly match visible buttons ---------- */
+/* Hover/active areas exactly match the visible button size */
 ul.icons li a,
 #header nav ul li a,
 .button,
@@ -1891,19 +1761,15 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-	position: relative;
-	overflow: hidden;
-	border-bottom: 0 !important;
+  overflow: hidden;
 }
 
 ul.icons li a:hover {
-	background-color: rgba(255, 255, 255, 0.08);
-	box-shadow: inset 0 0 0 1px #ffffff;
+  background-color: rgba(255,255,255,0.10);
 }
 
 ul.icons li a:active {
-	background-color: rgba(255, 255, 255, 0.18);
-	box-shadow: inset 0 0 0 1px #ffffff;
+  background-color: rgba(255,255,255,0.18);
 }
 
 #header nav ul li a:hover,
@@ -1912,7 +1778,7 @@ button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover {
-	background-color: rgba(255, 255, 255, 0.10);
+  background-color: rgba(255,255,255,0.10);
 }
 
 #header nav ul li a:active,
@@ -1921,15 +1787,136 @@ button:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active {
-	background-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255,255,255,0.18);
 }
 
-/* ---------- Light mode ---------- */
+/* Academicons / SVG-mask based icons */
+.icon.ai:before,
+a.icon.ai:before {
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+.icon.ai-gs-svg:before,
+.icon.ai-rg-svg:before,
+.icon.ai-arxiv-svg:before,
+.icon.ai-inspire-svg:before,
+.icon.ai-astrodb:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  vertical-align: middle;
+}
+
+.icon.ai-gs-svg:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
+}
+
+.icon.ai-rg-svg:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
+}
+
+.icon.ai-arxiv-svg:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
+}
+
+.icon.ai-inspire-svg:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+}
+
+.icon.ai-astrodb:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+}
+
+/* Keep icon sizing aligned in the larger circles */
+#header ul.icons li a.icon.ai:before,
+#about ul.icons li a.icon.ai:before,
+#research ul.icons li a.icon.ai:before,
+#community ul.icons li a.icon.ai:before,
+#contact ul.icons li a.icon.ai:before,
+#header ul.icons li a[class*="ai-"]:before,
+#about ul.icons li a[class*="ai-"]:before,
+#research ul.icons li a[class*="ai-"]:before,
+#community ul.icons li a[class*="ai-"]:before,
+#contact ul.icons li a[class*="ai-"]:before {
+  font-size: inherit;
+  line-height: 1;
+  transform: none;
+}
+
+/* Theme toggle: fixed to viewport, outside page flow */
+#themeToggle.theme-toggle {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 10000;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.92);
+  background: rgba(27,31,34,0.55);
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+#themeToggle i {
+  pointer-events: none;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+#themeToggle .fa-moon { margin-right: auto; }
+#themeToggle .fa-sun  { margin-left: auto; }
+
+#themeToggle .knob {
+  position: absolute;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translateX(0);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+
+@media screen and (max-width: 480px) {
+  #themeToggle.theme-toggle {
+    width: 56px;
+    height: 32px;
+    top: 10px;
+    padding: 0 5px;
+  }
+
+  #themeToggle .knob {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Light mode — targeted palette changes, template kept intact */
 body.light-mode,
 body.light-mode input,
 body.light-mode select,
 body.light-mode textarea {
-	color: #000000;
+  color: #111;
 }
 
 body.light-mode strong,
@@ -1942,75 +1929,75 @@ body.light-mode h5,
 body.light-mode h6,
 body.light-mode label,
 body.light-mode table th {
-	color: #000000;
+  color: #111;
 }
 
 body.light-mode a {
-	border-bottom-color: rgba(0, 0, 0, 0.45);
+  border-bottom-color: rgba(17,17,17,0.45);
 }
 
-body.light-mode a:hover {
-	border-bottom-color: transparent;
-}
-
-body.light-mode #bg:before {
-	background-image:
-		linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-		url("../../images/overlay.png") !important;
-	background-size: auto, 256px 256px !important;
-	background-position: center, center !important;
-	background-repeat: no-repeat, repeat !important;
-}
-
-body.light-mode #bg:after {
-	background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
-	filter: none !important;
-}
-
-body.light-mode #main article {
-	background-color: rgba(255,255,255,0.88);
-	color: #000000;
-}
-
-body.light-mode h1.major,
-body.light-mode h2.major,
-body.light-mode h3.major,
-body.light-mode h4.major,
-body.light-mode h5.major,
-body.light-mode h6.major,
 body.light-mode hr,
 body.light-mode .box,
 body.light-mode table tbody tr,
 body.light-mode table thead,
 body.light-mode table tfoot,
 body.light-mode ul.alt li,
+body.light-mode #header .content,
 body.light-mode #header nav ul,
 body.light-mode #header nav ul li,
-body.light-mode #header .logo,
-body.light-mode #header .content,
-body.light-mode #header > *:before {
-	border-color: #000000 !important;
-	background-color: inherit;
+body.light-mode h1.major,
+body.light-mode h2.major,
+body.light-mode h3.major,
+body.light-mode h4.major,
+body.light-mode h5.major,
+body.light-mode h6.major {
+  border-color: #111;
 }
 
+body.light-mode #header > *:before,
 body.light-mode #header nav.use-middle:after {
-	background: #000000 !important;
+  background: #111;
 }
 
-body.light-mode ul.icons li a {
-	color: #000000 !important;
-	border-color: #000000 !important;
-	box-shadow: inset 0 0 0 1px #000000 !important;
+body.light-mode #main article {
+  background-color: rgba(255,255,255,0.86);
+}
+
+body.light-mode input[type="text"],
+body.light-mode input[type="password"],
+body.light-mode input[type="email"],
+body.light-mode input[type="tel"],
+body.light-mode select,
+body.light-mode textarea {
+  border-color: #111;
+}
+
+body.light-mode input[type="text"]:focus,
+body.light-mode input[type="password"]:focus,
+body.light-mode input[type="email"]:focus,
+body.light-mode input[type="tel"]:focus,
+body.light-mode select:focus,
+body.light-mode textarea:focus {
+  background: rgba(0,0,0,0.04);
+  border-color: #111;
+  box-shadow: 0 0 0 1px #111;
+}
+
+body.light-mode ul.icons li a,
+body.light-mode #about ul.icons li a,
+body.light-mode #research ul.icons li a,
+body.light-mode #community ul.icons li a,
+body.light-mode #contact ul.icons li a {
+  color: #111;
+  border-color: rgba(17,17,17,0.95);
 }
 
 body.light-mode ul.icons li a:hover {
-	background-color: rgba(255,255,255,0.55) !important;
-	box-shadow: inset 0 0 0 1px #000000 !important;
+  background-color: rgba(0,0,0,0.06);
 }
 
 body.light-mode ul.icons li a:active {
-	background-color: rgba(255,255,255,0.70) !important;
-	box-shadow: inset 0 0 0 1px #000000 !important;
+  background-color: rgba(0,0,0,0.12);
 }
 
 body.light-mode #header nav ul li a:hover,
@@ -2019,7 +2006,7 @@ body.light-mode button:hover,
 body.light-mode input[type="submit"]:hover,
 body.light-mode input[type="reset"]:hover,
 body.light-mode input[type="button"]:hover {
-	background-color: rgba(255,255,255,0.55) !important;
+  background-color: rgba(0,0,0,0.06);
 }
 
 body.light-mode #header nav ul li a:active,
@@ -2028,170 +2015,109 @@ body.light-mode button:active,
 body.light-mode input[type="submit"]:active,
 body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
-	background-color: rgba(255,255,255,0.70) !important;
+  background-color: rgba(0,0,0,0.12);
 }
 
-body.light-mode .theme-toggle {
-	border-color: rgba(0,0,0,0.85);
-	background: rgba(0,0,0,0.06);
-	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
-	color: #000000;
+body.light-mode #bg:before {
+  background-image: linear-gradient(to top, rgba(255,255,255,0.28), rgba(255,255,255,0.28)), url("../../images/overlay.png");
+  background-size: auto, 256px 256px;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
 }
 
-body.light-mode .theme-toggle .knob {
-	background: #000000;
-	transform: translateX(30px);
+body.light-mode #bg:after {
+  background-image: url("../../images/IMG_9379_DxO-1.jpg");
 }
 
-/* Light-mode close icon */
-body.light-mode #main article .close:before {
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
-	background-size: 20px 20px;
-	background-repeat: no-repeat;
-	background-position: center;
+body.light-mode #themeToggle.theme-toggle {
+  border-color: rgba(17,17,17,0.92);
+  background: rgba(255,255,255,0.7);
 }
 
-body.light-mode #main article .close:hover:before {
-	background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #main article .close:active:before {
-	background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* ---------- Responsive ---------- */
-@media screen and (max-width: 980px) {
-	#header .content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	#header .content .inner {
-		padding: 2rem 1rem;
-	}
-
-	#header nav {
-		margin-top: 1rem;
-	}
-}
-
-@media screen and (max-width: 736px) {
-	#themeToggle.theme-toggle {
-		top: 8px;
-		width: 56px;
-		height: 32px;
-	}
-
-	#header {
-		margin-top: 3rem;
-	}
-
-	#header h1,
-	#header .subtitle {
-		text-align: center;
-		white-space: normal;
-		word-break: normal;
-	}
-
-	#header .subtitle br {
-		display: block;
-	}
-
-	#header ul.icons li {
-		flex: 0 1 calc(50% - 0.75rem);
-		display: flex;
-		justify-content: center;
-	}
-
-	#header ul.icons li a,
-	#about ul.icons li a,
-	#research ul.icons li a,
-	#community ul.icons li a,
-	#contact ul.icons li a {
-		width: 70px;
-		height: 70px;
-		line-height: 70px;
-		font-size: 34px;
-	}
-
-	#header .content .inner p a {
-		display: block;
-		width: 100%;
-		margin-top: 0.35rem;
-	}
-
-	#header nav ul {
-		flex-direction: column;
-		align-items: stretch;
-		width: 100%;
-	}
-
-	#header nav ul li {
-		display: flex;
-	}
-
-	#header nav ul li a {
-		width: 100%;
-		min-width: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 3rem;
-		line-height: 1;
-		text-align: center;
-		padding: 0 1.25rem;
-	}
-
-	/* vertical connector touches nav cleanly without being cut */
-	#header > * {
-		margin-top: 2rem;
-	}
-
-	#header > *:before {
-		top: calc(-2rem - 1px);
-		height: calc(2rem + 1px);
-	}
-
-	#main article {
-		padding: 3.5rem 1.25rem 1rem 1.25rem;
-	}
+body.light-mode #themeToggle .knob {
+  background: #111;
+  transform: translateX(30px);
 }
 
 @media screen and (max-width: 480px) {
-	#header ul.icons li a,
-	#about ul.icons li a,
-	#research ul.icons li a,
-	#community ul.icons li a,
-	#contact ul.icons li a {
-		width: 56px;
-		height: 56px;
-		line-height: 56px;
-		font-size: 28px;
-	}
-
-	#header ul.icons li a.icon.ai:before,
-	#about ul.icons li a.icon.ai:before,
-	#research ul.icons li a.icon.ai:before,
-	#community ul.icons li a.icon.ai:before,
-	#contact ul.icons li a.icon.ai:before {
-		font-size: 28px;
-		line-height: 56px;
-	}
-
-	.theme-toggle {
-		width: 56px;
-		height: 32px;
-		padding: 0 5px;
-	}
-
-	.theme-toggle .knob {
-		width: 26px;
-		height: 26px;
-		left: 3px;
-	}
-
-	body.light-mode .theme-toggle .knob {
-		transform: translateX(24px);
-	}
+  body.light-mode #themeToggle .knob {
+    transform: translateX(24px);
+  }
 }
+
+/* Close button icon in light mode */
+body.light-mode #main article .close:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23111111%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+}
+
+/* Mobile layout */
+@media screen and (max-width: 736px) {
+  #header .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #header .content .inner {
+    padding: 2.35rem 1rem;
+  }
+
+  #header ul.icons {
+    gap: 0.75rem;
+  }
+
+  #header ul.icons li a {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+  }
+
+  #about ul.icons li a,
+  #research ul.icons li a,
+  #community ul.icons li a,
+  #contact ul.icons li a {
+    width: 58px;
+    height: 58px;
+    line-height: 58px;
+    font-size: 28px;
+  }
+
+  #header nav ul {
+    flex-direction: column;
+    min-width: 12rem;
+    width: 100%;
+    gap: 0;
+  }
+
+  #header nav ul li {
+    border-left: 0;
+    border-top: solid 1px #ffffff;
+  }
+
+  body.light-mode #header nav ul li {
+    border-top-color: #111;
+  }
+
+  #header nav ul li:first-child {
+    border-top: 0;
+  }
+
+  #header nav ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    height: 3rem;
+    line-height: 1;
+  }
+
+  #header .content .inner p a {
+    display: block;
+    margin-top: 0.45rem;
+  }
+}
+
+.gap-top-2 { margin-top: 2rem !important; }
+.gap-bot-2 { margin-bottom: 2rem !important; }
