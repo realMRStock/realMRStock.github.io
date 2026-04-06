@@ -2641,21 +2641,21 @@ body.light-mode input[type="button"]:active::after {
 }
 
 .keypub {
-  display: inline-block;
+  margin-top: 2.5rem;
 }
 
 /* =========================================
    Theme toggle — single source of truth
    ========================================= */
-#header > #themeToggle.theme-toggle,
-#themeToggle.theme-toggle,
-.theme-toggle {
-  -moz-appearance: none !important;
-  -webkit-appearance: none !important;
-  -ms-appearance: none !important;
-  appearance: none !important;
+#header .content {
+  position: relative;
+  overflow: visible !important;
+}
+
+#header .content > #themeToggle.theme-toggle,
+#header .content > .theme-toggle {
   position: absolute;
-  top: 1rem;
+  top: -2.85rem;
   left: 50%;
   right: auto;
   bottom: auto;
@@ -2663,76 +2663,44 @@ body.light-mode input[type="button"]:active::after {
   z-index: 20;
   width: 64px;
   height: 34px;
-  min-width: 64px;
-  min-height: 34px;
-  margin: 0 !important;
-  padding: 0 6px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.9) !important;
-  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(2px);
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  -webkit-backdrop-filter: blur(2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
   cursor: pointer;
   pointer-events: auto;
-  line-height: 1 !important;
-  letter-spacing: normal !important;
-  text-transform: none !important;
-  text-indent: 0 !important;
-  overflow: visible;
-  box-shadow: none !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+  color: #ffffff !important;
   text-decoration: none !important;
 }
 
-/* Prevent header connector rules from affecting the toggle */
-#header > #themeToggle.theme-toggle {
-  margin-top: 0 !important;
-}
-
-#header > #themeToggle.theme-toggle:before,
-#header > #themeToggle:before {
-  display: none !important;
-  content: none !important;
-}
-
-/* Restore content to behave like the first visible header block */
-#header > .content {
-  margin-top: 0 !important;
-}
-
-#header > .content:before {
-  display: none !important;
-  content: none !important;
-}
-
-#header > #themeToggle.theme-toggle i,
-#themeToggle.theme-toggle i,
-.theme-toggle i {
+#header .content > #themeToggle.theme-toggle i,
+#header .content > .theme-toggle i {
   pointer-events: none;
   font-size: 14px;
   line-height: 1;
   opacity: 0.85;
 }
 
-#header > #themeToggle.theme-toggle .fa-moon,
-#themeToggle.theme-toggle .fa-moon,
-.theme-toggle .fa-moon {
+#header .content > #themeToggle.theme-toggle .fa-moon,
+#header .content > .theme-toggle .fa-moon {
   margin-right: auto;
 }
 
-#header > #themeToggle.theme-toggle .fa-sun,
-#themeToggle.theme-toggle .fa-sun,
-.theme-toggle .fa-sun {
+#header .content > #themeToggle.theme-toggle .fa-sun,
+#header .content > .theme-toggle .fa-sun {
   margin-left: auto;
 }
 
-#header > #themeToggle.theme-toggle .knob,
-#themeToggle.theme-toggle .knob,
-.theme-toggle .knob {
+#header .content > #themeToggle.theme-toggle .knob,
+#header .content > .theme-toggle .knob {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  left: 3px;
   width: 28px;
   height: 28px;
   border-radius: 999px;
@@ -2742,45 +2710,44 @@ body.light-mode input[type="button"]:active::after {
   box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-body.light-mode #header > #themeToggle.theme-toggle,
-body.light-mode #themeToggle.theme-toggle,
-body.light-mode .theme-toggle {
+body.light-mode #header .content > #themeToggle.theme-toggle,
+body.light-mode #header .content > .theme-toggle {
   border-color: #000000 !important;
-  background: rgba(255,255,255,0.45) !important;
-  color: #000 !important;
-  box-shadow: none !important;
+  color: #000000 !important;
+  background: rgba(255,255,255,0.18);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
 }
 
-body.light-mode #header > #themeToggle.theme-toggle .knob,
-body.light-mode #themeToggle.theme-toggle .knob,
-body.light-mode .theme-toggle .knob {
+body.light-mode #header .content > #themeToggle.theme-toggle .knob,
+body.light-mode #header .content > .theme-toggle .knob {
   background: #000000;
   transform: translateX(30px);
 }
 
+@media screen and (max-width: 736px) {
+  #header .content > #themeToggle.theme-toggle,
+  #header .content > .theme-toggle {
+    top: -2.15rem;
+  }
+}
+
 @media screen and (max-width: 480px) {
-  #header > #themeToggle.theme-toggle,
-  #themeToggle.theme-toggle,
-  .theme-toggle {
+  #header .content > #themeToggle.theme-toggle,
+  #header .content > .theme-toggle {
     width: 56px;
     height: 32px;
-    min-width: 56px;
-    min-height: 32px;
     padding: 0 5px;
+    top: -2.0rem;
   }
 
-  #header > #themeToggle.theme-toggle .knob,
-  #themeToggle.theme-toggle .knob,
-  .theme-toggle .knob {
-    top: 2px;
-    left: 2px;
+  #header .content > #themeToggle.theme-toggle .knob,
+  #header .content > .theme-toggle .knob {
     width: 26px;
     height: 26px;
   }
 
-  body.light-mode #header > #themeToggle.theme-toggle .knob,
-  body.light-mode #themeToggle.theme-toggle .knob,
-  body.light-mode .theme-toggle .knob {
+  body.light-mode #header .content > #themeToggle.theme-toggle .knob,
+  body.light-mode #header .content > .theme-toggle .knob {
     transform: translateX(24px);
   }
 }
