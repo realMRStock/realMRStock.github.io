@@ -1206,7 +1206,7 @@ button {
 	@media screen and (max-width: 1680px) {
 
 		#wrapper {
-			padding: 2rem 1.5rem;
+			padding: 3rem 2rem;
 		}
 
 	}
@@ -1214,7 +1214,7 @@ button {
 	@media screen and (max-width: 736px) {
 
 		#wrapper {
-			padding: 2.5rem 1.5rem;
+			padding: 2rem 1rem;
 		}
 
 	}
@@ -1222,7 +1222,7 @@ button {
 	@media screen and (max-width: 480px) {
 
 		#wrapper {
-			padding: 1.5rem;
+			padding: 1rem;
 		}
 
 	}
@@ -1424,7 +1424,7 @@ button {
 	@media screen and (max-width: 736px) {
 
 		#header > * {
-			margin-top: 0rem;
+			margin-top: 2rem;
 		}
 
 			#header > *:before {
@@ -1653,10 +1653,10 @@ button {
 	}
 
 /* =========================================================
-   CUSTOM STYLES — clean consolidated version
+   CUSTOM STYLES — consolidated desktop-first version
    ========================================================= */
 
-/* Typography: keep natural casing */
+/* Natural casing and tighter heading spacing */
 h1, h2, h3, h4, h5, h6,
 #header h1,
 #header .subtitle,
@@ -1682,6 +1682,14 @@ label {
   letter-spacing: normal !important;
 }
 
+h1, h2, h3, h4, h5, h6,
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
+#header h1,
+article h2.major,
+article h3 {
+  letter-spacing: 0.06rem !important;
+}
+
 /* Header content must not clip */
 #header .content .inner {
   max-height: none !important;
@@ -1696,38 +1704,8 @@ label {
   margin-top: 0.5rem;
 }
 
-/* Profile / front-page icon row */
-#header ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.25rem !important;
-  padding-left: 0 !important;
-}
-
-#header ul.icons li {
-  display: inline-flex !important;
-  padding: 0 !important;
-}
-
-#header ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  font-size: 34px !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-}
-
-/* Section icon rows — About / Research / Community / Contact */
+/* Icon rows */
+#header ul.icons,
 #about ul.icons,
 #research ul.icons,
 #community ul.icons,
@@ -1736,10 +1714,16 @@ label {
   flex-wrap: wrap !important;
   justify-content: center !important;
   gap: 20px !important;
-  margin-top: 1.5rem !important;
   padding-left: 0 !important;
 }
 
+#header ul.icons { margin-top: 1.25rem !important; }
+#about ul.icons,
+#research ul.icons,
+#community ul.icons,
+#contact ul.icons { margin-top: 1.5rem !important; }
+
+#header ul.icons li,
 #about ul.icons li,
 #research ul.icons li,
 #community ul.icons li,
@@ -1748,6 +1732,7 @@ label {
   padding: 0 !important;
 }
 
+#header ul.icons li a,
 #about ul.icons li a,
 #research ul.icons li a,
 #community ul.icons li a,
@@ -1767,7 +1752,7 @@ label {
   box-sizing: border-box !important;
 }
 
-/* Academicons font-based icons */
+/* Academicons and SVG mask icons centered like on the start page */
 .icon.ai:before,
 a.icon.ai:before {
   font-family: "Academicons" !important;
@@ -1775,7 +1760,6 @@ a.icon.ai:before {
   font-weight: normal !important;
 }
 
-/* Center all pseudo-icons cleanly inside the circles */
 #header ul.icons li a:before,
 #about ul.icons li a:before,
 #research ul.icons li a:before,
@@ -1788,7 +1772,6 @@ a.icon.ai:before {
   transform: none !important;
 }
 
-/* SVG-mask icons */
 .icon.ai-gs-svg:before,
 .icon.ai-rg-svg:before,
 .icon.ai-arxiv-svg:before,
@@ -1839,7 +1822,7 @@ a.icon.ai-inspire-svg:before {
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
 }
 
-/* Keep Zenodo as the original Academicons ZE glyph — no custom mask, no text fallback */
+/* Zenodo remains the original Academicons ZE glyph */
 .icon.ai.ai-zenodo-square:before,
 a.icon.ai.ai-zenodo-square:before {
   display: inline-block !important;
@@ -1852,7 +1835,7 @@ a.icon.ai.ai-zenodo-square:before {
   transform: none !important;
 }
 
-/* Hover/active areas must be exactly congruent with the visible element */
+/* Hover areas exactly match the visible elements */
 ul.icons li a::after,
 #header nav ul li a::after,
 .button::after,
@@ -1905,7 +1888,7 @@ input[type="button"]:active {
   box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
-/* Theme toggle — top of the page, but NOT fixed to the viewport */
+/* Toggle: desktop-first, not fixed to viewport */
 #themeToggle,
 #themeToggle.theme-toggle,
 button#themeToggle,
@@ -2088,17 +2071,7 @@ body.light-mode .theme-toggle .knob {
   transform: translateX(30px) !important;
 }
 
-
-
-/* Headings: reduce letter spacing */
-h1, h2, h3, h4, h5, h6,
-h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
-#header h1,
-article h2.major,
-article h3 {
-  letter-spacing: 0.06rem !important;
-}
-
 /* Light mode: close X icon black */
 body.light-mode #main article .close:before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
+}
