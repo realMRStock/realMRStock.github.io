@@ -1,201 +1,78 @@
-/* Dimension by HTML5 UP | Cleaned & Optimized 
+/* Dimension by HTML5 UP | Cleaned & Optimized
 */
-
-:root {
-    --bg-dark: #1b1f22;
-    --text-white: #ffffff;
-    --text-dim: rgba(255, 255, 255, 0.5);
-    --border-color: rgba(255, 255, 255, 0.2);
-    --transition-speed: 0.2s;
-    --font-main: "Source Sans Pro", sans-serif;
-}
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i");
 
-/* --- Reset & Base --- */
-* {
-    box-sizing: border-box;
+/* --- Basic Reset --- */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, article, footer, header, nav, section {
+	margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
 }
+article, footer, header, nav, section { display: block; }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-dark);
-    font-family: var(--font-main);
-    font-weight: 300;
-    font-size: 100%;
-    color: var(--text-white);
-    line-height: 1.65;
-    -webkit-text-size-adjust: none;
+body {
+	line-height: 1; font-family: "Source Sans Pro", sans-serif; background-color: #1b1f22; color: #ffffff;
+	font-weight: 300; -webkit-text-size-adjust: none; overflow-x: hidden;
 }
 
 /* --- Typography --- */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-white);
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-}
+h1, h2, h3, h4, h5, h6 { color: #ffffff; font-weight: 600; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.2rem; }
+h1 { font-size: 2.25rem; margin: 0 0 0.5rem 0; }
+h2.major { border-bottom: solid 1px #ffffff; width: max-content; padding-bottom: 0.5rem; margin: 0 0 2rem 0; }
+p { margin: 0 0 2rem 0; line-height: 1.65; }
 
-h1 { font-size: 2.25rem; margin-bottom: 0.5rem; }
-h2.major {
-    border-bottom: solid 1px var(--text-white);
-    width: max-content;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-}
+a { transition: color 0.2s ease, border-bottom-color 0.2s ease; color: inherit; text-decoration: none; border-bottom: dotted 1px rgba(255, 255, 255, 0.5); }
+a:hover { border-bottom-color: transparent; }
 
-a {
-    transition: color var(--transition-speed), border-bottom-color var(--transition-speed);
-    color: inherit;
-    text-decoration: none;
-    border-bottom: dotted 1px var(--text-dim);
-}
-
-a:hover {
-    border-bottom-color: transparent;
-    color: var(--text-white);
-}
-
-/* --- Layout Structures --- */
-#wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    z-index: 2;
-}
-
-#header {
-    text-align: center;
-    max-width: 100%;
-}
-
-#header .inner {
-    padding: 3rem 2rem;
-    border-top: solid 1px var(--text-white);
-    border-bottom: solid 1px var(--text-white);
-}
-
-#header .logo {
-    width: 4rem;
-    height: 4rem;
-    line-height: 4rem;
-    border: solid 1px var(--text-white);
-    border-radius: 100%;
-    margin: 0 auto 2rem;
-}
-
-/* --- Navigation --- */
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    border: solid 1px var(--text-white);
-    border-radius: 4px;
-}
-
-nav ul li {
-    padding: 0;
-    border-left: solid 1px var(--text-white);
-}
-
-nav ul li:first-child { border-left: 0; }
-
-nav ul li a {
-    display: block;
-    min-width: 7rem;
-    height: 2.75rem;
-    line-height: 2.75rem;
-    padding: 0 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-size: 0.8rem;
-    border-bottom: 0;
-}
-
-/* --- Icons & Research Specialities --- */
-.icons {
-    cursor: default;
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-}
-
-.icons li {
-    display: inline-block;
-    padding: 0 0.5rem;
-}
+/* --- Icons Logic --- */
+.icons { cursor: default; list-style: none; padding-left: 0; margin: 2rem 0; }
+.icons li { display: inline-block; padding-left: 0.75rem; }
+.icons li:first-child { padding-left: 0; }
 
 .icons a.icon {
-    display: block;
-    width: 2.5rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    border-radius: 100%;
-    border: solid 1px var(--border-color);
-    font-size: 1.25rem;
+	display: block; width: 2.5rem; height: 2.5rem; line-height: 2.5rem; border-radius: 100%;
+	border: solid 1px rgba(255, 255, 255, 0.25); font-size: 1.25rem; border-bottom: 0; text-align: center;
 }
+.icons a.icon:hover { background-color: rgba(255, 255, 255, 0.075); }
 
-.icons a.icon:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* --- Special Research Icons (Base64 & SVGs) --- */
-/* Diese Sektion ist kritisch für deine korrekte Darstellung */
+/* Special Research Icons - Hier deine Base64 Strings einfügen */
 .ai-gs-svg, .ai-rg-svg, .ai-inspire-svg, .ai-arxiv-svg {
-    background-size: 1.1rem;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-size: 1.1rem; background-position: center; background-repeat: no-repeat;
 }
+.ai-gs-svg { background-image: url("data:image/svg+xml;base64,...DEINE_DATEN..."); }
+.ai-rg-svg { background-image: url("data:image/svg+xml;base64,...DEINE_DATEN..."); }
+.ai-inspire-svg { background-image: url("data:image/svg+xml;base64,...DEINE_DATEN..."); }
+.ai-arxiv-svg { background-image: url("data:image/svg+xml;base64,...DEINE_DATEN..."); }
 
-.ai-gs-svg { background-image: url("data:image/svg+xml;base64,..."); } /* Dein Original-String hier */
-.ai-rg-svg { background-image: url("data:image/svg+xml;base64,..."); }
-/* ... hier alle deine weiteren speziellen ai-Klassen einfügen ... */
+/* --- Header & Wrapper --- */
+#wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; position: relative; z-index: 3; }
 
-/* --- Theme Toggle (The Master Rule) --- */
+#header { display: flex; flex-direction: column; align-items: center; pointer-events: auto; }
+#header .logo { width: 4.75rem; height: 4.75rem; line-height: 4.75rem; border: solid 1px #ffffff; border-radius: 100%; text-align: center; margin-bottom: 2rem; }
+#header .logo .icon { font-size: 2rem; }
+
+#header .content { border-top: solid 1px #ffffff; border-bottom: solid 1px #ffffff; max-width: 100%; }
+#header .content .inner { padding: 3rem 2rem; text-align: center; }
+
+/* --- Nav --- */
+#header nav ul { display: flex; margin-bottom: 0; list-style: none; padding-left: 0; border: solid 1px #ffffff; border-radius: 4px; }
+#header nav ul li { padding: 0; border-left: solid 1px #ffffff; }
+#header nav ul li:first-child { border-left: 0; }
+#header nav ul li a { display: block; min-width: 7rem; height: 2.75rem; line-height: 2.75rem; padding: 0 1.25rem; text-transform: uppercase; letter-spacing: 0.1rem; font-size: 0.8rem; border-bottom: 0; }
+
+/* --- Article & Main --- */
+#main { flex-grow: 1; flex-shrink: 1; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 50rem; }
+article { padding: 3rem 2rem; background: rgba(27, 31, 34, 0.85); border-radius: 4px; display: none; }
+article.active { display: block; }
+
+/* --- Theme Toggle MASTER FIX --- */
 #themeToggle {
-    position: fixed !important;
-    top: 15px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 999999 !important;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--text-white);
-    border-radius: 20px;
-    padding: 5px 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+	position: fixed !important; top: 10px !important; left: 50% !important;
+	transform: translateX(-50%) !important; z-index: 999999 !important;
+	background: rgba(255, 255, 255, 0.1); border: 1px solid #fff; border-radius: 20px;
+	padding: 5px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px;
 }
+#themeToggle .knob { width: 12px; height: 12px; background: #fff; border-radius: 50%; }
 
-#themeToggle .knob {
-    width: 14px;
-    height: 14px;
-    background: var(--text-white);
-    border-radius: 50%;
-}
-
-/* --- Media Queries --- */
-@media screen and (max-width: 736px) {
-    #header .inner { padding: 2rem 1rem; }
-    nav ul { flex-direction: column; }
-    nav ul li { border-left: 0; border-top: solid 1px var(--text-white); }
-}
-
-/* Background Image */
-#bg:after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url("../../images/bg.jpg");
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-}
+/* --- BG --- */
+#bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-color: #1b1f22; }
+#bg:after { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url("../../images/bg.jpg"); background-size: cover; background-position: center; opacity: 0.5; }
