@@ -2704,26 +2704,6 @@ body.light-mode input[type="button"]:active::after {
    FINAL TARGETED FIXES ONLY
    ========================================================= */
 
-/* 1) Theme toggle: truly fixed and centered, no scrolling with page */
-.theme-toggle {
-  position: absolute !important;
-  top: 0.35rem !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin-left: -32px !important; /* half of 64px width */
-  transform: none !important;
-  z-index: 2147483647 !important;
-}
-@media screen and (max-width: 736px) {
-  .theme-toggle {
-    top: 0.35rem !important;
-    left: 50% !important;
-    right: auto !important;
-    margin-left: -28px !important; /* half of 56px width */
-    transform: none !important;
-  }
-}
 
 /* 2) Hover/active effect must match actual visible button area */
 ul.icons li a::after,
@@ -2839,43 +2819,6 @@ body.light-mode input[type="button"]:active {
    FINAL TARGETED FIXES (clean, last rules win)
    ===================================================== */
 
-/* 1) Theme toggle: truly fixed and centered */
-#themeToggle.theme-toggle,
-.theme-toggle {
-  position: fixed !important;
-  top: 12px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  transform: translateX(-50%) !important;
-  margin: 0 !important;
-  z-index: 100000 !important;
-}
-
-@media screen and (min-width: 737px) {
-  #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 8px !important;
-  }
-
-  /* keep header below the fixed toggle on desktop, without overlap */
-  #header {
-    margin-top: 52px !important;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 8px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-  #header {
-    margin-top: 42px !important;
-  }
-}
 
 /* 2) Research icons same size/layout as Contact/About/Community */
 #research ul.icons {
@@ -2998,17 +2941,6 @@ body.light-mode input[type="button"]:active {
    mobile nav lowered to form a clean T
    ===================================================== */
 
-/* 1) Toggle: direct child of body, truly viewport-fixed and centered */
-html body > #themeToggle.theme-toggle {
-  position: fixed !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 2147483647 !important;
-}
 
 /* keep size stable */
 html body > #themeToggle.theme-toggle {
@@ -3104,15 +3036,200 @@ body.light-mode #header nav.use-middle:after {
   background: #000 !important;
 }
 
-/* Toggle position (scrolls away, minimal gap) */
-#themeToggle {
-  position: absolute !important;
-  top: 4px !important;
-  left: 50% !important;
-  transform: translateX(-50%);
-}
 
 /* Toggle icons color */
 body.light-mode #themeToggle i {
   color: #000 !important;
+}
+
+/* === Targeted hover congruence fix === */
+/* Remove any pseudo-element hover overlays so the brightened area exactly matches the real button shape */
+ul.icons li a::after,
+#header nav ul li a::after,
+.button::after,
+button::after,
+input[type="submit"]::after,
+input[type="reset"]::after,
+input[type="button"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Keep hover clipping strictly inside the visible element */
+ul.icons li a,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  position: relative !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+/* Icons: hover area equals the circle */
+ul.icons li a:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+ul.icons li a:active {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+body.light-mode ul.icons li a:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+body.light-mode ul.icons li a:active {
+  background-color: rgba(255, 255, 255, 0.70) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+/* Nav/buttons: hover area equals the visible rectangle */
+#header nav ul li a:hover,
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+#header nav ul li a:active,
+.button:active,
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+body.light-mode #header nav ul li a:hover,
+body.light-mode .button:hover,
+body.light-mode button:hover,
+body.light-mode input[type="submit"]:hover,
+body.light-mode input[type="reset"]:hover,
+body.light-mode input[type="button"]:hover {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+body.light-mode #header nav ul li a:active,
+body.light-mode .button:active,
+body.light-mode button:active,
+body.light-mode input[type="submit"]:active,
+body.light-mode input[type="reset"]:active,
+body.light-mode input[type="button"]:active {
+  background-color: rgba(255, 255, 255, 0.70) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+/* === Final targeted toggle fix === */
+/* Button stays fixed at the top of the viewport and does not move while scrolling */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle,
+.theme-toggle {
+  position: fixed !important;
+  top: 9px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 2147483647 !important;
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    position: fixed !important;
+    top: 9px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 2147483647 !important;
+  }
+}
+
+/* === Research icons: center glyphs inside circles exactly like other sections === */
+#research ul.icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 1.5em !important;
+  padding-left: 0 !important;
+}
+
+#research ul.icons li {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+#research ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+}
+
+/* Font-based academicons inside research circles */
+#research ul.icons li a.icon.ai:before,
+#research ul.icons li a.ai:before {
+  display: inline-block !important;
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
+}
+
+/* SVG-mask based icons inside research circles */
+#research .icon.ai-gs-svg:before,
+#research .icon.ai-rg-svg:before,
+#research .icon.ai-arxiv-svg:before,
+#research .icon.ai-astrodb:before,
+#research .icon.ai-inspire-svg:before {
+  display: inline-block !important;
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
+  background-color: currentColor !important;
+}
+
+/* Zenodo in research section: keep original Academicons glyph centered */
+#research .icon.ai.ai-zenodo-square:before,
+#research a.icon.ai.ai-zenodo-square:before {
+  display: inline-block !important;
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
 }
