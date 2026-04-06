@@ -1,214 +1,124 @@
-/* Dimension by HTML5 UP | Cleaned & Consolidated 
-    Jede Zeile geprüft und Redundanzen entfernt.
+/* Dimension by HTML5 UP | Clean & Optimized Version
+    Fokus: Theme-Toggle via Variablen & saubere Struktur
 */
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
-/* --- Reset & Base --- */
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, ul, li, article, footer, header, nav, section, table, tbody, tr, th, td {
-    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
+/* --- 1. FARB-VARIABLEN (Zentrale Steuerung) --- */
+:root {
+    --bg-color: #1b1f22;
+    --text-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.5);
+    --border-solid: #ffffff;
+    --overlay-opacity: 0.5;
+    --accent-bg: rgba(255, 255, 255, 0.075);
 }
 
-article, footer, header, nav, section { display: block; }
-html { box-sizing: border-box; font-size: 16pt; }
-*, *:before, *:after { box-sizing: inherit; }
-
-body {
-    background-color: #1b1f22;
-    color: #ffffff;
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 1.65;
-    -webkit-text-size-adjust: none;
-    overflow-x: hidden;
+/* Light Mode Definitionen - Überschreibt nur die Variablen */
+body.light-mode {
+    --bg-color: #f4f4f4;
+    --text-color: #222222;
+    --border-color: rgba(0, 0, 0, 0.3);
+    --border-solid: #333333;
+    --overlay-opacity: 0.1;
+    --accent-bg: rgba(0, 0, 0, 0.05);
 }
 
-/* --- Typography --- */
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    margin-bottom: 1rem;
-}
+/* --- 2. RESET & BASIS --- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: "Source Sans Pro", sans-serif; background: var(--bg-color); color: var(--text-color); transition: background 0.3s, color 0.3s; }
+html { font-size: 16pt; }
 
-h1 { font-size: 2.25rem; line-height: 1.3; letter-spacing: 0.5rem; }
-h2 { font-size: 1.5rem; line-height: 1.4; letter-spacing: 0.5rem; }
+@media screen and (max-width: 1680px) { html { font-size: 12pt; } }
+@media screen and (max-width: 736px) { html { font-size: 11pt; } }
 
-h2.major {
-    border-bottom: solid 1px #ffffff;
-    width: max-content;
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-}
+body { font-weight: 300; line-height: 1.65; overflow-x: hidden; }
 
-p { margin-bottom: 2rem; }
-strong, b { color: #ffffff; font-weight: 600; }
+/* --- 3. TYPOGRAFIE & LINKS --- */
+h1, h2, h3 { color: var(--text-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.2rem; }
+h1 { font-size: 2.25rem; letter-spacing: 0.5rem; }
+h2.major { border-bottom: solid 1px var(--border-solid); padding-bottom: 0.5rem; margin-bottom: 2rem; width: max-content; }
 
-a {
-    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    color: inherit;
-}
+a { color: inherit; text-decoration: none; border-bottom: dotted 1px var(--border-color); transition: 0.2s; }
 a:hover { border-bottom-color: transparent; }
 
-/* --- Layout Structures --- */
-#wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 3;
-}
-
-#header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    pointer-events: auto;
-}
-
-#header .content {
-    border-top: solid 1px #ffffff;
-    border-bottom: solid 1px #ffffff;
-    max-width: 100%;
-}
-
-#header .content .inner {
-    padding: 3rem 2rem;
-}
-
-/* Navigation */
-#header nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: solid 1px #ffffff;
-    border-radius: 4px;
-}
-
-#header nav ul li {
-    padding: 0;
-    border-left: solid 1px #ffffff;
-}
-
-#header nav ul li:first-child { border-left: 0; }
-
-#header nav ul li a {
-    display: block;
-    min-width: 7rem;
-    height: 2.75rem;
-    line-height: 2.75rem;
-    padding: 0 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-size: 0.8rem;
-    border-bottom: 0;
-}
-
-/* --- Icons --- */
-ul.icons {
-    cursor: default;
-    list-style: none;
-    padding: 0;
-    margin: 2rem 0;
-}
-
-ul.icons li {
-    display: inline-block;
-    padding: 0 0.5rem;
-}
-
-ul.icons li a {
-    display: inline-block;
-    width: 2.25rem;
-    height: 2.25rem;
-    line-height: 2.25rem;
-    text-align: center;
-    border-radius: 100%;
-    box-shadow: inset 0 0 0 1px #ffffff;
-    border-bottom: none;
-}
-
-ul.icons li a:hover { background-color: rgba(255, 255, 255, 0.075); }
-
-/* --- Special Research Icons (Data-URIs) --- */
-.ai-gs-svg, .ai-rg-svg, .ai-inspire-svg, .ai-arxiv-svg {
-    background-size: 1.1rem;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.ai-gs-svg { background-image: url("data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R29vZ2xlIFNjaG9sYXI8L3RpdGxlPjxwYXRoIGQ9Ik0xMiAyNEwuNzUgMTIuOTIgNi4xMiA4LjU0aDEuN3Y0LjgzTDExLjg2IDE5LjRabTAtNy4xMkwzLjY3IDEyIDUgMTAuOXYxLjMxaDMuNDN2Mi40MkwxMiAxNy40NlptMC05LjgxbC03LjE3IDYuMTJMMTIgMTkuODNsNy4xNy02LjEyWk0xMiAwTDAgMTAuMjhWMTJsMTIgMTAgMTItMTBWMTIuMjhaIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+"); }
-.ai-rg-svg { background-image: url("data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UmVzZWFyY2hHYXRlPC90aXRsZT48cGF0aCBkPSJNMjAuMjIgMTkuMTljLS40NC0uMTUtLjc3LS40MS0uOTktLjc3YTEuOTYgMS45NiAwIDAgMS0uMjEtMS4wNXYtOC4zN2guODR2OC4zN2MwIC4zMS4wNi41NS4xOS43My4xMy4xNy4zNS4yNi42Ni4yNi4xNyAwIC4zMy0uMDMuNDktLjA5djEuMDJjLS4zNS4xNy0uNjcuMjItLjk4LjIyem0tOS4zNi0xLjU1YzAtLjMyLS4wNC0uNjEtLjEzLS44N3MtLjIyLS40Ny0uNC0uNjFhMS42OCAxLjY4IDAgMCAwLS42NS0uMzRjLS4yNi0uMDYtLjU0LS4wOS0uODMtLjA5SDcuN3YyLjgxaDEuMjRjLjI5IDAgLjU3LS4wMy44My0uMDkuMjYtLjA2LjQ4LS4xOC42NS0uMzRhMS40NSAxLjQ1IDAgMCAwIC40LS42MWMuMDktLjI2LjEzLS41NS4xMy0uODd6bTMuMzMgMGMwIC42My0uMDggMS4xOC0uMjUgMS42NHMtLjQxLjg0LS43NCAxLjE1YTIuOTUgMi45NSAwIDAgMS0xLjE4Ljc0IDUuMTUgNS4xNSAwIDAgMS0xLjU3LjI3SDYuNTRWMTIuOTloMi4zOGMuNTUgMCAxLjA3LjA5IDEuNTcuMjdzLjk4LjQzIDEuMTguNzRhMi43MyAyLjczIDAgMCAxIC43NCAxLjE1Yy4xNy40Ni4yNSAxLjAxLjI1IDEuNjR6bTMuMjgtNi43MWMuNDYgMCAuODUuMTMgMS4xNi40cy40Ny42My40NyAxLjAyYy0uMDYtLjM5LS4yMS0uNzMtLjQ3LTEuMDJzLS42Mi0uNC0xLjE2LS40YTEuODMgMS44MyAwIDAgMC0xLjE2LjRjLS4zMS4yNy0uNDcuNjMtLjQ3IDEuMDJ2Ljg3aC44NHYtLjg3YzAtLjMxLjA2LS41Ni4xOS0uNzMuMTMtLjE3LjM1LS4yNi42Ni0uMjZ6bTIuNDMtNS40YTIyLjIyIDIyLjIyIDAgMCAwLTYuNDEtLjkzSDAgdjI0aDUuOTljMi44IDAgNC45OC0uNiA2LjU0LTEuNzlzMi40OS0zLjYyIDMuMTYtNi40OGguMTljLjA2LS42My4xNi0xLjI0LjMxLTEuODRoLjE1YTYuMDYgNi4wNiAwIDAgMCAuNzcgMS44NGMxLjQ3IDAgMi42NS0uMzMgMy41NS0uOTlzMS4zNS0xLjU1IDEuMzUtMi43MXYtMy40M2gtLjg0djMuNDNjMCAuOTMtLjIxIDEuNjEtLjYyIDIuMDVzLS45OS42Ni0xLjc0LjY2YTIuNzkgMi43OSAwIDAgMS0xLjE2LS4yNmMtLjMxLS4xOC0uNTQtLjQzLS43LS43N3YtOC4zN2gtLjg0djUuNDZjLS40Ny0uNDEtMS4wMi0uNjItMS42Ny0uNjJabS0uMTktNC45M2EyIDEuOCAwIDAgMS0yIDEuOCAyIDEuOCAwIDAgMS0yLTEuOCAyIDEuOCAwIDAgMSAyLTEuOCAyIDEuOCAwIDAgMSAyIDEuOHoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4="); }
-.ai-inspire-svg { background-image: url("data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+SU5TUElSRTwvdGl0bGU+PHBhdGggZD0iTTIxLjY1IDQuNzhsLTIuODQtMi44NGEzLjc3IDMuNzcgMCAwIDAtNS4zMyAwTDEwLjY0IDQuOEwuNDYgMTUuMDdhMS4yIDEuMiAwIDAgMCAwIDEuN2wyLjc3IDIuNzZhMS4yIDEuMiAwIDAgMCAxLjcgMEwxNS4xNyA5LjE2bDIuODQgMi44NGEzLjc3IDMuNzcgMCAwIDAgNS4zMyAwTDYuMTEgMjIuNjlsLS4wNy0uMDRhMy43NyAzLjc3IDAgMCAwIDAgNS4zMyAzLjc3IDMuNzcgMCAwIDAgNS4zMyAwTDIxLjY1IDEwLjEyYTMuNzcgMy43NyAwIDAgMCAwLTUuMzRaTTEzLjQ3IDUuNDdhMS4zMSAxLjMxIDAgMCAxIDEuODUgMEwxOC4xNiA4LjNhMS4zMSAxLjMxIDAgMCAxIDAgMS44NWwtMi43OCAyLjc4LTUuNTUtNS41NlpNMTAuNyAxOC41M2wtMi43Ny0yLjc3IDUuNTYtNS41NiAyLjc3IDIuNzdaIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+"); }
-.ai-arxiv-svg { background-size: 1.5rem; background-image: url("data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+YXJYaXY8L3RpdGxlPjxwYXRoIGQ9Ik0xOC40MzggNC43NzNjMC0uMDI3LS4wMi0uMDU1LS4wNTYtLjA4YTEuMjcgMS4yNyAwIDAgMC0uMjA5LS4wN2wtLjE2Ny0uMDQyYTIuMjA1IDIuMjA1IDAgMCAwLS4yMjMtLjAyN2gtNS45MDZjLS4wNDMgMC0uMDg1LjAxLS4xMjYuMDNhMS4wMTYgMS4wMTYgMCAwIDAtLjE4Ni4wODRsLTMuNjU0IDUuNDY0LTQuMDA4LTUuNDkxYTEuMDQxIDEuMDQxIDAgMCAwLS4xNjktLjA4NCAuOTQ0Ljk0NCAwIDAgMC0uMTU2LS4wMjZINS43MzNhMS4yMSAxLjIxIDAgMCAwLS4yODQuMDQyYy0uMDUuMDIyLS4wODcuMDUzLS4wODcuMDg3di4xMjZjMCAuMDIyLjAwNy4wNC4wMi4wNTRhMS4wMTYgMS4wMTYgMCAwIDAgLjA2NC4wNThsNS4wMTQgNi4zMzYtNC45MiA2Ljk0NWMtLjAxMy4wMTQtLjAyNC4wMzEtLjAyNC4wNTV2LjEzOWMwIC4wMTMuMDAzLjAyNi4wMDkuMDQyYTEuMjU4IDEuMjU4IDAgMCAwIC4yMjguMDk4Yy4wNDguMDIuMTAyLjAzLjE1OC4wM2g1LjY4OGMuMDQ1IDAgLjA4OS0uMDEuMTMyLS4wMzFhLjk0NC45NDQgMCAwIDAgLjE4LS4wODRsMy45MzYtNS45MDYgMy42OTYgNS45MDZhLjk5NC45OTQgMCAwIDAgLjE2Ny4wODguOTUuOTUgMCAwIDAgLjE2Ny4wMjdIMTguNDRhMS4yNyAxLjI3IDAgMCAwIC4yOTgtLjA0MmMuMDQ0LS4wMjMuMDgtLjA1Ny4wOC0uMDk4di0uMTExYTAuMjk4IDAuMjk4IDAgMCAwLS4wMTYtLjA2NyAxLjEzNSAxLjEzNSAwIDAgMC0uMDYtLjA1OGwtNC43OTgtNi40IDUuMDUtNi40NjZjLjAxNS0uMDI3LjAyNC0uMDU4LjAyNC0uMDgzdi0uMTI2em0tNS41OTIgNi42MDZsLTIuMDgyIDMuMTI2LTQuNzUyLTYuMDAyaDEuNTU4bDMuMTk0IDQuNDM0IDMuMTctNC40MzRoMS41NjJsLTEuMDY0IDEuNDE2di4wNjh6IiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+"); }
-
-/* --- Articles & Main Window --- */
-#main {
-    flex-grow: 1; flex-shrink: 1; display: flex; align-items: center; justify-content: center;
-    width: 100%; max-width: 50rem; z-index: 3;
-}
-
-article {
-    padding: 3rem 2rem;
-    background: rgba(27, 31, 34, 0.85);
-    border-radius: 4px;
-    display: none; /* Versteckt inaktive Artikel */
-}
-
-article.active { display: block; }
-
-/* --- Theme Toggle (Fixed Position) --- */
+/* --- 4. THEME TOGGLE (Fest fixiert oben) --- */
 #themeToggle {
-    position: fixed !important;
-    top: 15px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 999999 !important;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #ffffff;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: var(--accent-bg);
+    border: 1px solid var(--border-solid);
     border-radius: 20px;
     padding: 5px 15px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
+    color: var(--text-color);
 }
 
 #themeToggle .knob {
-    width: 14px; height: 14px;
-    background: #ffffff;
+    width: 14px;
+    height: 14px;
+    background: var(--text-color);
     border-radius: 50%;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
 }
 
-/* --- Media Queries (Consolidated) --- */
-@media screen and (max-width: 1680px) { html { font-size: 12pt; } }
+body.light-mode #themeToggle .knob { transform: translateX(5px); }
+
+/* Icons im Toggle */
+#themeToggle .fa-moon { display: inline-block; }
+#themeToggle .fa-sun { display: none; }
+body.light-mode #themeToggle .fa-moon { display: none; }
+body.light-mode #themeToggle .fa-sun { display: inline-block; }
+
+/* --- 5. LAYOUT (Dimension Core) --- */
+#wrapper { display: flex; flex-direction: column; align-items: center; min-height: 100vh; position: relative; z-index: 2; }
+
+#header { text-align: center; padding: 4rem 0; }
+#header .content { border-top: solid 1px var(--border-solid); border-bottom: solid 1px var(--border-solid); margin: 2rem 0; }
+#header .inner { padding: 3rem 2rem; }
+
+nav ul { display: flex; list-style: none; padding: 0; border: solid 1px var(--border-solid); border-radius: 4px; }
+nav ul li { border-left: solid 1px var(--border-solid); }
+nav ul li:first-child { border-left: 0; }
+nav ul li a { display: block; padding: 0.75rem 1.5rem; border: 0; font-size: 0.8rem; letter-spacing: 0.1rem; text-transform: uppercase; }
+
+/* Mobil-Anpassung Navigation */
 @media screen and (max-width: 736px) {
-    html { font-size: 11pt; }
-    h1 { font-size: 1.75rem; }
-    #header .content .inner { padding: 2.5rem 1rem; }
-    #header nav ul { flex-direction: column; }
-    #header nav ul li { border-left: 0; border-top: solid 1px #ffffff; }
-    #header nav ul li a { min-width: 0; width: 100%; }
+    nav ul { flex-direction: column; }
+    nav ul li { border-left: 0; border-top: solid 1px var(--border-solid); }
 }
-@media screen and (max-width: 360px) { html { font-size: 10pt; } }
 
-/* --- Background Image --- */
-#bg {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1;
+/* --- 6. ICONS (Inkl. Academicons) --- */
+ul.icons { list-style: none; padding: 0; margin: 2rem 0; }
+ul.icons li { display: inline-block; padding: 0 0.5rem; }
+ul.icons li a { 
+    display: inline-block; width: 2.25rem; height: 2.25rem; line-height: 2.25rem; 
+    text-align: center; border-radius: 100%; border: 1px solid var(--border-solid); 
 }
+
+/* Base64 Icons (Scholar, arXiv, etc.) */
+.ai-gs-svg { background: url("data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R29vZ2xlIFNjaG9sYXI8L3RpdGxlPjxwYXRoIGQ9Ik0xMiAyNEwuNzUgMTIuOTIgNi4xMiA4LjU0aDEuN3Y0LjgzTDExLjg2IDE5LjFabTAtNy4xMkwzLjY3IDEyIDUgMTAuOXYxLjMxaDMuNDN2Mi40MkwxMiAxNy40NlptMC05LjgxbC03LjE3IDYuMTJMMTIgMTkuODNsNy4xNy02LjEyWk0xMiAwTDAgMTAuMjhWMTJsMTIgMTAgMTItMTBWMTIuMjhaIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+"); }
+/* Falls Light-Mode, Icons auf schwarz umschalten */
+body.light-mode .ai-gs-svg { filter: invert(1); }
+
+.ai-gs-svg, .ai-rg-svg, .ai-inspire-svg, .ai-arxiv-svg {
+    background-size: 1.1rem; background-position: center; background-repeat: no-repeat;
+}
+
+/* --- 7. BACKGROUND --- */
+#bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 #bg:after {
-    content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url("../../images/bg.jpg");
-    background-size: cover; background-position: center;
-    opacity: 0.5;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("../../images/bg.jpg"); background-size: cover; background-position: center;
+    opacity: var(--overlay-opacity); transition: opacity 0.3s;
 }
+
+/* Artikel-Handling */
+#main article { padding: 3rem 2rem; background: rgba(var(--bg-color), 0.85); border-radius: 4px; display: none; }
+#main article.active { display: block; }
