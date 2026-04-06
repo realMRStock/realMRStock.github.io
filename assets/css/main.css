@@ -2116,6 +2116,6 @@ body.light-mode #main article .close:before {
   body > #themeToggle,
   body > #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 12px !important; 
+    top: 2px !important; 
   }
 }
