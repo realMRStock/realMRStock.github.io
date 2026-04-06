@@ -2261,25 +2261,81 @@ body.light-mode h6.major {
   border-bottom-color: #000 !important;
 }
 
-/* Zenodo: force original Academicons square "ZE" glyph */
-.icon.ai.ai-zenodo-square:before,
-a.icon.ai.ai-zenodo-square:before {
-  font-family: "Academicons" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  content: "\e829" !important;
-  display: inline-block !important;
-  font-size: 34px !important;
-  line-height: 70px !important;
-  vertical-align: middle !important;
-  transform: translateY(0) !important;
-  speak: none !important;
+/* === Final targeted stability patch === */
+
+/* Light mode: toggle icons must be black */
+body.light-mode #themeToggle,
+body.light-mode #themeToggle i,
+body.light-mode #themeToggle .fa-moon,
+body.light-mode #themeToggle .fa-sun,
+body.light-mode .theme-toggle,
+body.light-mode .theme-toggle i,
+body.light-mode .theme-toggle .fa-moon,
+body.light-mode .theme-toggle .fa-sun {
+  color: #000 !important;
 }
 
-/* If any older SVG-mask Zenodo rule exists, neutralize it */
-.icon.ai-zenodo-svg:before,
-a.icon.ai-zenodo-svg:before {
+/* Light mode: link underline must be black */
+body.light-mode a {
+  color: #000 !important;
+  border-bottom-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.light-mode a:hover {
+  border-bottom-color: transparent !important;
+}
+
+/* Light mode: vertical connector lines must be black */
+body.light-mode #header > *:before,
+body.light-mode #header nav.use-middle:after {
+  background: #000 !important;
+  border-color: #000 !important;
+}
+
+/* Move toggle a few pixels down */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+div#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle,
+.theme-toggle {
+  top: 9px !important;
+}
+
+@media screen and (max-width: 736px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  div#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 9px !important;
+  }
+}
+
+/* Zenodo: robust compact ZE fallback instead of broken empty square */
+.icon.ai.ai-zenodo-square:before,
+a.icon.ai.ai-zenodo-square:before {
+  content: "ZE" !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 0.42em !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.28em !important;
+  height: 1.28em !important;
+  border: 0.08em solid currentColor !important;
+  border-radius: 0.12em !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  transform: none !important;
+  background: transparent !important;
   -webkit-mask: none !important;
   mask: none !important;
-  background-color: transparent !important;
 }
