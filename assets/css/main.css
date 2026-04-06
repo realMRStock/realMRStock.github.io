@@ -2075,3 +2075,36 @@ body.light-mode .theme-toggle .knob {
 body.light-mode #main article .close:before {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
 }
+
+/* =========================================================
+   Final small fixes
+   ========================================================= */
+
+/* Homepage photo as circle */
+#header .content .inner > img:first-of-type {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* Smartphone: subtitle and CV/thesis links stacked vertically */
+@media screen and (max-width: 736px) {
+  /* Force subtitle line break to remain visible on mobile */
+  #header .subtitle br {
+    display: block !important;
+  }
+
+  /* Force the CV/Thesis line break to remain visible on mobile */
+  #header .content .inner > p:last-of-type br {
+    display: block !important;
+  }
+
+  /* Put CV and Thesis links on separate lines on mobile */
+  #header .content .inner > p:last-of-type a {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  #header .content .inner > p:last-of-type a + a {
+    margin-top: 0.5rem !important;
+  }
+}
