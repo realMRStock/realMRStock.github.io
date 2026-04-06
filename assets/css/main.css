@@ -97,11 +97,6 @@ body {
 	background: #1b1f22;
 }
 
-body {
-	position: relative;
-}
-
-
 	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
@@ -1781,15 +1776,19 @@ a.icon.ai:before {
 	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Zenodo icon: keep the original Academicons square glyph */
+/* Zenodo: use the compact square 'ZE' icon explicitly */
 .icon.ai.ai-zenodo-square:before,
-a.icon.ai.ai-zenodo-square:before,
-.icon.ai-zenodo-square:before,
-a.icon.ai-zenodo-square:before {
-	font-family: "Academicons" !important;
-	font-style: normal !important;
-	font-weight: normal !important;
+a.icon.ai.ai-zenodo-square:before {
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-color: currentColor;
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
+	vertical-align: middle;
 }
+
 /* Unified icon sizing for all icon sections */
 #header ul.icons,
 #about ul.icons,
@@ -1881,15 +1880,15 @@ input[type="button"]:active {
 	background-color: var(--site-active-dark);
 }
 
-/* Theme toggle: attached to the page top, scrolls away with the header */
+/* Theme toggle: placed at the very top of the page and scrolls away with the content */
 .theme-toggle {
-	position: absolute !important;
-	top: 0.04rem;
+	position: absolute;
+	top: 1px;
 	left: 50%;
 	right: auto;
 	bottom: auto;
 	transform: translateX(-50%);
-	z-index: 10000;
+	z-index: 100;
 	width: 64px;
 	height: 34px;
 	border-radius: 999px;
@@ -1931,9 +1930,9 @@ input[type="button"]:active {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-/* Create space below the fixed toggle so it never cuts the header line */
+/* Minimal top spacing so the toggle sits close to the header line */
 #header {
-	margin-top: 0.4rem;
+	margin-top: 0.35rem;
 }
 
 /* Dark mode consistency */
@@ -2084,11 +2083,6 @@ body.light-mode input[type="button"]:active {
 	background-color: var(--site-active-light);
 }
 
-body.light-mode #header > *:before,
-body.light-mode #header nav.use-middle:after {
-	background: #000000;
-}
-
 body.light-mode .theme-toggle {
 	border-color: rgba(0,0,0,0.85);
 	background: rgba(255,255,255,0.7);
@@ -2100,12 +2094,15 @@ body.light-mode .theme-toggle .knob {
 	transform: translateX(30px);
 }
 
+body.light-mode #main article .close:before {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
+}
 
 body.light-mode #themeToggle,
 body.light-mode #themeToggle i,
 body.light-mode #themeToggle .fa-moon,
 body.light-mode #themeToggle .fa-sun {
-	color: #000000 !important;
+	color: var(--site-text-light);
 }
 
 body.light-mode a {
@@ -2114,11 +2111,6 @@ body.light-mode a {
 
 body.light-mode a:hover {
 	border-bottom-color: transparent;
-}
-
-
-body.light-mode #main article .close:before {
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E");
 }
 
 body.light-mode input:focus,
@@ -2132,7 +2124,7 @@ body.light-mode textarea:focus {
 /* Responsive adjustments */
 @media screen and (max-width: 736px) {
 	#header {
-		margin-top: 0.03rem;
+		margin-top: 0.25rem;
 	}
 
 	#header .content .inner {
@@ -2201,7 +2193,7 @@ body.light-mode textarea:focus {
 	}
 
 	.theme-toggle {
-		top: 0.35rem;
+		top: 8px;
 		width: 56px;
 		height: 32px;
 		padding: 0 5px;
