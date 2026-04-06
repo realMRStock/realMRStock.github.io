@@ -1652,336 +1652,122 @@ button {
 		opacity: 0;
 	}
 
+/* =========================================================
+   CUSTOM STYLES — clean consolidated version
+   ========================================================= */
 
-/* =========================================
-   Startseite: Große Social-Icons unter Name
-   ========================================= */
+/* Typography: keep natural casing */
+h1, h2, h3, h4, h5, h6,
+#header h1,
+#header .subtitle,
+#header .content p,
+#header nav ul li a,
+button,
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label {
+  text-transform: none !important;
+}
+
+#header .content p,
+#header nav ul li a,
+button,
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label {
+  letter-spacing: normal !important;
+}
+
+/* Header content must not clip */
+#header .content .inner {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#header .subtitle {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* Profile / front-page icon row */
 #header ul.icons {
-  margin-top: 1.5em;   /* Abstand zum Namen */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 1.25rem !important;
+  padding-left: 0 !important;
+}
+
+#header ul.icons li {
+  display: inline-flex !important;
+  padding: 0 !important;
 }
 
 #header ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 70px !important;       /* großer Kreis */
+  width: 70px !important;
   height: 70px !important;
+  padding: 0 !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 34px !important;    /* großes Symbol */
-  line-height: 70px !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
   text-align: center !important;
-  transition: all 0.2s ease;
+  box-sizing: border-box !important;
 }
 
-#header ul.icons li a:hover {
-  transform: scale(1.08);
-  border-color: #fff;
-}
-
-/* =========================================
-   Kategorien (About, Contact, Community, Publications)
-   Mittlere Social-Icons
-   ========================================= */
+/* Section icon rows — About / Research / Community / Contact */
 #about ul.icons,
-#contact ul.icons,
+#research ul.icons,
 #community ul.icons,
-#publications ul.icons {
+#contact ul.icons {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
-  gap: 20px !important;       /* Abstand horizontal + vertikal */
-  margin-top: 1.5em !important; /* Abstand zu Text/Adresse */
+  gap: 20px !important;
+  margin-top: 1.5rem !important;
+  padding-left: 0 !important;
+}
+
+#about ul.icons li,
+#research ul.icons li,
+#community ul.icons li,
+#contact ul.icons li {
+  display: inline-flex !important;
+  padding: 0 !important;
 }
 
 #about ul.icons li a,
-#contact ul.icons li a,
+#research ul.icons li a,
 #community ul.icons li a,
-#publications ul.icons li a {
+#contact ul.icons li a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 70px !important;     /* kleinerer Kreis */
+  width: 70px !important;
   height: 70px !important;
+  padding: 0 !important;
   border-radius: 50% !important;
   border-width: 2px !important;
   border-style: solid !important;
-  font-size: 34px !important; /* Symbol etwas kleiner */
-  line-height: 70px !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
   text-align: center !important;
-  transition: all 0.2s ease;
+  box-sizing: border-box !important;
 }
 
-#about ul.icons li a:hover,
-#contact ul.icons li a:hover,
-#community ul.icons li a:hover,
-#publications ul.icons li a:hover {
-  transform: scale(1.08);
-  border-color: #fff;
-}
-
-/* Feinanpassung für Academicons */
-#about ul.icons li a.ai:before,
-#contact ul.icons li a.ai:before,
-#community ul.icons li a.ai:before,
-#publications ul.icons li a.ai:before {
-  font-size: 34px !important; /* proportional zu kleineren Kreisen */
-  line-height: 70px !important;
-}
-
-
-
-
-/* Name im Header normal anzeigen, nicht nur Großbuchstaben */
-header.major h1,
-header.major h2 {
-  text-transform: none !important;
-}
-
-/* Container im Header flexibel halten */
-#header .content .inner {
-  height: auto !important;        /* überschreibt feste Höhe aus Template */
-  padding-bottom: 4em !important; /* Abstand nach unten */
-  overflow: visible !important;   /* nichts mehr abschneiden */
-}
-
-#header .subtitle {
-  display: block;
-  font-size: 1rem;    /* Lesbare Größe */
-  line-height: 1.6;   /* Genügend Abstand zwischen den Zeilen */
-  margin-top: 0.5rem;
-}
-
-/* Mehr Platz im Header für kleine Bildschirme */
-@media screen and (max-width: 736px) {
-  #header .inner {
-    padding: 2rem 1rem;        /* mehr Innenabstand */
-  }
-
-  #header .content {
-    display: flex;
-    flex-direction: column;    /* Elemente untereinander stapeln */
-    align-items: center;       /* zentrieren */
-  }
-
-  #header .icons {
-    margin-top: 1.5rem;        /* Abstand zu Name/Subtitle */
-    flex-wrap: wrap;           /* mehrere Zeilen erlaubt */
-    justify-content: center;   /* zentriert in der Breite */
-    gap: 1rem;                 /* Abstand zwischen den Buttons */
-  }
-
-  #header p, 
-  #header a {
-    margin-top: 1rem;          /* CV-Link nicht direkt am Icons kleben */
-  }
-}
-
-/* Fix: Kategorien & Icons in Mobile sollen umbrechen */
-@media screen and (max-width: 736px) {
-  ul.icons {
-    display: flex;
-    flex-wrap: wrap;        /* erlaubt Umbruch */
-    justify-content: center;
-    gap: 1rem;              /* Abstand zwischen Icons */
-  }
-
-  ul.icons li {
-    flex: 0 0 40%;          /* 2 Icons pro Reihe */
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;    /* Abstand nach unten */
-  }
-
-  ul.icons li a {
-    width: 3rem;            /* Icon-Größe anpassen */
-    height: 3rem;
-    line-height: 3rem;
-    font-size: 1.5rem;
-  }
-}
-
-/* Fix: ADS-Icon aus Academicons erzwingen */
-.icon.ai.ai-ads:before {
-  font-family: "Academicons"; /* richtige Schriftfamilie */
-  content: "\e927";           /* Unicode-Glyph für ADS */
-}
-
-/* --- Icon fixes for ADS and Inspire --- */
-/* Avoid adblock issues by using an alias class for ADS */
-.ai-ads-fix:before {
-  content: "\e806";
-  font-family: "Academicons" !important;
-  font-style: normal;
-  font-weight: normal;
-}
-
-/* Ensure Inspire gets the correct glyph even if upstream CSS is overridden */
-.ai-inspire:before {
-  content: "\e834";
-  font-family: "Academicons" !important;
-  font-style: normal;
-  font-weight: normal;
-}
-
-/* === SVG-based icons to avoid adblock/font issues === */
-.icon.ai-astrodb:before,
-a.icon.ai-astrodb:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
-}
-
-.icon.ai-inspire-svg:before,
-a.icon.ai-inspire-svg:before {
-  content: "";
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-color: currentColor;
-  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
-}
-
-/* Keep circle around icons consistent if your theme draws a circle using the link itself */
-.icon.ai-astrodb, .icon.ai-inspire-svg {
-  /* inherit sizing from existing .icon rules */
-}
-
-
-/* === Strong mobile fixes: header flow & subtitle line-break === */
-@media screen and (max-width: 736px) {
-  /* Let header content expand naturally */
-  #header .content .inner {
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-  /* Ensure subtitle breaks into lines */
-  #header .subtitle {
-    display: block !important;
-    white-space: normal !important;
-    line-height: 1.6 !important;
-  }
-  #header .subtitle br {
-    display: block !important;
-    content: "" !important;
-  }
-  /* Icons block spacing */
-  #header .content .inner ul.icons {
-    margin-top: 0.75rem !important;
-    margin-bottom: 1rem !important;
-  }
-  /* Nav below icons, stacked */
-  #header nav {
-    display: block !important;
-    margin-top: 1rem !important;
-    position: relative !important;
-    z-index: 2;
-  }
-  #header nav ul {
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-  }
-}
-
-/* base */
-
-
-/* === Force CV & Thesis to stack vertically on mobile === */
-@media screen and (max-width: 736px) {
-  /* Stack any links inside the header's main paragraph */
-  #header .content .inner p a {
-    display: block !important;
-    margin-top: 0.35rem !important;
-  }
-  /* Slight extra space for the second link */
-  #header .content .inner p a + a {
-    margin-top: 0.5rem !important;
-  }
-}
-
-/* === Disable forced uppercase site-wide (restore 'Raphael' casing) === */
-html, body,
-h1, h2, h3, h4, h5, h6,
-#header h1, #header .logo, #header .title, #header .subtitle,
-nav, nav a, .menu a, .link, a,
-.button, .btn, .actions a,
-p, span, li, .content, .inner, .brand, .logo, .title, .subtitle {
-  text-transform: none !important;
-  letter-spacing: normal !important;
-}
-
-/* === Baseline-/Höhenausgleich nur für ADS/Inspire (SVG-Masken) === */
-.icon.ai-astrodb:before,
-a.icon.ai-astrodb:before,
-.icon.ai-inspire-svg:before,
-a.icon.ai-inspire-svg:before {
-  /* minimal tiefer setzen, damit es zu FA passt */
-  vertical-align: -0.20em;
-  transform: translateY(2px);
-}
-
-/* === Mobile: Nav-Labels exakt mittig in ihren Kästchen === */
-@media screen and (max-width: 736px) {
-  /* Spaltenlayout bleibt, aber jedes Listenelement wird selbst Flex-Container */
-  #header nav ul {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  #header nav ul li {
-    display: flex !important;
-    align-items: stretch !important;   /* a füllt die ganze Höhe */
-  }
-  #header nav ul li a {
-    flex: 1 1 auto !important;
-    display: flex !important;
-    align-items: center !important;    /* vertikal zentriert */
-    justify-content: center !important;/* horizontal zentriert */
-    height: 3.25rem !important;        /* minimal höher für optische Mitte */
-    line-height: 1 !important;
-    padding: 0 1.25rem !important;
-    box-sizing: border-box !important;
-  }
-}
-
-/* Google Scholar im 70px-Kreis exakt ausrichten */
-.icon.ai-google-scholar:before,
-a.icon.ai-google-scholar:before,
-.icon.ai.ai-google-scholar:before,
-a.icon.ai.ai-google-scholar:before {
-  font-family: "Academicons" !important;
-  font-size: 34px !important;   /* identisch zu deinen anderen Symbolen */
-  line-height: 70px !important;  /* zentriert im 70px-Kreis */
-  vertical-align: middle !important;
-  transform: translateY(2px);    /* Baseline-Match wie bei ADS/Inspire */
-}
-
-/* === Desktop-Feinabgleich: ADS/Inspire — Kreis 2px tiefer, Symbol unverändert === */
-@media screen and (min-width: 737px) {
-  /* 1) Symbol nicht mehr zusätzlich absenken */
-  .icon.ai-astrodb:before,
-  a.icon.ai-astrodb:before,
-  .icon.ai-inspire-svg:before,
-  a.icon.ai-inspire-svg:before {
-    transform: translateY(0) !important;
-    vertical-align: middle !important;
-  }
-
-  /* 2) Stattdessen den Kreis (den Link selbst) minimal nach unten schieben */
-  a.icon.ai-astrodb,
-  a.icon.ai-inspire-svg {
-    position: relative !important;
-    top: 3px !important;   /* Kreis 3px tiefer; Symbol bleibt netto auf alter Höhe */
-  }
-}
-
-/* Erzwinge Academicons-Font für alle ai-Icons (sonst „leerer Kreis“) */
+/* Academicons font-based icons */
 .icon.ai:before,
 a.icon.ai:before {
   font-family: "Academicons" !important;
@@ -1989,95 +1775,165 @@ a.icon.ai:before {
   font-weight: normal !important;
 }
 
-/* Größe/Baseline passend zu deinen großen 70px-Kreisen */
-#header ul.icons li a.icon.ai:before,
-#about    ul.icons li a.icon.ai:before,
-#contact  ul.icons li a.icon.ai:before,
-#community ul.icons li a.icon.ai:before,
-#publications ul.icons li a.icon.ai:before {
+/* Center all pseudo-icons cleanly inside the circles */
+#header ul.icons li a:before,
+#about ul.icons li a:before,
+#research ul.icons li a:before,
+#community ul.icons li a:before,
+#contact ul.icons li a:before {
+  display: inline-block !important;
   font-size: 34px !important;
-  line-height: 70px !important;
+  line-height: 1 !important;
   vertical-align: middle !important;
-  transform: translateY(2px); /* gleiche optische Mitte wie FA */
+  transform: none !important;
 }
 
-/* Google Scholar – SVG-Maske (adblock-sicher) */
-.icon.ai-gs-svg:before { 
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+/* SVG-mask icons */
+.icon.ai-gs-svg:before,
+.icon.ai-rg-svg:before,
+.icon.ai-arxiv-svg:before,
+.icon.ai-astrodb:before,
+.icon.ai-inspire-svg:before,
+a.icon.ai-gs-svg:before,
+a.icon.ai-rg-svg:before,
+a.icon.ai-arxiv-svg:before,
+a.icon.ai-astrodb:before,
+a.icon.ai-inspire-svg:before {
+  content: "";
+  display: inline-block !important;
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 1 !important;
+  background-color: currentColor !important;
+  vertical-align: middle !important;
+  transform: none !important;
+}
+
+.icon.ai-gs-svg:before,
+a.icon.ai-gs-svg:before {
   -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/google-scholar.svg") no-repeat center / contain;
-  transform: translateY(2px);
 }
 
-/* ResearchGate – SVG-Maske */
-.icon.ai-rg-svg:before {
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+.icon.ai-rg-svg:before,
+a.icon.ai-rg-svg:before {
   -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/researchgate.svg") no-repeat center / contain;
-  transform: translateY(2px);
 }
 
-/* arXiv – SVG-Maske */
-.icon.ai-arxiv-svg:before {
-  content: ""; display: inline-block; width: 1em; height: 1em; background-color: currentColor;
+.icon.ai-arxiv-svg:before,
+a.icon.ai-arxiv-svg:before {
   -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/arxiv.svg") no-repeat center / contain;
-  transform: translateY(2px);
 }
 
-/* === Desktop-Feinjustage: Zenodo 2px höher (nur Glyphen) === */
-@media screen and (min-width: 737px) {
-  /* SVG-Masken-Variante (falls du sie nutzt) */
-  
-
-  /* Webfont-Variante (Academicons) */
-  .icon.ai.ai-zenodo:before,
-  a.icon.ai.ai-zenodo:before {
-    line-height: 70px !important;       /* konsistent zu deinen 70px-Kreisen */
-    transform: translateY(-2px) !important;
-  }
+.icon.ai-astrodb:before,
+a.icon.ai-astrodb:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Zenodo – SVG-Maske (optional, falls Webfont blockiert) */
-
-
-/* ===========================
-   Light-Mode: NUR Textfarbe + Hintergrundbild
-   =========================== */
-
-/* Schriftfarbe global schwarz erzwingen (alles andere bleibt wie im Dark-Design) */
-body.light-mode, body.light-mode * {
-  color: #000 !important;
+.icon.ai-inspire-svg:before,
+a.icon.ai-inspire-svg:before {
+  -webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
+          mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
 }
 
-/* Helles Hintergrundbild (Pfad anpassen!) */
-body.light-mode #bg:after {
-  background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
+/* Keep Zenodo as the original Academicons ZE glyph — no custom mask, no text fallback */
+.icon.ai.ai-zenodo-square:before,
+a.icon.ai.ai-zenodo-square:before {
+  display: inline-block !important;
+  font-family: "Academicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+  transform: none !important;
 }
 
-/* ---------------------------
-   Toggle-UI (Switch mit Mond/Sonne)
-   --------------------------- */
+/* Hover/active areas must be exactly congruent with the visible element */
+ul.icons li a::after,
+#header nav ul li a::after,
+.button::after,
+button::after,
+input[type="submit"]::after,
+input[type="reset"]::after,
+input[type="button"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+ul.icons li a,
+#header nav ul li a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+ul.icons li a:hover {
+  background-color: rgba(255,255,255,0.08) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+ul.icons li a:active {
+  background-color: rgba(255,255,255,0.18) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+#header nav ul li a:hover,
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: rgba(255,255,255,0.10) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+#header nav ul li a:active,
+.button:active,
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  background-color: rgba(255,255,255,0.18) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+/* Theme toggle — top of the page, but NOT fixed to the viewport */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle,
 .theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 9999;
-  width: 64px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(2px);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 6px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+  position: absolute !important;
+  top: 9px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  z-index: 10000 !important;
+  width: 64px !important;
+  height: 34px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(2px) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 6px !important;
+  cursor: pointer !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
 }
 
-/* Piktogramme im Schalter */
 .theme-toggle i {
   pointer-events: none;
   font-size: 14px;
@@ -2085,74 +1941,60 @@ body.light-mode #bg:after {
   opacity: 0.85;
 }
 
-/* Mond links, Sonne rechts */
 .theme-toggle .fa-moon { margin-right: auto; }
-.theme-toggle .fa-sun  { margin-left:  auto; }
+.theme-toggle .fa-sun  { margin-left: auto; }
 
-/* Knopf der „fährt“ */
 .theme-toggle .knob {
   position: absolute;
   width: 28px;
   height: 28px;
+  left: 3px;
   border-radius: 999px;
   background: #ffffff;
-  left: 3px;
-  transition: transform 0.2s ease;
   transform: translateX(0);
+  transition: transform 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-/* Im Light-Mode invertieren wir nur die UI-Farben des Schalters */
-body.light-mode .theme-toggle {
-  border-color: rgba(0,0,0,0.85);
-  background: rgba(0,0,0,0.06);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
-}
-body.light-mode .theme-toggle .knob {
-  background: #000000;
-  transform: translateX(30px);
-}
-
-/* Optional: auf sehr kleinen Screens etwas kleiner */
-@media screen and (max-width: 480px) {
-  .theme-toggle { width: 56px; height: 32px; padding: 0 5px; }
-  .theme-toggle .knob { width: 26px; height: 26px; left: 3px; transform: translateX(0); }
-  body.light-mode .theme-toggle .knob { transform: translateX(24px); }
-}
-
-/* ===========================
-   Light-Mode: Icons (Kreis + Symbol) invertieren
-   =========================== */
-body.light-mode ul.icons li a {
-  /* Ring in Schwarz statt Weiß */
-  border-color: #000 !important;                 /* falls du border nutzt */
-  box-shadow: inset 0 0 0 1px #000 !important;   /* falls das Theme den Ring via box-shadow zeichnet */
-  /* Symbolfarbe (FA & Academicons) */
+/* Light mode */
+body.light-mode,
+body.light-mode input,
+body.light-mode select,
+body.light-mode textarea,
+body.light-mode strong,
+body.light-mode b,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode p,
+body.light-mode li,
+body.light-mode span,
+body.light-mode small {
   color: #000 !important;
 }
 
-/* Hover/Active-Hintergründe passend für helles Theme */
-body.light-mode ul.icons li a:hover  { background-color: rgba(0,0,0,0.075) !important; }
-body.light-mode ul.icons li a:active { background-color: rgba(0,0,0,0.175) !important; }
+body.light-mode a {
+  color: #000 !important;
+  border-bottom-color: rgba(0,0,0,0.5) !important;
+}
 
-/* Falls einzelne Pseudo-Elemente (SVG-Masken) genutzt werden: sie übernehmen currentColor -> Schwarz */
-body.light-mode .icon.ai-astrodb:before,
-body.light-mode .icon.ai-inspire-svg:before,
-body.light-mode .icon.ai-arxiv-svg:before,
-body.light-mode .icon.ai-rg-svg:before,
-body.light-mode .icon.ai-gs-svg:before,
-body.light-mode 
+body.light-mode a:hover {
+  border-bottom-color: transparent !important;
+}
 
-/* Optional: nur auf der Startseite mit 70px-Kreisen erzwingen (nicht nötig, aber möglich)
-body.light-mode #header ul.icons li a { ... wie oben ... }
-*/
-
-
-/* ===========================
-   LIGHT MODE: Linien/Borders schwarz
-   =========================== */
-
-/* Unterstrich bei .major-Überschriften */
+body.light-mode hr,
+body.light-mode .box,
+body.light-mode table tbody tr,
+body.light-mode table thead,
+body.light-mode table tfoot,
+body.light-mode ul.alt li,
+body.light-mode #header .content,
+body.light-mode #header nav ul,
+body.light-mode #header nav ul li,
+body.light-mode #header .logo,
 body.light-mode h1.major,
 body.light-mode h2.major,
 body.light-mode h3.major,
@@ -2162,952 +2004,25 @@ body.light-mode h6.major {
   border-color: #000 !important;
 }
 
-/* Generische Linien/Boxen */
-body.light-mode hr,
-body.light-mode .box,
-body.light-mode table tbody tr,
-body.light-mode table thead,
-body.light-mode table tfoot,
-body.light-mode ul.alt li,
-body.light-mode #header nav ul,
-body.light-mode #header nav ul li,
-body.light-mode #header .logo {
-  border-color: #000 !important;
-  box-shadow: none !important;
-}
-
-/* Tabellen-Kopftext bleibt schwarz (falls überschrieben) */
-body.light-mode table th { color: #000 !important; }
-
-/* Form-Konturen (Inputs/Select/Textareas) */
-body.light-mode input[type="text"],
-body.light-mode input[type="password"],
-body.light-mode input[type="email"],
-body.light-mode input[type="tel"],
-body.light-mode select,
-body.light-mode textarea {
-  border-color: #000 !important;
-}
-body.light-mode input:focus,
-body.light-mode select:focus,
-body.light-mode textarea:focus {
-  background: rgba(0,0,0,0.075) !important;
-  box-shadow: 0 0 0 1px #000 !important;
-}
-
-/* Checkbox/Radio-Kästchen (die kleinen Rahmen vor dem Label) */
-body.light-mode input[type="checkbox"] + label:before,
-body.light-mode input[type="radio"] + label:before {
-  border-color: #000 !important;
-}
-body.light-mode input[type="checkbox"]:checked + label:before,
-body.light-mode input[type="radio"]:checked + label:before {
-  background: #000 !important;
-  border-color: #000 !important;
-  color: #fff !important; /* Häkchen sichtbar */
-}
-
-/* ===========================
-   LIGHT MODE: Hintergrund-Overlay aufhellen
-   =========================== */
-
-/* Das dunkle Overlay im Light-Mode deutlich reduzieren */
-body.light-mode #bg:before {
-  /* dunkles Overlay des Dark-Themes ersetzen */
-  background-image:
-    linear-gradient(to top, rgba(255,255,255,0.30), rgba(255,255,255,0.30)) !important; /* sanftes, helles Tönungsgitter */
-  background-size: auto !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  /* optional: wenn du GAR KEIN Overlay möchtest, nimm die nächste Zeile statt der linear-gradient-Zeile:
-     background-image: none !important;
-  */
-  transition: background-color 0.25s ease-in-out; /* weicher Wechsel */
-}
-
-/* (Das eigentliche Bild bleibt wie von dir gesetzt) */
-body.light-mode #bg:after {
-  /* Bildpfad hast du bereits gesetzt; nur sicherstellen, dass keine extra-Filter greifen */
-  filter: none !important;
-}
-
-/* Optional: Wenn es dir im Light-Mode immer noch zu dunkel ist,
-   erhöhe die Weißtönung z.B. auf 0.45:
-   rgba(255,255,255,0.45)
-*/
-
-/* =========================================
-   LIGHT MODE – Aufhellendes Overlay & helle Artikel-Karten
-   ========================================= */
-
-/* 1) Seiten-Overlay: statt Abdunkeln -> Aufhellen */
-body.light-mode #bg:before {
-  /* Weißes Overlay statt dunklem; Stärke anpassbar über die 0.35 */
-  background-image:
-    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-    url("../../images/overlay.png") !important;
-  background-size: auto, 256px 256px !important;
-  background-position: center, center !important;
-  background-repeat: no-repeat, repeat !important;
-}
-
-/* Sicherheitsnetz: kein zusätzlicher Blur oder Filter im Light-Mode */
-body.light-mode #bg:after {
-  filter: none !important;
-}
-
-/* 2) Inhaltskästen (die 4 Bereiche) im Light-Mode aufhellen */
-body.light-mode #main article {
-  /* Im Dark-Theme ist es rgba(27,31,34,0.85) (abdunkelnd).
-     Hier helles Pendant (aufhellend). Den Alpha-Wert nach Geschmack justieren. */
-  background-color: rgba(255,255,255,0.85) !important;
-  color: #000 !important; /* Sicherheit: Text bleibt dunkel */
-}
-
-/* Optional: etwas stärkere Aufhellung beim Hover der Karten
-body.light-mode #main article:hover {
-  background-color: rgba(255,255,255,0.92) !important;
-}
-*/
-
-/* 3) (Optional) Buttons/Links in Karten dezenter hinterlegen – auf hell statt dunkel */
-body.light-mode a.button,
-body.light-mode .button,
-body.light-mode #header nav ul li a:hover {
-  background-color: rgba(0,0,0,0.06) !important;
-}
-
-/* ===== LIGHT MODE: Karten wirklich hell + alle Linien schwarz ===== */
-
-/* 0) Seiten-Overlay aufhellen (übersteuert das dunkle Overlay sicher) */
-body.light-mode #bg:before {
-  background-image:
-    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-    url("../../images/overlay.png") !important;
-  background-size: auto, 256px 256px !important;
-  background-position: center, center !important;
-  background-repeat: no-repeat, repeat !important;
-  filter: none !important;
-}
-
-/* 1) Vier Bereiche (Artikel/Karten) hell hinterlegen */
-html body.light-mode #main article {
-  background-color: rgba(255,255,255,0.88) !important; /* ggf. 0.80–0.95 justieren */
-  color: #000 !important;
-}
-
-/* 2) Alle typischen “weißen Linien” im Light Mode auf schwarz drehen */
-html body.light-mode *,
-html body.light-mode *::before,
-html body.light-mode *::after {
-  border-color: #000 !important;
-}
-
-/* 3) Spezifische Linien der Vorlage (falls noch irgendwo übrig) */
-body.light-mode h1.major,
-body.light-mode h2.major,
-body.light-mode h3.major,
-body.light-mode h4.major,
-body.light-mode h5.major,
-body.light-mode h6.major { border-bottom-color: #000 !important; }
-
-body.light-mode hr,
-body.light-mode .box,
-body.light-mode table tbody tr,
-body.light-mode table thead,
-body.light-mode table tfoot,
-body.light-mode ul.alt li,
-body.light-mode #header nav ul,
-body.light-mode #header nav ul li,
-body.light-mode #header .logo { border-color: #000 !important; box-shadow: none !important; }
-
-/* 4) Icon-Kreise bleiben im Light Mode schwarz (Ring + Symbol) */
-body.light-mode ul.icons li a {
-  box-shadow: inset 0 0 0 1px #000 !important;
-  border-color: #000 !important;
-  color: #000 !important;
-}
-body.light-mode ul.icons li a:hover  { background-color: rgba(0,0,0,0.075) !important; }
-body.light-mode ul.icons li a:active { background-color: rgba(0,0,0,0.175) !important; }
-
-/* 5) Formfelder-Fokus dezent dunkel statt hell */
-body.light-mode input:focus,
-body.light-mode select:focus,
-body.light-mode textarea:focus {
-  background: rgba(0,0,0,0.075) !important;
-  box-shadow: 0 0 0 1px #000 !important;
-}
-
-/* Light-Mode: vertikale Mittel-Linie im Menü auf schwarz */
-body.light-mode #header nav.use-middle:after {
-  background: #000 !important;
-}
-
-/* Light-Mode: Close-"X" im Artikel schwarz */
-body.light-mode #main article .close:before {
-  /* identisches SVG wie im Dark-Theme, aber mit schwarzer Strichfarbe (#000) */
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23000000%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E") !important;
-  background-size: 20px 20px !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-
-/* Light-Mode: Hover/Active-Hintergrund des runden Buttons anpassen */
-body.light-mode #main article .close:hover:before  { background-color: rgba(0,0,0,0.075) !important; }
-body.light-mode #main article .close:active:before { background-color: rgba(0,0,0,0.175) !important; }
-
-/* Light-Mode: radiale Vignette in #header aufhellen (weiß statt dunkel) */
-body.light-mode #header {
-  /* Vendor-Präfixe + Standard, jeweils mit !important, um Dark-Wert sicher zu übersteuern */
-  background-image: -moz-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
-  background-image: -webkit-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
-  background-image: -ms-radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
-  background-image: radial-gradient(rgba(255,255,255,0.28) 25%, rgba(255,255,255,0) 55%) !important;
-}
-/* Light-Mode: alle vertikalen Verbindungs-Linien im Header schwarz */
-body.light-mode #header > *:before {
-  background: #000 !important;  /* vertikale Linie über den Buttons/Blöcken */
-}
-
-/* (Du hast bereits die Mitteltrennlinie gesetzt, zur Vollständigkeit hier noch einmal) */
-body.light-mode #header nav.use-middle:after {
-  background: #000 !important;  /* senkrechte Linie zwischen Publications und Community */
-}
-
-/* =========================================================
-   RESPONSIVE FIXES – Verhindern von Überlappungen/Abschnitten
-   (nur Ergänzungen; nichts anderes im Code ändern)
-   ========================================================= */
-
-/* 1) Grundsätzlich: Header-Inhalt darf wachsen, nichts abschneiden */
-#header .content .inner {
-  max-height: none !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* 2) Große Icons unter dem Namen: in flexiblen Zeilen anordnen */
-#header ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 0.75rem 1rem !important;   /* vertikal / horizontal */
-  margin-top: 1rem !important;
-}
-
-/* 3) CV / Thesis / weitere Inline-Links: nie in dieselbe Zeile "quetschen" */
-#header .content .inner p a {
-  display: inline-block;          /* bleibt in einer Linie auf großen Screens */
-  margin-top: 0.35rem;
-  white-space: normal;            /* Umbruch erlauben */
-  line-height: 1.35;
-}
-
-/* 4) Schalter immer vor Klicks geschützt und außerhalb von Overlays sichtbar */
-.theme-toggle {
-  position: fixed;                /* bleibt fest; kollidiert nicht mit Layout-Flow */
-  z-index: 10000 !important;
-  pointer-events: auto !important;
-}
-
-/* 5) Navigationsleiste: bricht sauber um und bekommt Abstände */
-#header nav ul {
-  display: flex !important;
-  flex-wrap: wrap !important;     /* erlaubt Umbruch auf mehrere Zeilen */
-  justify-content: center;
-  gap: 0.5rem !important;
-}
-#header nav ul li {
-  margin: 0 !important;           /* verhindert kumulative Offsets */
-}
-
-/* 6) Artikel/Karten: nie vom Close-Button abgeschnitten */
-#main article {
-  padding-top: 4.5rem !important; /* Platz für den runden Close-Button oben rechts */
-}
-
-/* ---------- Breakpoints ---------- */
-
-/* ≤ 980px: Header-Stack, zusätzliche Luft */
-@media screen and (max-width: 980px) {
-  #header {
-    padding: 1.5rem 0 !important;
-  }
-  #header .content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  #header .content .inner {
-    padding: 2rem 1rem !important;
-    gap: 0.75rem;
-  }
-  #header nav {
-    margin-top: 1rem !important;
-  }
-}
-
-/* ≤ 736px (Smartphones): konsequent stapeln, volle Breite nutzen */
-@media screen and (max-width: 736px) {
-  /* Name + Unterzeile zentriert, Zeilenumbrüche erlauben */
-  #header h1, #header .subtitle {
-    text-align: center !important;
-    white-space: normal !important;
-    word-break: normal !important;
-  }
-
-  /* Große Startseiten-Icons: 2 je Zeile, zentriert */
-  #header ul.icons li {
-    flex: 0 1 calc(50% - 1rem) !important;  /* zwei Spalten */
-    display: flex; justify-content: center;
-  }
-  #header ul.icons li a {
-    width: 70px !important;
-    height: 70px !important;
-    line-height: 70px !important;
-    font-size: 34px !important;
-  }
-
-  /* Nav: vertikal stapeln, volle Breite */
-  #header nav ul {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-  }
-  #header nav ul li a {
-    width: 100% !important;
-    min-width: 0 !important;
-    text-align: center !important;
-  }
-
-  /* CV/Thesis & Co: untereinander (keine Nebeneinander-Quetschung) */
-  #header .content .inner p a {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* Karten-Inhalte: etwas mehr Innenabstand auf kleinen Screens */
-  #main article {
-    padding: 3.5rem 1.25rem 1rem 1.25rem !important;
-  }
-}
-
-/* ≤ 480px (sehr schmal): Bedienelemente weiter entzerren */
-@media screen and (max-width: 480px) {
-  /* Icons etwas kleiner, damit nichts kollidiert */
-  #header ul.icons li a {
-    width: 56px !important;
-    height: 56px !important;
-    line-height: 56px !important;
-    font-size: 28px !important;
-  }
-
-  /* Nav-Abstand unten, damit nichts in die Karten ragt */
-  #header nav {
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* Toggle etwas kleiner (du hast dafür schon Regeln, hier nur Sicherungsnetz) */
-  .theme-toggle { top: 0.75rem; right: 0.75rem; }
-}
-
-/* =========================================
-   LIGHT MODE – Hover soll AUFHELLEN (nicht abdunkeln)
-   ========================================= */
-
-/* 1) Kreise/Symbole (Social-Icons etc.) */
-body.light-mode ul.icons li a {
-  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
-}
-body.light-mode ul.icons li a:hover {
-  /* heller Schleier + leichter Außen-Glow */
-  background-color: rgba(255,255,255,0.55) !important;
-  box-shadow:
-    inset 0 0 0 1px #000 !important,
-    0 0 0 3px rgba(255,255,255,0.35) !important;
-  transform: scale(1.06);
-}
-body.light-mode ul.icons li a:active {
-  background-color: rgba(255,255,255,0.7) !important;
-  transform: scale(1.02);
-}
-
-/* 2) Buttons/Links (Theme-Buttons, Form-Buttons, Nav-Links) */
-body.light-mode .button,
-body.light-mode button,
-body.light-mode input[type="submit"],
-body.light-mode input[type="reset"],
-body.light-mode input[type="button"],
-body.light-mode #header nav ul li a {
-  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
-}
-body.light-mode .button:hover,
-body.light-mode button:hover,
-body.light-mode input[type="submit"]:hover,
-body.light-mode input[type="reset"]:hover,
-body.light-mode input[type="button"]:hover,
-body.light-mode #header nav ul li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;  /* Aufhellen */
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.35) inset !important;
-  transform: translateZ(0) scale(1.02);
-}
-body.light-mode .button:active,
-body.light-mode button:active,
-body.light-mode input[type="submit"]:active,
-body.light-mode input[type="reset"]:active,
-body.light-mode input[type="button"]:active,
-body.light-mode #header nav ul li a:active {
-  background-color: rgba(255,255,255,0.7) !important;
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.4) inset !important;
-  transform: scale(0.99);
-}
-
-/* 3) Runder Close-Button im Artikel */
-body.light-mode #main article .close:hover:before  { background-color: rgba(255,255,255,0.55) !important; }
-body.light-mode #main article .close:active:before { background-color: rgba(255,255,255,0.7)  !important; }
-
-/* Nur dort nutzen, wo erwünscht */
-.gap-top-2 { margin-top: 2rem !important; }   /* Wert nach Bedarf: 1.5rem, 3rem, … */
-.gap-bot-2 { margin-bottom: 2rem !important; }
-
-
-
-
-/* === FINAL: Light Mode – helles Overlay, keine Abdunkelung === */
-body.light-mode #bg:before {
-  background-image:
-    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
-    url("../../images/overlay.png") !important;
-  background-size: auto, 256px 256px !important;
-  background-position: center, center !important;
-  background-repeat: no-repeat, repeat !important;
-  filter: none !important;
-}
-
-
-/* ==== FIX 1: Kreise (Links) von Inspire & ADS 3px nach oben ==== */
-/* hebt die frühere +3px-Korrektur wieder auf */
-@media screen and (min-width: 737px) {
-  a.icon.ai-astrodb,         /* ADS */
-  a.icon.ai-inspire-svg {    /* Inspire (SVG-Maske) */
-    position: relative !important;
-    top: 0 !important;       /* vorher: top: 3px */
-  }
-}
-
-/* ==== FIX 2: Glyphen 2px anheben (Baseline) für ADS, Zenodo, Inspire, ResearchGate ==== */
-/* setzt frühere translateY(+2px) auf 0 und zentriert sauber im 70px-Kreis */
-.icon.ai-astrodb:before,           /* ADS (Academicons/Webfont) */
-.icon.ai-inspire-svg:before,       /* Inspire (SVG-Maske) */
-.icon.ai.ai-zenodo-square:before,  /* Zenodo (Webfont, square) */
-.icon.ai-rg-svg:before {           /* ResearchGate (SVG-Maske) */
-  transform: translateY(0) !important;   /* vorher oft: translateY(2px) */
-  vertical-align: middle !important;
-  line-height: 70px !important;          /* passt zur 70px-Kreishöhe */
-}
-
-
-
-
-/* =========================================================
-   HOVER HITBOX FIX — deckungsgleich über Kreisen & Buttons
-   ========================================================= */
-
-/* 0) Standard-Hover-Hintergründe deaktivieren (wir übernehmen via ::after) */
-ul.icons li a:hover,
-ul.icons li a:active,
-#header nav ul li a:hover,
-#header nav ul li a:active,
-.button:hover, .button:active,
-button:hover, button:active,
-input[type="submit"]:hover, input[type="submit"]:active,
-input[type="reset"]:hover,  input[type="reset"]:active,
-input[type="button"]:hover, input[type="button"]:active {
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-
-/* 1) Rund-Icons: exakte Hover-Fläche via ::after */
-ul.icons li a {
-  position: relative !important;
-  overflow: hidden !important;        /* schneidet sauber auf den Kreis */
-  border-bottom: 0 !important;        /* keine Unterstreichung */
-  backface-visibility: hidden;        /* Anti-Flimmern bei scale/hover */
-  -webkit-backface-visibility: hidden;
-}
-ul.icons li a::after {
-  content: "";
-  position: absolute;
-  inset: 0;                           /* füllt den kompletten Kreis */
-  border-radius: 50%;
-  background: transparent;
-  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
-  pointer-events: none;               /* lässt Klicks durch */
-}
-/* Dark-Mode: leichtes Aufhellen wie im Original */
-ul.icons li a:hover::after  { background-color: rgba(255,255,255,0.12); }
-ul.icons li a:active::after { background-color: rgba(255,255,255,0.22); }
-
-/* Light-Mode: AUFHELLEN (weißlicher Schleier) statt abdunkeln */
-body.light-mode ul.icons li a:hover::after  { background-color: rgba(255,255,255,0.55) !important; }
-body.light-mode ul.icons li a:active::after { background-color: rgba(255,255,255,0.70) !important; }
-
-/* 2) Nav-Links & generische Buttons: gleiche Logik, aber mit 4px Radius */
-#header nav ul li a,
-.button, button,
-input[type="submit"], input[type="reset"], input[type="button"] {
-  position: relative !important;
-  overflow: hidden !important;
-  border-bottom: 0 !important;
-}
-#header nav ul li a::after,
-.button::after, button::after,
-input[type="submit"]::after, input[type="reset"]::after, input[type="button"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 4px;
-  background: transparent;
-  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
-  pointer-events: none;
-}
-/* Dark-Mode: dezent wie Vorlage */
-#header nav ul li a:hover::after,
-.button:hover::after, button:hover::after,
-input[type="submit"]:hover::after, input[type="reset"]:hover::after, input[type="button"]:hover::after {
-  background-color: rgba(255,255,255,0.10);
-}
-#header nav ul li a:active::after,
-.button:active::after, button:active::after,
-input[type="submit"]:active::after, input[type="reset"]:active::after, input[type="button"]:active::after {
-  background-color: rgba(255,255,255,0.18);
-}
-
-/* Light-Mode: helles Hover (weiß), passend zu deinem Wunsch */
-body.light-mode #header nav ul li a:hover::after,
-body.light-mode .button:hover::after, body.light-mode button:hover::after,
-body.light-mode input[type="submit"]:hover::after,
-body.light-mode input[type="reset"]:hover::after,
-body.light-mode input[type="button"]:hover::after {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-body.light-mode #header nav ul li a:active::after,
-body.light-mode .button:active::after, body.light-mode button:active::after,
-body.light-mode input[type="submit"]:active::after,
-body.light-mode input[type="reset"]:active::after,
-body.light-mode input[type="button"]:active::after {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-
-/* =========================================================
-   FINAL TARGETED FIXES ONLY
-   ========================================================= */
-
-
-/* 2) Hover/active effect must match actual visible button area */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-ul.icons li a,
-#header nav ul li a,
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  overflow: hidden !important;
-}
-
-ul.icons li a:hover,
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-ul.icons li a:active,
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-body.light-mode ul.icons li a:hover,
-body.light-mode #header nav ul li a:hover,
-body.light-mode .button:hover,
-body.light-mode button:hover,
-body.light-mode input[type="submit"]:hover,
-body.light-mode input[type="reset"]:hover,
-body.light-mode input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-body.light-mode ul.icons li a:active,
-body.light-mode #header nav ul li a:active,
-body.light-mode .button:active,
-body.light-mode button:active,
-body.light-mode input[type="submit"]:active,
-body.light-mode input[type="reset"]:active,
-body.light-mode input[type="button"]:active {
-  background-color: rgba(255,255,255,0.70) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-/* 3) Mobile header connector line: touch, don't cross */
-@media screen and (max-width: 736px) {
-  #header > *:before {
-    top: -2rem !important;
-    height: 2rem !important;
-  }
-}
-
-/* 4) Preserve research icon sizing/alignment exactly like contact */
-#research ul.icons,
-#contact ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-}
-#research ul.icons li a,
-#contact ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  line-height: 70px !important;
-  font-size: 34px !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-}
-#research ul.icons li a.icon.ai:before,
-#contact ul.icons li a.icon.ai:before {
-  font-size: 34px !important;
-  line-height: 70px !important;
-  transform: translateY(0) !important;
-}
-#research .icon.ai-gs-svg:before,
-#research .icon.ai-rg-svg:before,
-#research .icon.ai-arxiv-svg:before,
-#research .icon.ai-astrodb:before,
-#research .icon.ai-inspire-svg:before,
-#research 
-
-
-/* =====================================================
-   FINAL TARGETED FIXES (clean, last rules win)
-   ===================================================== */
-
-
-/* 2) Research icons same size/layout as Contact/About/Community */
-#research ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  border-radius: 50% !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  font-size: 34px !important;
-  line-height: 70px !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a.ai:before,
-#research ul.icons li a.icon.ai:before {
-  font-size: 34px !important;
-  line-height: 70px !important;
-}
-
-/* 3) Hover/active area exactly matches visible buttons: remove old pseudo overlays */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-ul.icons li a,
-#header nav ul li a,
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.08) !important;
-}
-
-ul.icons li a:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-body.light-mode ul.icons li a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode ul.icons li a:active {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.10) !important;
-}
-
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255,255,255,0.18) !important;
-}
-
-body.light-mode #header nav ul li a:hover,
-body.light-mode .button:hover,
-body.light-mode button:hover,
-body.light-mode input[type="submit"]:hover,
-body.light-mode input[type="reset"]:hover,
-body.light-mode input[type="button"]:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-}
-
-body.light-mode #header nav ul li a:active,
-body.light-mode .button:active,
-body.light-mode button:active,
-body.light-mode input[type="submit"]:active,
-body.light-mode input[type="reset"]:active,
-body.light-mode input[type="button"]:active {
-  background-color: rgba(255,255,255,0.70) !important;
-}
-
-/* Smartphone: Buttons + vertikale Linie etwas nach unten, horizontale Linie bleibt */
-@media screen and (max-width: 736px) {
-  #header nav {
-    position: relative !important;
-    top: 18px !important;
-  }
-}
-
-
-/* =====================================================
-   CLEAN TARGETED FIXES — toggle fixed, less top gap,
-   mobile nav lowered to form a clean T
-   ===================================================== */
-
-
-/* keep size stable */
-html body > #themeToggle.theme-toggle {
-  width: 64px !important;
-  height: 34px !important;
-}
-
-@media screen and (max-width: 736px) {
-  html body > #themeToggle.theme-toggle {
-    top: 8px !important;
-    width: 56px !important;
-    height: 32px !important;
-  }
-}
-
-/* 2) Reduce the empty space above the top line over the name */
-@media screen and (min-width: 737px) {
-  html body #header {
-    margin-top: 4px !important;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  html body #header {
-    margin-top: 12px !important;
-  }
-}
-
-/* 3) Smartphone only: move nav block AND its vertical connector down.
-      The horizontal line of the content box stays unchanged. */
-@media screen and (max-width: 736px) {
-  html body #header nav {
-    position: relative !important;
-    top: 0px !important;
-    margin-top: 2rem !important;
-    transform: none !important;
-  }
-}
-
-
-/* =====================================================
-   FINAL TOGGLE-ONLY FIX
-   changes nothing else
-   ===================================================== */
-#themeToggle,
-#themeToggle.theme-toggle,
-button#themeToggle,
-div#themeToggle,
-body > #themeToggle,
-body > #themeToggle.theme-toggle {
-  position: fixed !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 2147483647 !important;
-}
-
-@media screen and (max-width: 736px) {
-  #themeToggle,
-  #themeToggle.theme-toggle,
-  button#themeToggle,
-  div#themeToggle,
-  body > #themeToggle,
-  body > #themeToggle.theme-toggle {
-    top: 8px !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin: 0 !important;
-    transform: translateX(-50%) !important;
-    z-index: 2147483647 !important;
-  }
-}
-
-
-/* === FINAL CLEAN FIXES === */
-
-/* Light mode colors */
-body.light-mode {
-  color: #000 !important;
-}
-
-body.light-mode a {
-  color: #000 !important;
-  border-bottom-color: rgba(0,0,0,0.5) !important;
-}
-
 body.light-mode #header > *:before,
 body.light-mode #header nav.use-middle:after {
   background: #000 !important;
 }
 
-
-/* Toggle icons color */
-body.light-mode #themeToggle i {
+body.light-mode ul.icons li a {
   color: #000 !important;
-}
-
-/* === Targeted hover congruence fix === */
-/* Remove any pseudo-element hover overlays so the brightened area exactly matches the real button shape */
-ul.icons li a::after,
-#header nav ul li a::after,
-.button::after,
-button::after,
-input[type="submit"]::after,
-input[type="reset"]::after,
-input[type="button"]::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* Keep hover clipping strictly inside the visible element */
-ul.icons li a,
-#header nav ul li a,
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  position: relative !important;
-  overflow: hidden !important;
-  transform: none !important;
-}
-
-/* Icons: hover area equals the circle */
-ul.icons li a:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-ul.icons li a:active {
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
+  border-color: #000 !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
 }
 
 body.light-mode ul.icons li a:hover {
-  background-color: rgba(255, 255, 255, 0.55) !important;
+  background-color: rgba(255,255,255,0.55) !important;
   box-shadow: inset 0 0 0 1px #000 !important;
 }
 
 body.light-mode ul.icons li a:active {
-  background-color: rgba(255, 255, 255, 0.70) !important;
+  background-color: rgba(255,255,255,0.70) !important;
   box-shadow: inset 0 0 0 1px #000 !important;
-}
-
-/* Nav/buttons: hover area equals the visible rectangle */
-#header nav ul li a:hover,
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-  background-color: rgba(255, 255, 255, 0.10) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
-}
-
-#header nav ul li a:active,
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
 body.light-mode #header nav ul li a:hover,
@@ -3116,7 +2031,7 @@ body.light-mode button:hover,
 body.light-mode input[type="submit"]:hover,
 body.light-mode input[type="reset"]:hover,
 body.light-mode input[type="button"]:hover {
-  background-color: rgba(255, 255, 255, 0.55) !important;
+  background-color: rgba(255,255,255,0.55) !important;
   box-shadow: inset 0 0 0 1px #000 !important;
 }
 
@@ -3126,110 +2041,155 @@ body.light-mode button:active,
 body.light-mode input[type="submit"]:active,
 body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
-  background-color: rgba(255, 255, 255, 0.70) !important;
+  background-color: rgba(255,255,255,0.70) !important;
   box-shadow: inset 0 0 0 1px #000 !important;
 }
 
-/* === Final targeted toggle fix === */
-/* Button stays fixed at the top of the viewport and does not move while scrolling */
-#themeToggle,
-#themeToggle.theme-toggle,
-button#themeToggle,
-body > #themeToggle,
-body > #themeToggle.theme-toggle,
-.theme-toggle {
-  position: fixed !important;
-  top: 9px !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  transform: translateX(-50%) !important;
-  z-index: 2147483647 !important;
+body.light-mode #bg:after {
+  background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
+  filter: none !important;
 }
 
+body.light-mode #bg:before {
+  background-image:
+    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("../../images/overlay.png") !important;
+  background-size: auto, 256px 256px !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, repeat !important;
+}
+
+body.light-mode #main article {
+  background-color: rgba(255,255,255,0.88) !important;
+}
+
+body.light-mode .theme-toggle {
+  border-color: rgba(0,0,0,0.85) !important;
+  background: rgba(0,0,0,0.06) !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
+}
+
+body.light-mode .theme-toggle,
+body.light-mode .theme-toggle i,
+body.light-mode #themeToggle,
+body.light-mode #themeToggle i,
+body.light-mode .theme-toggle .fa-moon,
+body.light-mode .theme-toggle .fa-sun,
+body.light-mode #themeToggle .fa-moon,
+body.light-mode #themeToggle .fa-sun {
+  color: #000 !important;
+}
+
+body.light-mode .theme-toggle .knob {
+  background: #000000 !important;
+  transform: translateX(30px) !important;
+}
+
+/* Mobile */
 @media screen and (max-width: 736px) {
+  #header .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #header .content .inner {
+    padding: 2.5rem 1rem !important;
+  }
+
+  #header h1,
+  #header .subtitle {
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  #header .subtitle br {
+    display: block !important;
+  }
+
+  #header .content .inner p a {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 0.35rem !important;
+  }
+
+  #header nav {
+    margin-top: 1rem !important;
+  }
+
+  #header nav ul {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  #header nav ul li {
+    border-left: 0 !important;
+    border-top: solid 1px currentColor !important;
+  }
+
+  #header nav ul li:first-child {
+    border-top: 0 !important;
+  }
+
+  #header nav ul li a {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  #header ul.icons li a,
+  #about ul.icons li a,
+  #research ul.icons li a,
+  #community ul.icons li a,
+  #contact ul.icons li a {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  #header ul.icons li a:before,
+  #about ul.icons li a:before,
+  #research ul.icons li a:before,
+  #community ul.icons li a:before,
+  #contact ul.icons li a:before {
+    font-size: 28px !important;
+  }
+
+  .icon.ai-gs-svg:before,
+  .icon.ai-rg-svg:before,
+  .icon.ai-arxiv-svg:before,
+  .icon.ai-astrodb:before,
+  .icon.ai-inspire-svg:before,
+  a.icon.ai-gs-svg:before,
+  a.icon.ai-rg-svg:before,
+  a.icon.ai-arxiv-svg:before,
+  a.icon.ai-astrodb:before,
+  a.icon.ai-inspire-svg:before {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
   #themeToggle,
   #themeToggle.theme-toggle,
   button#themeToggle,
   body > #themeToggle,
   body > #themeToggle.theme-toggle,
   .theme-toggle {
-    position: fixed !important;
     top: 9px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 2147483647 !important;
+    width: 56px !important;
+    height: 32px !important;
+    padding: 0 5px !important;
   }
-}
 
-/* === Research icons: center glyphs inside circles exactly like other sections === */
-#research ul.icons {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 20px !important;
-  margin-top: 1.5em !important;
-  padding-left: 0 !important;
-}
+  .theme-toggle .knob {
+    width: 26px !important;
+    height: 26px !important;
+  }
 
-#research ul.icons li {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-}
-
-#research ul.icons li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 70px !important;
-  height: 70px !important;
-  line-height: 70px !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-}
-
-/* Font-based academicons inside research circles */
-#research ul.icons li a.icon.ai:before,
-#research ul.icons li a.ai:before {
-  display: inline-block !important;
-  font-family: "Academicons" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-size: 34px !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-  transform: none !important;
-}
-
-/* SVG-mask based icons inside research circles */
-#research .icon.ai-gs-svg:before,
-#research .icon.ai-rg-svg:before,
-#research .icon.ai-arxiv-svg:before,
-#research .icon.ai-astrodb:before,
-#research .icon.ai-inspire-svg:before {
-  display: inline-block !important;
-  width: 34px !important;
-  height: 34px !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-  transform: none !important;
-  background-color: currentColor !important;
-}
-
-/* Zenodo in research section: keep original Academicons glyph centered */
-#research .icon.ai.ai-zenodo-square:before,
-#research a.icon.ai.ai-zenodo-square:before {
-  display: inline-block !important;
-  font-family: "Academicons" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-size: 34px !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-  transform: none !important;
+  body.light-mode .theme-toggle .knob {
+    transform: translateX(24px) !important;
+  }
 }
