@@ -2177,13 +2177,22 @@ body.light-mode #footer .copyright {
 #header .subtitle,
 #footer .copyright,
 #header .content .inner > p:last-of-type a {
-  transition: background-color 0.25s ease, backdrop-filter 0.25s ease, -webkit-backdrop-filter 0.25s ease;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.03);
+  transition:
+    background-color 0.45s ease,
+    backdrop-filter 0.45s ease,
+    -webkit-backdrop-filter 0.45s ease,
+    box-shadow 0.45s ease,
+    border-radius 0.45s ease;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.018);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.035);
 }
 
 body.light-mode #header .subtitle,
 body.light-mode #footer .copyright,
 body.light-mode #header .content .inner > p:last-of-type a {
-  background: rgba(0,0,0,0.03);
+  background: rgba(0,0,0,0.018);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
 }
