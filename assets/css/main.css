@@ -2641,33 +2641,26 @@ body.light-mode input[type="button"]:active::after {
 }
 
 .keypub {
-  margin-top: 2.5rem;
-}
 
+	
 /* =========================================
    Theme toggle — single source of truth
    ========================================= */
-#header .content {
-  position: relative;
-  overflow: visible !important;
-}
-
-#header .content > #themeToggle.theme-toggle,
-#header .content > .theme-toggle {
+#themeToggle.theme-toggle,
+.theme-toggle {
   position: absolute;
-  top: -2.85rem;
+  top: 1rem;
   left: 50%;
   right: auto;
   bottom: auto;
   transform: translateX(-50%);
-  z-index: 20;
+  z-index: 10;
   width: 64px;
   height: 34px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.9);
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2675,30 +2668,28 @@ body.light-mode input[type="button"]:active::after {
   cursor: pointer;
   pointer-events: auto;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
-  color: #ffffff !important;
-  text-decoration: none !important;
 }
 
-#header .content > #themeToggle.theme-toggle i,
-#header .content > .theme-toggle i {
+#themeToggle.theme-toggle i,
+.theme-toggle i {
   pointer-events: none;
   font-size: 14px;
   line-height: 1;
   opacity: 0.85;
 }
 
-#header .content > #themeToggle.theme-toggle .fa-moon,
-#header .content > .theme-toggle .fa-moon {
+#themeToggle.theme-toggle .fa-moon,
+.theme-toggle .fa-moon {
   margin-right: auto;
 }
 
-#header .content > #themeToggle.theme-toggle .fa-sun,
-#header .content > .theme-toggle .fa-sun {
+#themeToggle.theme-toggle .fa-sun,
+.theme-toggle .fa-sun {
   margin-left: auto;
 }
 
-#header .content > #themeToggle.theme-toggle .knob,
-#header .content > .theme-toggle .knob {
+#themeToggle.theme-toggle .knob,
+.theme-toggle .knob {
   position: absolute;
   left: 3px;
   width: 28px;
@@ -2706,48 +2697,39 @@ body.light-mode input[type="button"]:active::after {
   border-radius: 999px;
   background: #ffffff;
   transform: translateX(0);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
-body.light-mode #header .content > #themeToggle.theme-toggle,
-body.light-mode #header .content > .theme-toggle {
-  border-color: #000000 !important;
-  color: #000000 !important;
-  background: rgba(255,255,255,0.18);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+body.light-mode #themeToggle.theme-toggle,
+body.light-mode .theme-toggle {
+  border-color: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-body.light-mode #header .content > #themeToggle.theme-toggle .knob,
-body.light-mode #header .content > .theme-toggle .knob {
+body.light-mode #themeToggle.theme-toggle .knob,
+body.light-mode .theme-toggle .knob {
   background: #000000;
   transform: translateX(30px);
 }
 
-@media screen and (max-width: 736px) {
-  #header .content > #themeToggle.theme-toggle,
-  #header .content > .theme-toggle {
-    top: -2.15rem;
-  }
-}
-
 @media screen and (max-width: 480px) {
-  #header .content > #themeToggle.theme-toggle,
-  #header .content > .theme-toggle {
+  #themeToggle.theme-toggle,
+  .theme-toggle {
     width: 56px;
     height: 32px;
     padding: 0 5px;
-    top: -2.0rem;
   }
 
-  #header .content > #themeToggle.theme-toggle .knob,
-  #header .content > .theme-toggle .knob {
+  #themeToggle.theme-toggle .knob,
+  .theme-toggle .knob {
     width: 26px;
     height: 26px;
   }
 
-  body.light-mode #header .content > #themeToggle.theme-toggle .knob,
-  body.light-mode #header .content > .theme-toggle .knob {
+  body.light-mode #themeToggle.theme-toggle .knob,
+  body.light-mode .theme-toggle .knob {
     transform: translateX(24px);
   }
 }
