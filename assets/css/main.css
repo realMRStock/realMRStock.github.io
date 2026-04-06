@@ -2640,9 +2640,9 @@ body.light-mode input[type="button"]:active::after {
   background-color: rgba(255,255,255,0.70) !important;
 }
 
-.keypub {
+.keypub { }
 
-	
+
 /* =========================================
    Theme toggle — single source of truth
    ========================================= */
@@ -2731,5 +2731,110 @@ body.light-mode .theme-toggle .knob {
   body.light-mode #themeToggle.theme-toggle .knob,
   body.light-mode .theme-toggle .knob {
     transform: translateX(24px);
+  }
+}
+
+
+/* =========================================
+   Targeted fix: keep toggle as switch and remove header cross
+   ========================================= */
+
+/* The toggle is a direct child of #header in the HTML. Exclude it from the
+   template's connector-line system so mobile keeps a T instead of a cross. */
+#header > #themeToggle.theme-toggle {
+  position: absolute !important;
+  top: 1rem !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  margin-top: 0 !important;
+  z-index: 30 !important;
+
+  width: 64px !important;
+  height: 34px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(2px);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 6px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15) !important;
+  overflow: visible !important;
+}
+
+/* No vertical connector line on the toggle itself */
+#header > #themeToggle.theme-toggle:before,
+#header > #themeToggle.theme-toggle:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Keep switch visuals stable despite generic button rules */
+#header > #themeToggle.theme-toggle i {
+  pointer-events: none;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  opacity: 0.85;
+  margin-top: 0 !important;
+}
+
+#header > #themeToggle.theme-toggle .fa-moon { margin-right: auto !important; }
+#header > #themeToggle.theme-toggle .fa-sun  { margin-left: auto !important; }
+
+#header > #themeToggle.theme-toggle .knob {
+  position: absolute !important;
+  left: 3px !important;
+  top: 3px !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  transform: translateX(0) !important;
+  transition: transform 0.2s ease !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.35) !important;
+}
+
+body.light-mode #header > #themeToggle.theme-toggle {
+  border-color: rgba(0,0,0,0.85) !important;
+  background: rgba(0,0,0,0.06) !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
+  color: #000 !important;
+}
+
+body.light-mode #header > #themeToggle.theme-toggle .knob {
+  background: #000000 !important;
+  transform: translateX(30px) !important;
+}
+
+@media screen and (max-width: 736px) {
+  #header > #themeToggle.theme-toggle {
+    top: 1rem !important;
+    width: 56px !important;
+    height: 32px !important;
+    padding: 0 5px !important;
+  }
+
+  #header > #themeToggle.theme-toggle .knob {
+    top: 3px !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  body.light-mode #header > #themeToggle.theme-toggle .knob {
+    transform: translateX(24px) !important;
+  }
+
+  /* Keep the nav block and its connector slightly lower, while the
+     horizontal line above About Me stays where it is. */
+  #header nav {
+    position: relative !important;
+    top: 18px !important;
+    margin-top: 0 !important;
   }
 }
