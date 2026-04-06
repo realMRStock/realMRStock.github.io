@@ -97,6 +97,11 @@ body {
 	background: #1b1f22;
 }
 
+body {
+	position: relative;
+}
+
+
 	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
@@ -1776,16 +1781,18 @@ a.icon.ai:before {
 	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/ads.svg") no-repeat center / contain;
 }
 
-/* Zenodo via SVG mask for robust rendering */
+/* Zenodo icon: robust fallback using standard Zenodo SVG */
 .icon.ai.ai-zenodo-square:before,
-a.icon.ai.ai-zenodo-square:before {
+a.icon.ai.ai-zenodo-square:before,
+.icon.ai-zenodo-square:before,
+a.icon.ai-zenodo-square:before {
 	content: "";
 	display: inline-block;
 	width: 1em;
 	height: 1em;
 	background-color: currentColor;
-	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
-	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo-square.svg") no-repeat center / contain;
+	-webkit-mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
+	        mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/zenodo.svg") no-repeat center / contain;
 	vertical-align: middle;
 }
 
@@ -1880,10 +1887,10 @@ input[type="button"]:active {
 	background-color: var(--site-active-dark);
 }
 
-/* Fixed theme toggle: pinned to the viewport top, not to page flow */
+/* Theme toggle: attached to the page top, scrolls away with the header */
 .theme-toggle {
-	position: fixed !important;
-	top: 4px;
+	position: absolute !important;
+	top: 0.4rem;
 	left: 50%;
 	right: auto;
 	bottom: auto;
@@ -2200,7 +2207,7 @@ body.light-mode textarea:focus {
 	}
 
 	.theme-toggle {
-		top: 4px;
+		top: 0.35rem;
 		width: 56px;
 		height: 32px;
 		padding: 0 5px;
