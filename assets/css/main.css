@@ -2769,3 +2769,28 @@ body.light-mode input[type="reset"]:active,
 body.light-mode input[type="button"]:active {
   background-color: rgba(0,0,0,0.12) !important;
 }
+
+/* ===== Final tiny fixes ===== */
+
+/* 1) Theme toggle 4px weiter von der Linie weg */
+.theme-toggle {
+  margin-top: 4px !important;
+}
+
+/* 2) Hover-Fläche der Header-Navigation exakt an sichtbare Buttonfläche koppeln */
+#header nav ul li {
+  overflow: hidden !important;
+}
+
+#header nav ul li a {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+#header nav ul li a::before,
+#header nav ul li a::after {
+  display: none !important;
+}
