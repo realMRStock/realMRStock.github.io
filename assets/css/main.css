@@ -3201,3 +3201,69 @@ body.light-mode .theme-toggle .knob {
     transform: translateX(24px) !important;
   }
 }
+
+
+/* =========================================================
+   FINAL STABILITY PATCH
+   - keep icons/text as-is
+   - make theme toggle document-bound (scrolls away)
+   - make header nav hover match visible button size
+   ========================================================= */
+
+/* Theme toggle: document-bound at top center, not viewport-fixed */
+#themeToggle,
+#themeToggle.theme-toggle,
+button#themeToggle,
+body > #themeToggle,
+body > #themeToggle.theme-toggle,
+.theme-toggle {
+  position: absolute !important;
+  top: 12px !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 480px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 10px !important;
+  }
+}
+
+/* Header navigation hover area: use the actual link box only */
+#header nav ul li a::before,
+#header nav ul li a::after {
+  content: none !important;
+  display: none !important;
+}
+
+#header nav ul li a {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+#header nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.075) !important;
+  box-shadow: none !important;
+}
+
+#header nav ul li a:active {
+  background-color: rgba(255, 255, 255, 0.175) !important;
+  box-shadow: none !important;
+}
+
+body.light-mode #header nav ul li a:hover {
+  background-color: rgba(255,255,255,0.55) !important;
+}
+
+body.light-mode #header nav ul li a:active {
+  background-color: rgba(255,255,255,0.70) !important;
+}
