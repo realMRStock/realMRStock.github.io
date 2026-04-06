@@ -2082,6 +2082,9 @@ body.light-mode #main article .close:before {
 
 /* Homepage photo as circle */
 #header .content .inner > img:first-of-type {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   border-radius: 50% !important;
   overflow: hidden !important;
 }
@@ -2151,9 +2154,13 @@ body.light-mode #header .content .inner > p:last-of-type a {
    ========================================================= */
 #header .subtitle,
 #footer .copyright {
-  display: inline-block;
-  padding: 0.15rem 0.45rem;
-  border-radius: 6px;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.06rem 0.22rem;
+  border-radius: 4px;
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
