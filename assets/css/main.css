@@ -2068,7 +2068,7 @@ body.light-mode #themeToggle .fa-sun {
 
 body.light-mode .theme-toggle .knob {
   background: #000000 !important;
-  transform: translateX(28px) !important;
+  transform: translateX(29px) !important;
 }
 
 /* Light mode: close X icon black */
