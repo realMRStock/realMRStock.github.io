@@ -2134,45 +2134,7 @@ ul.icons li a {
 }
 
 /* =========================================================
-   Blurred background around CV / Thesis links
-   ========================================================= */
-#header .content .inner > p:last-of-type a {
-  display: inline-block;
-  padding: 0.15rem 0.45rem;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-}
-
-body.light-mode #header .content .inner > p:last-of-type a {
-  background: rgba(0,0,0,0.04);
-}
-
-/* =========================================================
-   Blurred background around subtitle and footer text
-   ========================================================= */
-#header .subtitle,
-#footer .copyright {
-  display: block;
-  width: max-content;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0.06rem 0.22rem;
-  border-radius: 4px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-}
-
-body.light-mode #header .subtitle,
-body.light-mode #footer .copyright {
-  background: rgba(0,0,0,0.04);
-}
-
-/* =========================================================
-   Rounded, much softer blur panels
+   Single soft blur panel
    ========================================================= */
 #header .subtitle,
 #footer .copyright,
@@ -2182,10 +2144,37 @@ body.light-mode #footer .copyright {
   display: inline-block !important;
   padding: 0.16rem 0.42rem !important;
   border-radius: 12px !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-  z-index: 0 !important;
+  background: rgba(255,255,255,0.035) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 18px rgba(255,255,255,0.06) !important;
+}
+
+/* Subtitle mittig unter dem Bild */
+#header .subtitle {
+  display: block !important;
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* nur EINE Fläche, keine Zusatzebenen */
+#header .subtitle::before,
+#footer .copyright::before,
+#header .content .inner > p:last-of-type a::before,
+#header .subtitle::after,
+#footer .copyright::after,
+#header .content .inner > p:last-of-type a::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.light-mode #header .subtitle,
+body.light-mode #footer .copyright,
+body.light-mode #header .content .inner > p:last-of-type a {
+  background: rgba(0,0,0,0.03) !important;
+  box-shadow: 0 0 16px rgba(0,0,0,0.04) !important;
 }
 
 /* keep subtitle centered below the image */
