@@ -2035,8 +2035,8 @@ body.light-mode #bg:after {
 
 body.light-mode #bg:before {
   background-image:
-    linear-gradient(to top, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0.42) 22%, rgba(255,255,255,0.20) 42%, rgba(255,255,255,0.00) 62%),
-    linear-gradient(to top, rgba(255,255,255,0.22), rgba(255,255,255,0.22)),
+    linear-gradient(to top, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.52) 20%, rgba(255,255,255,0.28) 40%, rgba(255,255,255,0.12) 58%, rgba(255,255,255,0.00) 72%),
+    linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
     url("../../images/overlay.png") !important;
   background-size: auto, auto, 256px 256px !important;
   background-position: center, center, center !important;
@@ -2069,7 +2069,7 @@ body.light-mode #themeToggle .fa-sun {
 
 body.light-mode .theme-toggle .knob {
   background: #000000 !important;
-  transform: translateX(30px) !important;
+  transform: translateX(29px) !important;
 }
 
 /* Light mode: close X icon black */
@@ -2083,6 +2083,9 @@ body.light-mode #main article .close:before {
 
 /* Homepage photo as circle */
 #header .content .inner > img:first-of-type {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   border-radius: 50% !important;
   overflow: hidden !important;
 }
@@ -2129,4 +2132,115 @@ body.light-mode #main article .close:before {
 ul.icons li a {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+}
+
+/* =========================================================
+   Single soft blur panel
+   ========================================================= */
+#header .subtitle,
+#footer .copyright,
+#header .content .inner > p:last-of-type a {
+  position: relative !important;
+  isolation: isolate !important;
+  display: inline-block !important;
+  padding: 0.16rem 0.42rem !important;
+  border-radius: 12px !important;
+  background: rgba(255,255,255,0.035) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 18px rgba(255,255,255,0.06) !important;
+}
+
+/* Subtitle mittig unter dem Bild */
+#header .subtitle {
+  display: block !important;
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* nur EINE Fläche, keine Zusatzebenen */
+#header .subtitle::before,
+#footer .copyright::before,
+#header .content .inner > p:last-of-type a::before,
+#header .subtitle::after,
+#footer .copyright::after,
+#header .content .inner > p:last-of-type a::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.light-mode #header .subtitle,
+body.light-mode #footer .copyright,
+body.light-mode #header .content .inner > p:last-of-type a {
+  background: rgba(0,0,0,0.03) !important;
+  box-shadow: 0 0 16px rgba(0,0,0,0.04) !important;
+}
+
+/* keep subtitle centered below the image */
+#header .subtitle {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* footer text should stay compact */
+#footer .copyright {
+  width: auto !important;
+}
+
+/* soft inner blur layer */
+#header .subtitle::before,
+#footer .copyright::before,
+#header .content .inner > p:last-of-type a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.10rem -0.16rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.024);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: none;
+}
+
+/* broad feathered outer layer */
+#header .subtitle::after,
+#footer .copyright::after,
+#header .content .inner > p:last-of-type a::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -0.42rem -0.56rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.09);
+  filter: blur(18px);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+/* very soft glow to remove any hard visual edge */
+#header .subtitle,
+#footer .copyright,
+#header .content .inner > p:last-of-type a {
+  box-shadow: 0 0 22px rgba(255,255,255,0.045) !important;
+}
+
+body.light-mode #header .subtitle::before,
+body.light-mode #footer .copyright::before,
+body.light-mode #header .content .inner > p:last-of-type a::before {
+  background: rgba(0,0,0,0.016);
+}
+
+body.light-mode #header .subtitle::after,
+body.light-mode #footer .copyright::after,
+body.light-mode #header .content .inner > p:last-of-type a::after {
+  background: rgba(0,0,0,0.07);
+  opacity: 0.16;
+}
+
+body.light-mode #header .subtitle,
+body.light-mode #footer .copyright,
+body.light-mode #header .content .inner > p:last-of-type a {
+  box-shadow: 0 0 18px rgba(0,0,0,0.035) !important;
 }
