@@ -2035,16 +2035,11 @@ body.light-mode #bg:after {
 
 body.light-mode #bg:before {
   background-image:
-    linear-gradient(to top, rgba(255,255,255,0.72) 0%, 
-					rgba(255,255,255,0.52) 10%, 
-					rgba(255,255,255,0.28) 28%, 
-					rgba(255,255,255,0.12) 42%, 
-					rgba(255,255,255,0.00) 55%),
     linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
     url("../../images/overlay.png") !important;
-  background-size: auto, auto, 256px 256px !important;
-  background-position: center, center, center !important;
-  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-size: auto, 256px 256px !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat, repeat !important;
 }
 
 body.light-mode #main article {
@@ -2250,38 +2245,38 @@ body.light-mode #header .content .inner > p:last-of-type a {
 }
 
 /* =========================================================
-   Narrow desktop: slightly more space between switch and top line
+   Narrow desktop: move header line/content about 4px lower
    ========================================================= */
-@media screen and (min-width: 737px) and (max-width: 1500px) {
-  #themeToggle,
-  #themeToggle.theme-toggle,
-  button#themeToggle,
-  body > #themeToggle,
-  body > #themeToggle.theme-toggle,
-  .theme-toggle {
-    top: 8px !important;
+@media screen and (min-width: 737px) and (max-width: 1300px) {
+  #header > * {
+    margin-top: calc(3.5rem + 4px) !important;
+  }
+
+  #header > *:before {
+    top: calc(-3.5rem - 1px - 4px) !important;
+    height: calc(3.5rem + 1px + 4px) !important;
   }
 }
 
 /* =========================================================
-   CV / Thesis as compact rounded buttons around the text
+   CV / Thesis buttons: same hover/active brightening as nav buttons
    ========================================================= */
-#header .content .inner > p:last-of-type a {
-  display: block !important;
-  width: max-content !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0.28rem 0.85rem !important;
-  border-radius: 12px !important;
-  border: 1px solid currentColor !important;
-  box-sizing: border-box !important;
+#header .content .inner > p:last-of-type a:hover {
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
-#header .content .inner > p:last-of-type a + a {
-  margin-top: 0.6rem !important;
+#header .content .inner > p:last-of-type a:active {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
-body.light-mode #header .content .inner > p:last-of-type a {
-  border-color: #000 !important;
+body.light-mode #header .content .inner > p:last-of-type a:hover {
+  background-color: rgba(255,255,255,0.55) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
+}
+
+body.light-mode #header .content .inner > p:last-of-type a:active {
+  background-color: rgba(255,255,255,0.70) !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
 }
