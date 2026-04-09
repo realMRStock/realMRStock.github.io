@@ -2248,3 +2248,23 @@ body.light-mode #footer .copyright,
 body.light-mode #header .content .inner > p:last-of-type a {
   box-shadow: 0 0 18px rgba(0,0,0,0.035) !important;
 }
+
+/* =========================================================
+   Always stack subtitle and CV/Thesis links vertically
+   ========================================================= */
+#header .subtitle br {
+  display: block !important;
+}
+
+#header .content .inner > p:last-of-type br {
+  display: block !important;
+}
+
+#header .content .inner > p:last-of-type a {
+  display: block !important;
+  width: 100% !important;
+}
+
+#header .content .inner > p:last-of-type a + a {
+  margin-top: 0.5rem !important;
+}
