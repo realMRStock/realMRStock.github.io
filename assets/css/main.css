@@ -1194,7 +1194,7 @@ button {
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
-	padding: 2rem 2rem 4rem 2rem;
+	padding: 4rem 2rem;
 	z-index: 3;
 }
 
@@ -1206,7 +1206,7 @@ button {
 	@media screen and (max-width: 1680px) {
 
 		#wrapper {
-			padding: 2rem 2rem;
+			padding: 3rem 2rem;
 		}
 
 	}
@@ -1214,7 +1214,7 @@ button {
 	@media screen and (max-width: 736px) {
 
 		#wrapper {
-			padding: 2rem 2rem;
+			padding: 2rem 1rem;
 		}
 
 	}
@@ -1222,7 +1222,7 @@ button {
 	@media screen and (max-width: 480px) {
 
 		#wrapper {
-			padding: 2rem 2rem;
+			padding: 1rem;
 		}
 
 	}
@@ -1424,7 +1424,7 @@ button {
 	@media screen and (max-width: 736px) {
 
 		#header > * {
-			margin-top: 2rem;
+			margin-top: 0rem;
 		}
 
 			#header > *:before {
@@ -1653,10 +1653,10 @@ button {
 	}
 
 /* =========================================================
-   CUSTOM STYLES — consolidated desktop-first version
+   CUSTOM STYLES — clean consolidated version
    ========================================================= */
 
-/* Natural casing and tighter heading spacing */
+/* Typography: keep natural casing */
 h1, h2, h3, h4, h5, h6,
 #header h1,
 #header .subtitle,
@@ -1682,14 +1682,6 @@ label {
   letter-spacing: normal !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
-#header h1,
-article h2.major,
-article h3 {
-  letter-spacing: 0.06rem !important;
-}
-
 /* Header content must not clip */
 #header .content .inner {
   max-height: none !important;
@@ -1704,8 +1696,38 @@ article h3 {
   margin-top: 0.5rem;
 }
 
-/* Icon rows */
-#header ul.icons,
+/* Profile / front-page icon row */
+#header ul.icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 1.25rem !important;
+  padding-left: 0 !important;
+}
+
+#header ul.icons li {
+  display: inline-flex !important;
+  padding: 0 !important;
+}
+
+#header ul.icons li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px !important;
+  height: 70px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  font-size: 34px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Section icon rows — About / Research / Community / Contact */
 #about ul.icons,
 #research ul.icons,
 #community ul.icons,
@@ -1714,16 +1736,10 @@ article h3 {
   flex-wrap: wrap !important;
   justify-content: center !important;
   gap: 20px !important;
+  margin-top: 1.5rem !important;
   padding-left: 0 !important;
 }
 
-#header ul.icons { margin-top: 1.25rem !important; }
-#about ul.icons,
-#research ul.icons,
-#community ul.icons,
-#contact ul.icons { margin-top: 1.5rem !important; }
-
-#header ul.icons li,
 #about ul.icons li,
 #research ul.icons li,
 #community ul.icons li,
@@ -1732,7 +1748,6 @@ article h3 {
   padding: 0 !important;
 }
 
-#header ul.icons li a,
 #about ul.icons li a,
 #research ul.icons li a,
 #community ul.icons li a,
@@ -1752,7 +1767,7 @@ article h3 {
   box-sizing: border-box !important;
 }
 
-/* Academicons and SVG mask icons centered like on the start page */
+/* Academicons font-based icons */
 .icon.ai:before,
 a.icon.ai:before {
   font-family: "Academicons" !important;
@@ -1760,6 +1775,7 @@ a.icon.ai:before {
   font-weight: normal !important;
 }
 
+/* Center all pseudo-icons cleanly inside the circles */
 #header ul.icons li a:before,
 #about ul.icons li a:before,
 #research ul.icons li a:before,
@@ -1772,6 +1788,7 @@ a.icon.ai:before {
   transform: none !important;
 }
 
+/* SVG-mask icons */
 .icon.ai-gs-svg:before,
 .icon.ai-rg-svg:before,
 .icon.ai-arxiv-svg:before,
@@ -1822,7 +1839,7 @@ a.icon.ai-inspire-svg:before {
           mask: url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/svg/inspire.svg") no-repeat center / contain;
 }
 
-/* Zenodo remains the original Academicons ZE glyph */
+/* Keep Zenodo as the original Academicons ZE glyph — no custom mask, no text fallback */
 .icon.ai.ai-zenodo-square:before,
 a.icon.ai.ai-zenodo-square:before {
   display: inline-block !important;
@@ -1835,7 +1852,7 @@ a.icon.ai.ai-zenodo-square:before {
   transform: none !important;
 }
 
-/* Hover areas exactly match the visible elements */
+/* Hover/active areas must be exactly congruent with the visible element */
 ul.icons li a::after,
 #header nav ul li a::after,
 .button::after,
@@ -1888,7 +1905,7 @@ input[type="button"]:active {
   box-shadow: inset 0 0 0 1px currentColor !important;
 }
 
-/* Toggle: desktop-first, not fixed to viewport */
+/* Theme toggle — top of the page, but NOT fixed to the viewport */
 #themeToggle,
 #themeToggle.theme-toggle,
 button#themeToggle,
@@ -1896,7 +1913,7 @@ body > #themeToggle,
 body > #themeToggle.theme-toggle,
 .theme-toggle {
   position: absolute !important;
-  top: 4px !important;
+  top: 9px !important;
   left: 50% !important;
   right: auto !important;
   bottom: auto !important;
@@ -2029,7 +2046,7 @@ body.light-mode input[type="button"]:active {
 }
 
 body.light-mode #bg:after {
-  background-image: url("../../images/IMG_2305_DxO.jpg") !important;
+  background-image: url("../../images/IMG_9379_DxO-1.jpg") !important;
   filter: none !important;
 }
 
@@ -2046,13 +2063,10 @@ body.light-mode #main article {
   background-color: rgba(255,255,255,0.88) !important;
 }
 
-body.light-mode #themeToggle,
-body.light-mode #themeToggle.theme-toggle,
 body.light-mode .theme-toggle {
-  border: 1px solid #000 !important;
-  border-color: #000 !important;
+  border-color: rgba(0,0,0,0.85) !important;
   background: rgba(0,0,0,0.06) !important;
-  box-shadow: inset 0 0 0 1px #000 !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08) !important;
 }
 
 body.light-mode .theme-toggle,
@@ -2068,7 +2082,125 @@ body.light-mode #themeToggle .fa-sun {
 
 body.light-mode .theme-toggle .knob {
   background: #000000 !important;
-  transform: translateX(29px) !important;
+  transform: translateX(30px) !important;
+}
+
+/* Mobile */
+@media screen and (max-width: 736px) {
+  #header .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #header .content .inner {
+    padding: 2.5rem 1rem !important;
+  }
+
+  #header h1,
+  #header .subtitle {
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  #header .subtitle br {
+    display: block !important;
+  }
+
+  #header .content .inner p a {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 0.35rem !important;
+  }
+
+  #header nav {
+    margin-top: 1rem !important;
+  }
+
+  #header nav ul {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  #header nav ul li {
+    border-left: 0 !important;
+    border-top: solid 1px currentColor !important;
+  }
+
+  #header nav ul li:first-child {
+    border-top: 0 !important;
+  }
+
+  #header nav ul li a {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  #header ul.icons li a,
+  #about ul.icons li a,
+  #research ul.icons li a,
+  #community ul.icons li a,
+  #contact ul.icons li a {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  #header ul.icons li a:before,
+  #about ul.icons li a:before,
+  #research ul.icons li a:before,
+  #community ul.icons li a:before,
+  #contact ul.icons li a:before {
+    font-size: 28px !important;
+  }
+
+  .icon.ai-gs-svg:before,
+  .icon.ai-rg-svg:before,
+  .icon.ai-arxiv-svg:before,
+  .icon.ai-astrodb:before,
+  .icon.ai-inspire-svg:before,
+  a.icon.ai-gs-svg:before,
+  a.icon.ai-rg-svg:before,
+  a.icon.ai-arxiv-svg:before,
+  a.icon.ai-astrodb:before,
+  a.icon.ai-inspire-svg:before {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 9px !important;
+    width: 56px !important;
+    height: 32px !important;
+    padding: 0 5px !important;
+  }
+
+  .theme-toggle .knob {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  body.light-mode .theme-toggle .knob {
+    transform: translateX(24px) !important;
+  }
+}
+
+/* Headings: reduce letter spacing */
+h1, h2, h3, h4, h5, h6,
+h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
+#header h1,
+article h2.major,
+article h3 {
+  letter-spacing: 0.06rem !important;
 }
 
 /* Light mode: close X icon black */
@@ -2077,221 +2209,24 @@ body.light-mode #main article .close:before {
 }
 
 /* =========================================================
-   Final small fixes
+   Smartphone-only targeted fixes
    ========================================================= */
 
-/* Homepage photo as circle */
-#header .content .inner > img:first-of-type {
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-}
-
-/* Smartphone: subtitle and CV/thesis links stacked vertically */
-@media screen and (max-width: 736px) {
-  /* Force subtitle line break to remain visible on mobile */
-  #header .subtitle br {
-    display: block !important;
-  }
-
-  /* Force the CV/Thesis line break to remain visible on mobile */
-  #header .content .inner > p:last-of-type br {
-    display: block !important;
-  }
-
-  /* Put CV and Thesis links on separate lines on mobile */
-  #header .content .inner > p:last-of-type a {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  #header .content .inner > p:last-of-type a + a {
-    margin-top: 0.5rem !important;
-  }
-}
-
-#header nav ul li a {
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-}
-
-ul.icons li a {
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-}
-
-/* =========================================================
-   Single soft blur panel
-   ========================================================= */
-#header .subtitle,
-#footer .copyright,
-#header .content .inner > p:last-of-type a {
-  position: relative !important;
-  isolation: isolate !important;
-  display: inline-block !important;
-  padding: 0.16rem 0.42rem !important;
-  border-radius: 12px !important;
-  background: rgba(255,255,255,0.035) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  box-shadow: 0 0 18px rgba(255,255,255,0.06) !important;
-}
-
-/* Subtitle mittig unter dem Bild */
-#header .subtitle {
-  display: block !important;
-  width: max-content;
-  max-width: 100%;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* nur EINE Fläche, keine Zusatzebenen */
-#header .subtitle::before,
-#footer .copyright::before,
-#header .content .inner > p:last-of-type a::before,
-#header .subtitle::after,
-#footer .copyright::after,
-#header .content .inner > p:last-of-type a::after {
-  content: none !important;
-  display: none !important;
-}
-
-body.light-mode #header .subtitle,
-body.light-mode #footer .copyright,
-body.light-mode #header .content .inner > p:last-of-type a {
-  background: rgba(0,0,0,0.03) !important;
-  box-shadow: 0 0 16px rgba(0,0,0,0.04) !important;
-}
-
-/* keep subtitle centered below the image */
-#header .subtitle {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* footer text should stay compact */
-#footer .copyright {
-  width: auto !important;
-}
-
-/* soft inner blur layer */
-#header .subtitle::before,
-#footer .copyright::before,
-#header .content .inner > p:last-of-type a::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -0.10rem -0.16rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.024);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  pointer-events: none;
-}
-
-/* broad feathered outer layer */
-#header .subtitle::after,
-#footer .copyright::after,
-#header .content .inner > p:last-of-type a::after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  inset: -0.42rem -0.56rem;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.09);
-  filter: blur(18px);
-  opacity: 0.28;
-  pointer-events: none;
-}
-
-/* very soft glow to remove any hard visual edge */
-#header .subtitle,
-#footer .copyright,
-#header .content .inner > p:last-of-type a {
-  box-shadow: 0 0 22px rgba(255,255,255,0.045) !important;
-}
-
-body.light-mode #header .subtitle::before,
-body.light-mode #footer .copyright::before,
-body.light-mode #header .content .inner > p:last-of-type a::before {
-  background: rgba(0,0,0,0.016);
-}
-
-body.light-mode #header .subtitle::after,
-body.light-mode #footer .copyright::after,
-body.light-mode #header .content .inner > p:last-of-type a::after {
-  background: rgba(0,0,0,0.07);
-  opacity: 0.16;
-}
-
-body.light-mode #header .subtitle,
-body.light-mode #footer .copyright,
-body.light-mode #header .content .inner > p:last-of-type a {
-  box-shadow: 0 0 18px rgba(0,0,0,0.035) !important;
-}
-
-/* =========================================================
-   Restore stacked text/buttons and adjust narrow-desktop switch spacing
-   ========================================================= */
-
-/* Always keep subtitle and CV/Thesis stacked */
-#header .subtitle br {
-  display: block !important;
-}
-
-#header .content .inner > p:last-of-type br {
-  display: block !important;
-}
-
-#header .subtitle {
-  display: block !important;
-  width: max-content !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  white-space: normal !important;
-}
-
-#header .content .inner > p:last-of-type a {
-  display: block !important;
-  width: max-content !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0.28rem 0.90rem 0.40rem 0.90rem !important;
+/* 1) Light-mode switch border must be truly black */
+body.light-mode #themeToggle,
+body.light-mode #themeToggle.theme-toggle,
+body.light-mode .theme-toggle {
   border: 1px solid #000 !important;
-  border-radius: 12px !important;
-  box-sizing: border-box !important;
-}
-
-#header .content .inner > p:last-of-type a + a {
-  margin-top: 0.6rem !important;
-}
-
-/* Keep blur and black border */
-body.light-mode #header .content .inner > p:last-of-type a {
   border-color: #000 !important;
+  box-shadow: inset 0 0 0 1px #000 !important;
 }
 
-#header .content .inner > p:last-of-type a:hover {
-  background-color: rgba(255, 255, 255, 0.10) !important;
-  box-shadow: inset 0 0 0 1px #000 !important, 0 0 18px rgba(255,255,255,0.06) !important;
 }
 
-#header .content .inner > p:last-of-type a:active {
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: inset 0 0 0 1px #000 !important, 0 0 18px rgba(255,255,255,0.06) !important;
-}
-
-body.light-mode #header .content .inner > p:last-of-type a:hover {
-  background-color: rgba(255,255,255,0.55) !important;
-  box-shadow: inset 0 0 0 1px #000 !important, 0 0 16px rgba(0,0,0,0.04) !important;
-}
-
-body.light-mode #header .content .inner > p:last-of-type a:active {
-  background-color: rgba(255,255,255,0.70) !important;
-  box-shadow: inset 0 0 0 1px #000 !important, 0 0 16px rgba(0,0,0,0.04) !important;
+/* =========================================================
+   CV / Thesis button border colors
+   ========================================================= */
+body:not(.light-mode) #header .content .inner > p:last-of-type a {
+  border: 1px solid #fff !important;
+  border-color: #fff !important;
 }
