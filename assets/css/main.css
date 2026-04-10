@@ -1459,7 +1459,7 @@ button {
 		}
 
 			#header .content .inner {
-				padding: 2.5rem 0;
+				padding: 2.5rem 1rem;
 			}
 
 			#header nav ul {
@@ -2245,7 +2245,7 @@ body.light-mode #header .content .inner > p:last-of-type a {
 }
 
 /* =========================================================
-   Restore stacked text/buttons and adjust narrow-desktop switch spacing
+   Restore stacked text/buttons 
    ========================================================= */
 
 /* Always keep subtitle and CV/Thesis stacked */
