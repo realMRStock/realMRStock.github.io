@@ -2108,7 +2108,7 @@ body.light-mode #main article .close:before {
   }
 
   #header .content .inner > p:last-of-type a + a {
-    margin-top: 0.rem !important;
+    margin-top: 0.5rem !important;
   }
 }
 
