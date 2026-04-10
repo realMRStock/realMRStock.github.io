@@ -2308,6 +2308,16 @@ body.light-mode #header .content .inner > p:last-of-type a:active {
 }
 
 /* Narrow desktop only: add a bit more space between switch and the top line */
+@media screen and (min-width: 737px) and (max-width: 1500px) {
+  #themeToggle,
+  #themeToggle.theme-toggle,
+  button#themeToggle,
+  body > #themeToggle,
+  body > #themeToggle.theme-toggle,
+  .theme-toggle {
+    top: 8px !important;
+  }
+}
 
 @media screen and (max-width: 737px) {
   #themeToggle,
@@ -2316,6 +2326,6 @@ body.light-mode #header .content .inner > p:last-of-type a:active {
   body > #themeToggle,
   body > #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 8px !important;
+    top: 18px !important;
   }
 }
