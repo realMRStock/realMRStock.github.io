@@ -2039,7 +2039,7 @@ linear-gradient(to top, rgba(255,255,255,0.50) 0%,
                 rgba(255,255,255,0.34) 10%, 
                 rgba(255,255,255,0.18) 28%, 
                 rgba(255,255,255,0.08) 42%, 
-                rgba(255,255,255,0.00) 55%)
+                rgba(255,255,255,0.00) 55%),
     linear-gradient(to top, rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
     url("../../images/overlay.png") !important;
   background-size: auto, auto, 256px 256px !important;
