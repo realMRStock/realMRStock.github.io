@@ -2119,7 +2119,7 @@ body.light-mode #main article .close:before {
   body > #themeToggle,
   body > #themeToggle.theme-toggle,
   .theme-toggle {
-    top: 0px !important; 
+    top: 2px !important; 
   }
 }
 
