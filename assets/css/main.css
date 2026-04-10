@@ -2278,7 +2278,7 @@ body.light-mode #header .content .inner > p:last-of-type a {
   margin-left: auto !important;
   margin-right: auto !important;
   padding: 0.28rem 0.90rem 0.40rem 0.90rem !important;
-  border: 1px solid #000 !important;
+  border: 1px solid #fff !important;
   border-radius: 12px !important;
   box-sizing: border-box !important;
 }
