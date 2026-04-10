@@ -1214,7 +1214,7 @@ button {
 	@media screen and (max-width: 736px) {
 
 		#wrapper {
-			padding: 2rem 1rem;
+			padding: 3rem 1rem;
 		}
 
 	}
@@ -1222,7 +1222,7 @@ button {
 	@media screen and (max-width: 480px) {
 
 		#wrapper {
-			padding: 2rem 1rem;
+			padding: 3rem 1rem;
 		}
 
 	}
